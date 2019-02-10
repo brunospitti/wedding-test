@@ -1,8 +1,9 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
 
-import "../all.sass";
+import { GlobalStyles } from "../../assets/globalStyles";
 
 const TemplateWrapper = ({ children }) => (
   <StaticQuery
@@ -17,7 +18,7 @@ const TemplateWrapper = ({ children }) => (
       }
     `}
     render={data => (
-      <div>
+      <React.Fragment>
         <Helmet>
           <html lang="en" />
           <title>{data.site.siteMetadata.title}</title>
@@ -42,10 +43,18 @@ const TemplateWrapper = ({ children }) => (
             content="width=device-width, initial-scale=1.0"
           />
         </Helmet>
-        <div>{children}</div>
-      </div>
+        <StyledContainer>{children}</StyledContainer>
+        <GlobalStyles />
+      </React.Fragment>
     )}
   />
 );
 
 export default TemplateWrapper;
+
+const StyledContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+`;

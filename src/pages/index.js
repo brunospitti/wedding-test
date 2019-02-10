@@ -1,27 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
+
 import Layout from "../components/helpers/Layout";
+
+import { Menu } from "../components/Menu";
+import Main from "../components/Main";
 import IndexProjects from "../components/IndexProjects";
 import IndexWorkExperience from "../components/IndexWorkExperience";
 
-export default class IndexPage extends React.Component {
+export default class IndexPage extends React.PureComponent {
   render() {
     const { data } = this.props;
-    const workExperiences = data.workExperiences.edges;
+    const generalInfo = data.generalInfo.edges[0].node.frontmatter;
     const projects = data.projects.edges;
+    const workExperiences = data.workExperiences.edges;
 
     return (
       <Layout>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-            </div>
-            <IndexWorkExperience workExperiences={workExperiences} />
-            <IndexProjects projects={projects} />
-          </div>
-        </section>
+        <Menu sectionTitles={generalInfo.sectiontitles} />
+        <Main mainTech={generalInfo.mainTech} />
+        <IndexWorkExperience workExperiences={workExperiences} />
+        <IndexProjects projects={projects} />
       </Layout>
     );
   }
@@ -37,6 +37,20 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
+    generalInfo: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "generalInfo" } } }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          html
+          ...GeneralInfoFields
+        }
+      }
+    }
     projects: allMarkdownRemark(
       sort: { order: ASC, fields: [frontmatter___index] }
       filter: { frontmatter: { templateKey: { eq: "project" } } }
@@ -69,6 +83,22 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const fragmentGeneral = graphql`
+  fragment GeneralInfoFields on MarkdownRemark {
+    frontmatter {
+      mainTech
+      sectiontitles
+      hello
+      projects
+      contact
+      contactIntoTitles
+      contactIntoInfo
+      contactIntoURL
+    }
+  }
+`;
+
 export const fragmentProjects = graphql`
   fragment ProjectFields on MarkdownRemark {
     frontmatter {

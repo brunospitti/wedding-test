@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 import { HTMLContent } from "./helpers/Content";
 
-export default class IndexWorkExperience extends React.Component {
+export default class IndexWorkExperience extends React.PureComponent {
   render() {
     const { workExperiences } = this.props;
 

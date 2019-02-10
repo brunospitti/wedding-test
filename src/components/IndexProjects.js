@@ -1,18 +1,18 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from "react";
+import { Link } from "gatsby";
 
-export default class IndexProjectPage extends React.Component {
+export default class IndexProjectPage extends React.PureComponent {
   render() {
-    const { projects } = this.props
+    const { projects } = this.props;
 
     return (
       <div>
         {projects.map(({ node: project }) => {
-          const info = project.frontmatter
+          const info = project.frontmatter;
           return (
             <div
               className="content"
-              style={{ border: '1px solid #333', padding: '2em 4em' }}
+              style={{ border: "1px solid #333", padding: "2em 4em" }}
               key={project.id}
             >
               <p>
@@ -44,9 +44,9 @@ export default class IndexProjectPage extends React.Component {
                 </Link>
               </div>
             </div>
-          )
+          );
         })}
       </div>
-    )
+    );
   }
 }
