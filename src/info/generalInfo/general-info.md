@@ -32,7 +32,7 @@ projects: >-
   the newest technologies and best practices.
 
 
-  I’ve separated below some projects I’ve worked on my spare time as a way of 
+  I’ve separated below some projects I’ve worked on my spare time as a way of
   keep learning new things. All of them with a live demo link and a brief
   section of what I’ve learned while developing it.
 contact: >-
