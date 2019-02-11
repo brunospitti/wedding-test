@@ -28,7 +28,7 @@ hello: >-
   believe that the analysis of data extracted from the website is crucial to
   make more assertive designs and experiences to the user.
 projects: >-
-  I am a big believer that a software enginner has to always be in touch with
+  I am a big believer that a software engineer has to always be in touch with
   the newest technologies and best practices.
 
 
