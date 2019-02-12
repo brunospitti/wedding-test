@@ -1,7 +1,7 @@
 ---
 templateKey: project
 index: '3'
-title: React & Redux Boilerplate
+title: React & Redux Starter
 brief_description: >-
   I created a boilerplate with two simple functions connecting React, Redux and
   all the development environment around it.
