@@ -1,7 +1,7 @@
 ---
 templateKey: project
 index: '2'
-title: Bruno Spitti POrtfolio
+title: Bruno Spitti Portfolio
 brief_description: 'This website. :)'
 description: >-
   My portfolio with a simpler and cleaner layout, in comparison to my previous
