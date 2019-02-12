@@ -1,6 +1,6 @@
 ---
 templateKey: project
-index: '5'
+index: '6'
 title: 2017 Portfolio
 brief_description: >-
   My portfolio with a deeper focus on demonstrating web design and user
