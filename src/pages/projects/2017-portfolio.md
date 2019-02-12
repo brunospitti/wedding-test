@@ -14,8 +14,10 @@ what_i_learned: >-
   This project helped me straighten my CSS' skills as it was my main source of
   interaction for a smooth and pleasant user experience throughout my portfolio.
 
+
   How to manipulate, validate and create masks to input fields of different
   functionalities.
+
 
   How to integrate HTML, Javascript and PHP for a functional contact form via
   e-mail. (not in place anymore as I changed the server and would have to remove
