@@ -1,6 +1,6 @@
 ---
 templateKey: project
-index: '4'
+index: '5'
 title: Catch of the day 2.0
 brief_description: >-
   Built following learned topics on Wes Bos’ course from scratch, included more
@@ -14,10 +14,13 @@ description: >-
 what_i_learned: >-
   How to better manage users authentication and unique content.
 
+
   How to combine SCSS and React on a single page app.
+
 
   How to create a good structure of files and components in order to simplify
   maintenance and improvements.
+
 
   As the first project I built all by myself with React, it straightened my
   skills and general knowledge of the Framework and its environment.
