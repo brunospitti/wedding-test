@@ -1,6 +1,6 @@
 ---
 templateKey: project
-index: '2'
+index: '1'
 title: Remind me
 brief_description: >-
   Completely functional reminder web app built using React, Redux, Firebase and
@@ -20,7 +20,7 @@ what_i_learned: >-
   basic/complex components, Redux functions, assets, HOCs, and other elements.
 
 
-  How styled-components can facilitate theme creation and maintenence, as well
+  How styled-components can facilitate theme creation and maintenance, as well
   as create a clean code base based on components,
 
 

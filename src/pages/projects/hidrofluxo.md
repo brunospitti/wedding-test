@@ -16,8 +16,10 @@ what_i_learned: >-
   How to build an Arduino prototype and how to connect hardware to software via
   code.
 
+
   How to create an Android app utilizing one of the most popular Frameworks to
   build mobile apps with web development available at the time.
+
 
   How to manage each group member's functionality in order to deliver the
   desired product at the proposed deadline.
