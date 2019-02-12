@@ -41,7 +41,7 @@ const StyledH1 = styled.h1`
   padding-left: 30px;
   padding-bottom: 25px;
   border-bottom: 3px solid ${colors.primary};
-  padding-top: 30vh;
+  padding-top: 34vh;
   margin-bottom: 2vh;
 `;
 

@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
-import { GlobalStyles } from "../../assets/globalStyles";
+import { GlobalStyles, mainContainer } from "../../assets/globalStyles";
 
 const TemplateWrapper = ({ children }) => (
   <StaticQuery
@@ -53,8 +53,5 @@ const TemplateWrapper = ({ children }) => (
 export default TemplateWrapper;
 
 const StyledContainer = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
+  ${mainContainer};
 `;

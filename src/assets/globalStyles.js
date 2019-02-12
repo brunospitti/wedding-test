@@ -16,10 +16,13 @@ export const fontFamily =
 export const fontFamilyTitle =
   "'Archivo Black', 'Space Mono', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', 'segoe ui', helvetica, roboto, noto, arial, sans-serif";
 
-export const sectionTitle = `
-    font-size: 40px;
-    color: ${colors.greyLight};
-`;
+export const mainContainer = `
+    width: 100%;
+    max-width: 1360px;
+    padding: 0 80px;
+    margin: 0 auto;
+    position: relative;
+  `;
 
 export const GlobalStyles = createGlobalStyle`
     // css reset
@@ -75,12 +78,15 @@ export const GlobalStyles = createGlobalStyle`
 
     // global styles
     @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Space+Mono:400,700');
-
+    body {
+        overflow-x: hidden;
+    }
+    
     * {
         font-family: ${fontFamily};
         font-size: 22px;
         line-height: 30px;
-        color: ${colors.textDarker};
+        color: ${colors.greyDark};
         font-weight: 300;
     }
 `;

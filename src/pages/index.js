@@ -6,8 +6,9 @@ import Layout from "../components/helpers/Layout";
 
 import { Menu } from "../components/Menu";
 import Main from "../components/Main";
-import IndexProjects from "../components/IndexProjects";
-import IndexWorkExperience from "../components/IndexWorkExperience";
+import Hello from "../components/Hello";
+import Projects from "../components/Projects";
+import WorkExperience from "../components/WorkExperience";
 
 export default class IndexPage extends React.PureComponent {
   render() {
@@ -20,8 +21,19 @@ export default class IndexPage extends React.PureComponent {
       <Layout>
         <Menu sectionTitles={generalInfo.sectiontitles} />
         <Main mainTech={generalInfo.mainTech} />
-        <IndexWorkExperience workExperiences={workExperiences} />
-        <IndexProjects projects={projects} />
+        <Hello
+          sectionTitle={generalInfo.sectiontitles[0]}
+          sectionText={generalInfo.hello}
+        />
+        <Projects
+          projects={projects}
+          sectionTitle={generalInfo.sectiontitles[1]}
+          sectionText={generalInfo.projects}
+        />
+        <WorkExperience
+          workExperiences={workExperiences}
+          sectionTitle={generalInfo.sectiontitles[2]}
+        />
       </Layout>
     );
   }

@@ -1,22 +1,37 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import { colors } from "../assets/globalStyles";
 
 export class Menu extends React.PureComponent {
   state = {
     sectionNames: ["home", "about me", "projects", "work", "let's chat"],
-    expandMenu: true
+    expandMenu: false
+  };
+
+  handleMouseOver = bool => {
+    this.setState({ expandMenu: bool });
   };
 
   render() {
     return (
-      <StyledMenu className={this.state.expandMenu ? "show" : "hide"}>
+      <StyledMenu
+        className={this.state.expandMenu ? "show" : "hide"}
+        onMouseOver={() => this.handleMouseOver(true)}
+        onMouseLeave={() => this.handleMouseOver(false)}
+      >
         <ul>
           {this.state.sectionNames.map(section => (
-            <StyledMenuItem>
-              <i />
-              <div>{section}</div>
+            <StyledMenuItem
+              key={section}
+              className={this.state.expandMenu ? "show" : "hide"}
+            >
+              <div className="menu-item-holder">
+                <i />
+                {this.state.expandMenu && (
+                  <div className="menu-item">{section}</div>
+                )}
+              </div>
             </StyledMenuItem>
           ))}
         </ul>
@@ -25,39 +40,103 @@ export class Menu extends React.PureComponent {
   }
 }
 
+const expandsMenu = keyframes`
+  0% {
+    width: 100px;
+  }
+  100% {
+    width: 280px;
+  }
+`;
+
+const compressMenu = keyframes`
+  0% {
+    width: 280px;
+  }
+  100% {
+    width: 100px;
+  }
+`;
+
+const expandsMenuText = keyframes`
+  0% {
+    opacity: 0;
+    font-size: 10px;
+   
+  }
+  100% {
+    opacity: 1;
+    font-size: 22px;
+    
+
+  }
+`;
+
+const compressMenuText = keyframes`
+  0% {
+    opacity: 1;
+    font-size: 22px;
+    
+  }
+  100% {
+    opacity: 0;
+    font-size: 10px;
+    
+  }
+`;
+
 const StyledMenu = styled.div`
-  padding: 7px;
-  display: inline-block;
-  width: 190px;
-  text-align: center;
-  border-radius: 6px;
-  &:not(:first-child) {
-    margin-left: 3%;
+  width: 100px;
+  padding: 30px;
+  padding-right: 0;
+  position: fixed;
+  right: 0;
+  top: 35vh;
+  z-index: 999999;
+  &.show {
+    background: #f7f7f7;
+    background: linear-gradient(to right, #f5f5f5 0%, #ffffff 100%);
+    animation: ${expandsMenu} 0.2s ease forwards;
   }
-  &.primary-pill {
-    background: white;
-    border: 1px solid ${colors.primary};
-    color: ${colors.primary};
-  }
-  &.grey-pill {
-    background: ${colors.greyLight};
-    color: white;
+  &.hide {
+    animation: ${compressMenu} 0.2s ease forwards;
   }
 `;
 
 const StyledMenuItem = styled.li`
   text-align: right;
   margin-bottom: 5px;
-  i {
-    height: 20px;
-    width: 20px;
-    background: blue;
-    border-radius: 5000px;
-    float: right;
-    margin-top: 6px;
-    margin-left: 15px;
-  }
-  div {
+  margin-right: 40px;
+  height: 30px;
+  .menu-item-holder {
     display: inline-block;
+    cursor: pointer;
+    i {
+      height: 15px;
+      width: 15px;
+      background: white;
+      border: 2px solid ${colors.greyLight};
+      border-radius: 5000px;
+      float: right;
+      margin-top: 10px;
+      margin-left: 15px;
+      &.active {
+        background: ${colors.tertiary};
+        border: none;
+      }
+    }
+    .menu-item {
+      display: inline-block;
+    }
+  }
+  &.show {
+    .menu-item {
+      animation: ${expandsMenuText} 0.1s ease forwards;
+    }
+  }
+  &.hide {
+    .menu-item {
+      animation: ${compressMenuText} 0.1s ease forwards;
+    }
   }
 `;
