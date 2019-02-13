@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 
 import Layout from "../components/helpers/Layout";
 
+import { NonStretchedImg } from "../components/basics/NonStretchedImg";
 import { Menu } from "../components/Menu";
 import Main from "../components/Main";
 import Hello from "../components/Hello";
@@ -27,6 +28,7 @@ export default class IndexPage extends React.PureComponent {
         />
         <Projects
           projects={projects}
+          projectImgs={projectImgs}
           sectionTitle={generalInfo.sectiontitles[1]}
           sectionText={generalInfo.projects}
         />

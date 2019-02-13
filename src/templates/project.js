@@ -4,82 +4,80 @@ import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../components/helpers/Layout";
 import Content, { HTMLContent } from "../components/helpers/Content";
+import { NonStretchedImg } from "../components/basics/NonStretchedImg";
 
 export const ProjectTemplate = ({
-  content,
-  contentComponent,
-  description,
-  title,
-  helmet
+  helmet,
+  project,
+  projectImgs
 }) => {
-  const PostContent = contentComponent || Content;
-
+  let projectImg = projectImgs.filter(img => img.node.fluid.originalName === project.screenshot.relativePath)[0];
   return (
     <section className="section">
-      {helmet || ""}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-          </div>
-        </div>
-      </div>
+    {helmet || ""}
+      <div>{project.title}</div>
+            {project.screenshot.relativePath}
+              <NonStretchedImg fluid={projectImg.node.fluid} />
     </section>
   );
 };
 
-ProjectTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.object
-};
-
 const Project = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const project = data.project.frontmatter
+  const projectImgs = data.projectImgs.edges;
 
   return (
     <Layout>
       <ProjectTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
+        project={project}
+        projectImgs={projectImgs}
         helmet={
-          <Helmet titleTemplate="%s | Project">
-            <title>{`${post.frontmatter.title}`}</title>
+          <Helmet titleTemplate="Bruno Spitti | %s">
+            <title>{`${project.title}`}</title>
             <meta
               name="description"
-              content={`${post.frontmatter.description}`}
+              content={`${project.description}`}
             />
           </Helmet>
         }
-        title={post.frontmatter.title}
       />
     </Layout>
   );
 };
 
-Project.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object
-  })
-};
 
 export default Project;
 
 export const pageQuery = graphql`
   query ProjectByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+    project: markdownRemark(id: { eq: $id }) {
       id
       html
       frontmatter {
+        index
+        templateKey
         title
+        brief_description
+        screenshot {
+          relativePath
+        }
         description
+        what_i_learned
+        technologies
+        live_url
+        github_url
+      }
+    }
+    projectImgs: allImageSharp{
+      edges{
+        node{
+          id
+          fluid(maxWidth: 1240 ) {
+          originalName
+          presentationWidth
+          ...GatsbyImageSharpFluid
+          }
+        }
       }
     }
   }
