@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
 import Layout from "../components/helpers/Layout";
+import { isElementVisible } from "../assets/isElementVisible";
 
-import { NonStretchedImg } from "../components/basics/NonStretchedImg";
 import { Menu } from "../components/Menu";
 import Main from "../components/Main";
 import Hello from "../components/Hello";
@@ -12,6 +12,12 @@ import Projects from "../components/Projects";
 import WorkExperience from "../components/WorkExperience";
 
 export default class IndexPage extends React.PureComponent {
+  componentDidMount() {
+    document.querySelector(".menu-item#home").classList.add("active");
+    window.onscroll = function() {
+      isElementVisible();
+    };
+  }
   render() {
     const { data } = this.props;
     const generalInfo = data.generalInfo.edges[0].node.frontmatter;
@@ -28,7 +34,6 @@ export default class IndexPage extends React.PureComponent {
         />
         <Projects
           projects={projects}
-          projectImgs={projectImgs}
           sectionTitle={generalInfo.sectiontitles[1]}
           sectionText={generalInfo.projects}
         />

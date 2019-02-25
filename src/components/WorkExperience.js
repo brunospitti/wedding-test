@@ -13,7 +13,7 @@ export default class WorkExperience extends React.PureComponent {
     const { workExperiences } = this.props;
 
     return (
-      <StyledMainSection>
+      <StyledMainSection className="homepage-section" id="work-section">
         <SectionTitle title={this.props.sectionTitle} />
         <div>
           {workExperiences.map(({ node: work }) => {

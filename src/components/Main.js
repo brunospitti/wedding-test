@@ -9,7 +9,7 @@ import { Pill } from "./basics/Pill";
 export default class Main extends React.PureComponent {
   render() {
     return (
-      <StyledMainSection>
+      <StyledMainSection className="homepage-section" id="home-section">
         <StyledH1>Bruno Spitti</StyledH1>
         <StyledH2>Front-end developer</StyledH2>
         <StyledUl>

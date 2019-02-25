@@ -1,7 +1,10 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
+import { slugify } from "../assets/helpers";
+
 import { colors } from "../assets/globalStyles";
+import { scrollToElement } from "../assets/isElementVisible";
 
 export class Menu extends React.PureComponent {
   state = {
@@ -24,7 +27,9 @@ export class Menu extends React.PureComponent {
           {this.state.sectionNames.map(section => (
             <StyledMenuItem
               key={section}
-              className={this.state.expandMenu ? "show" : "hide"}
+              onClick={() => scrollToElement(slugify(section))}
+              className={`menu-item`}
+              id={slugify(section)}
             >
               <div className="menu-item-holder">
                 <i />
@@ -97,9 +102,23 @@ const StyledMenu = styled.div`
     background: #f7f7f7;
     background: linear-gradient(to right, #f5f5f5 0%, #ffffff 100%);
     animation: ${expandsMenu} 0.2s ease forwards;
+    ul {
+      li {
+        .menu-item {
+          animation: ${expandsMenuText} 0.1s ease forwards;
+        }
+      }
+    }
   }
   &.hide {
     animation: ${compressMenu} 0.2s ease forwards;
+    ul {
+      li {
+        .menu-item {
+          animation: ${compressMenuText} 0.1s ease forwards;
+        }
+      }
+    }
   }
 `;
 
@@ -120,23 +139,15 @@ const StyledMenuItem = styled.li`
       float: right;
       margin-top: 10px;
       margin-left: 15px;
-      &.active {
-        background: ${colors.tertiary};
-        border: none;
-      }
     }
     .menu-item {
       display: inline-block;
     }
   }
-  &.show {
-    .menu-item {
-      animation: ${expandsMenuText} 0.1s ease forwards;
-    }
-  }
-  &.hide {
-    .menu-item {
-      animation: ${compressMenuText} 0.1s ease forwards;
+  &.active {
+    i {
+      background: ${colors.tertiary};
+      border: none;
     }
   }
 `;

@@ -10,7 +10,7 @@ import { TextFromString } from "./helpers/Content";
 export default class Hello extends React.PureComponent {
   render() {
     return (
-      <StyledMainSection>
+      <StyledMainSection className="homepage-section" id="about-me-section">
         <SectionTitle title={`${this.props.sectionTitle},`} />
         <StyledFigure />
         <TextFromString

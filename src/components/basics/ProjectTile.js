@@ -23,7 +23,7 @@ export class ProjectTile extends React.PureComponent {
 }
 
 const StyledProjectHolder = styled.div`
-  width: 31%;
+  width: 43%;
   display: inline-block;
   position: relative;
   background: #fcfcfc;
@@ -32,8 +32,8 @@ const StyledProjectHolder = styled.div`
   height: 250px;
   vertical-align: top;
   margin-bottom: 60px;
-  &:not(:nth-child(3n + 1)) {
-    margin-left: 3.5%;
+  &:not(:nth-child(2n + 1)) {
+    margin-left: 14%;
   }
   &:after {
     content: "";
