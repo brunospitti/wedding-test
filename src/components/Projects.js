@@ -63,6 +63,7 @@ export default class Projects extends React.PureComponent {
 
 const StyledMainSection = styled.section`
   position: relative;
+  padding: 10vh 0 5vh;
 `;
 
 const StyledProjectTilesHolder = styled.section`

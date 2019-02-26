@@ -10,6 +10,7 @@ import Main from "../components/Main";
 import Hello from "../components/Hello";
 import Projects from "../components/Projects";
 import WorkExperience from "../components/WorkExperience";
+import Contact from "../components/Contact";
 
 export default class IndexPage extends React.PureComponent {
   componentDidMount() {
@@ -40,6 +41,13 @@ export default class IndexPage extends React.PureComponent {
         <WorkExperience
           workExperiences={workExperiences}
           sectionTitle={generalInfo.sectiontitles[2]}
+        />
+        <Contact
+          sectionTitle={generalInfo.sectiontitles[3]}
+          sectionText={generalInfo.contact}
+          contactIntoTitles={generalInfo.contactIntoTitles}
+          contactIntoInfo={generalInfo.contactIntoInfo}
+          contactIntoURL={generalInfo.contactIntoURL}
         />
       </Layout>
     );
@@ -139,6 +147,18 @@ export const fragmentProjects = graphql`
 
 export const fragmentWorks = graphql`
   fragment WorkFields on MarkdownRemark {
+    frontmatter {
+      index
+      title
+      period
+      brief_description
+      technologies
+    }
+  }
+`;
+
+export const fragmentContact = graphql`
+  fragment ContactFields on MarkdownRemark {
     frontmatter {
       index
       title

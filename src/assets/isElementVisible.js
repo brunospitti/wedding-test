@@ -4,32 +4,27 @@ export const isElementVisible = () => {
   if (!document.querySelectorAll(".menu-item:not(.active)")) {
     return;
   }
-  // Run this code for every section in sections
+
+  const bodyRect = document.body.getBoundingClientRect().top;
+  const bodyRectAbs = Math.abs(document.body.getBoundingClientRect().top);
+
   for (const section of sections) {
     let sectionId = section.id;
     let sectionMenuItem = document.querySelector(
       `.menu-item#${sectionId.replace("-section", "")}`
     );
     sectionMenuItem.classList.remove("active");
-    if (window.pageYOffset === 0) {
-      document.querySelector(".menu-item#home").classList.add("active");
-    } else {
-      if (section.getBoundingClientRect().height > screen.height) {
-        if (
-          (section.getBoundingClientRect().top <= window.pageYOffset ||
-            section.getBoundingClientRect().bottom >= window.pageYOffset) &&
-          document.querySelectorAll(".menu-item.active").length < 1
-        ) {
-          sectionMenuItem.classList.add("active");
-        }
-      } else {
-        if (
-          section.getBoundingClientRect().top < window.innerHeight &&
-          section.getBoundingClientRect().top > 0
-        ) {
-          sectionMenuItem.classList.add("active");
-        }
-      }
+
+    const sectionTop = section.getBoundingClientRect().top;
+    const sectionBottom = section.getBoundingClientRect().bottom;
+    const sectionTopOffset = parseFloat(sectionTop - bodyRect).toFixed(0);
+    const sectionBottomOffset = parseFloat(sectionBottom - bodyRect).toFixed(0);
+
+    if (
+      bodyRectAbs < sectionBottomOffset - 300 &&
+      bodyRectAbs > sectionTopOffset - 300
+    ) {
+      sectionMenuItem.classList.add("active");
     }
   }
 };

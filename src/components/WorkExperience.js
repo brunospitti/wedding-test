@@ -37,6 +37,7 @@ export default class WorkExperience extends React.PureComponent {
 
 const StyledMainSection = styled.section`
   position: relative;
+  padding: 10vh 0 5vh;
   h3 {
     letter-spacing: 10px !important;
   }

@@ -24,6 +24,7 @@ export default class Hello extends React.PureComponent {
 
 const StyledMainSection = styled.section`
   position: relative;
+  padding: 10vh 0 5vh;
 `;
 
 const StyledFigure = styled.div`
