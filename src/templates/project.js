@@ -11,13 +11,15 @@ export const ProjectTemplate = ({
   project,
   projectImgs
 }) => {
-  let projectImg = projectImgs.filter(img => img.node.fluid.originalName === project.screenshot.relativePath)[0];
+  let projectScreenshot = project.screenshot
+  let projectImg = projectScreenshot != null ? projectImgs.filter(img => img.node.fluid.originalName === projectScreenshot.relativePath)[0] : ""
   return (
     <section className="section">
     {helmet || ""}
       <div>{project.title}</div>
-            {project.screenshot.relativePath}
-              <NonStretchedImg fluid={projectImg.node.fluid} />
+      {projectImg != "" &&
+        <NonStretchedImg fluid={projectImg.node.fluid} />
+      }
     </section>
   );
 };
