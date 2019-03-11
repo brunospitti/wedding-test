@@ -29,33 +29,34 @@ export default class Projects extends React.PureComponent {
           text={this.props.sectionText}
           style={{ marginBottom: "150px" }}
         />
-
-        <StyledProjectTilesHolder
-          className={this.state.showMore ? "expanded" : "collapsed"}
-        >
-          {projects.map(({ node: project }) => {
-            const info = project.frontmatter;
-            return (
-              <ProjectTile
+        <div style={{marginBottom: "250px"}}>
+          <StyledProjectTilesHolder
+            className={this.state.showMore ? "expanded" : "collapsed"}
+            >
+            {projects.map(({ node: project }) => {
+              const info = project.frontmatter;
+              return (
+                <ProjectTile
                 key={info.title}
                 projectTitle={info.title}
                 projectBriefDesc={info.brief_description}
                 projectURL={project.fields.slug}
-              />
-            );
-          })}
-          <StyledButtonHolder>
-            <Button
-              white
-              clickBehavior={this.showMoreFunc}
-              text={
-                this.state.showMore
+                />
+                );
+              })}
+          </StyledProjectTilesHolder>
+            <StyledButtonHolder>
+              <Button
+                white
+                clickBehavior={this.showMoreFunc}
+                text={
+                  this.state.showMore
                   ? "Show less projects"
                   : "Show more projects"
-              }
-            />
-          </StyledButtonHolder>
-        </StyledProjectTilesHolder>
+                }
+                />
+            </StyledButtonHolder>
+        </div>
       </StyledMainSection>
     );
   }
@@ -66,8 +67,7 @@ const StyledMainSection = styled.section`
   padding: 10vh 0 5vh;
 `;
 
-const StyledProjectTilesHolder = styled.section`
-  margin-bottom: 250px;
+const StyledProjectTilesHolder = styled.div`
   &.expanded {
     max-height: auto;
     overflow: initial;
@@ -80,10 +80,11 @@ const StyledProjectTilesHolder = styled.section`
 
 const StyledButtonHolder = styled.div`
   position: absolute;
-  bottom: -60px;
+  bottom: 250px;
   left: 0;
   width: 100%;
   text-align: center;
+  z-index: 9999;
   button {
     border-bottom: 1px solid;
     border-radius: 0;

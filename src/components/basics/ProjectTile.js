@@ -32,6 +32,33 @@ const StyledProjectHolder = styled.div`
   height: 250px;
   vertical-align: top;
   margin-bottom: 60px;
+  &:nth-child(6n-4),
+  &:nth-child(6n-5){
+    a{
+      color: ${colors.primary};
+    }
+    &:after {
+      border: 3px solid ${colors.primary};
+    }
+  }
+  &:nth-child(6n-2),
+  &:nth-child(6n-3){
+    a{
+      color: ${colors.secondary};
+    }
+    &:after {
+      border: 3px solid ${colors.secondary};
+    }
+  }
+  &:nth-child(6n),
+  &:nth-child(6n-1){
+    a{
+      color: ${colors.tertiary};
+    }
+    &:after {
+      border: 3px solid ${colors.tertiary};
+    }
+  }
   &:not(:nth-child(2n + 1)) {
     margin-left: 14%;
   }
@@ -39,8 +66,7 @@ const StyledProjectHolder = styled.div`
     content: "";
     display: block;
     height: 50px;
-    border: 3px solid ${colors.primary};
-    border-top: none;
+    border-top: none !important;
     width: 100%;
     position: absolute;
     left: -3px;
@@ -54,7 +80,6 @@ const StyledProjectTitle = styled.h4`
   a {
     text-decoration: none;
     font-size: 24px;
-    color: ${colors.primary};
   }
 `;
 

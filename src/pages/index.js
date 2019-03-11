@@ -5,6 +5,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/helpers/Layout";
 import { isElementVisible } from "../assets/isElementVisible";
 
+import { Logo } from "../components/basics/Logo";
 import { Menu } from "../components/Menu";
 import Main from "../components/Main";
 import Hello from "../components/Hello";
@@ -49,6 +50,7 @@ export default class IndexPage extends React.PureComponent {
           contactIntoInfo={generalInfo.contactIntoInfo}
           contactIntoURL={generalInfo.contactIntoURL}
         />
+        <Logo/>
       </Layout>
     );
   }
@@ -147,18 +149,6 @@ export const fragmentProjects = graphql`
 
 export const fragmentWorks = graphql`
   fragment WorkFields on MarkdownRemark {
-    frontmatter {
-      index
-      title
-      period
-      brief_description
-      technologies
-    }
-  }
-`;
-
-export const fragmentContact = graphql`
-  fragment ContactFields on MarkdownRemark {
     frontmatter {
       index
       title

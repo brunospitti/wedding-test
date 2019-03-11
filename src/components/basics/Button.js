@@ -21,6 +21,7 @@ export class Button extends React.PureComponent {
   render() {
     return (
       <StyledButton
+        type={this.props.buttonType || "button"}
         onClick={this.props.clickBehavior}
         mainColor={this.getMainColor()}
         className={this.props.className}

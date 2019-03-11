@@ -4,8 +4,10 @@ import { rgba } from "polished";
 
 import { colors } from "../assets/globalStyles";
 
-import { SectionTitle } from "./basics/SectionTitle";
 import { TextFromString } from "./helpers/Content";
+import { SectionTitle } from "./basics/SectionTitle";
+import { ContactTile } from "./basics/ContactTile";
+import { ContactForm } from "./basics/ContactForm";
 
 export default class Contact extends React.PureComponent {
   render() {
@@ -15,15 +17,19 @@ export default class Contact extends React.PureComponent {
         <StyledFigure />
         <TextFromString
           text={this.props.sectionText}
-          style={{ marginBottom: "40vh" }}
+          style={{ marginBottom: "5vh" }}
         />
-        {this.props.contactIntoTitles.map((contact, i) => (
-          <React.Fragment key={contact}>
-            <p>{this.props.contactIntoTitles[i]}</p>
-            <p>{this.props.contactIntoInfo[i]}</p>
-            <p>{this.props.contactIntoURL[i]}</p>
-          </React.Fragment>
-        ))}
+        <div style={{ marginBottom: "10vh" }}>
+          {this.props.contactIntoTitles.map((contact, i) => (
+            <ContactTile
+              key={contact}
+              contactInfoTitle={this.props.contactIntoTitles[i]}
+              contactInfoInfo={this.props.contactIntoInfo[i]}
+              contactInfoURL={this.props.contactIntoURL[i]}
+            />
+          ))}
+        </div>
+        <ContactForm/>
       </StyledMainSection>
     );
   }
