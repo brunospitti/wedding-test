@@ -1,17 +1,29 @@
 import React from "react";
+import { StaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 import styled from "styled-components";
 
-import NonStretchedImg from "./NonStretchedImg";
 
-export class Logo extends React.PureComponent {
-  render() {
-    return (
+export const Logo = () => (
+  <StaticQuery
+    query={graphql`
+    query LogoImg {
+        allFile: file(relativePath: { eq: "bruno-spitti-logo.png" }) {
+          childImageSharp {
+            fixed{
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `}
+    render={data => (
       <StyledLogoHolder>
-        <img src="/static/bruno-spitti-logo-4441fea93646b4a97722e80c288cfd6d.png" alt="Bruno Spitti"/>
+        <Img fixed={data.allFile.childImageSharp.fixed} />
       </StyledLogoHolder>
-    );
-  }
-}
+    )}
+  />
+)
 
 const StyledLogoHolder = styled.div`
   padding: 50px;
