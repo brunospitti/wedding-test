@@ -13,7 +13,6 @@ technologies:
   - Javascript
   - ASP.NET
   - Google Analytics
-  - Hotjar
   - Excel
 ---
 * Re-branding and new logo representing the new stage of the company becoming the biggest e-commerce in the office and design chairs market in Brazil.
