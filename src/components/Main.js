@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { fontFamilyTitle, colors } from "../assets/globalStyles";
+import { fontFamilyTitle, colors, breakpoints } from "../assets/globalStyles";
 import Arrow from "../assets/img/arrow.svg";
 
 import { Pill } from "./basics/Pill";
@@ -43,6 +43,10 @@ const StyledH1 = styled.h1`
   border-bottom: 3px solid ${colors.primary};
   padding-top: 34vh;
   margin-bottom: 2vh;
+  @media ${breakpoints.desktopSmall} {
+    font-size: 52px;
+    letter-spacing: 33px;
+  }
 `;
 
 const StyledH2 = styled.h2`
@@ -51,10 +55,36 @@ const StyledH2 = styled.h2`
   text-align: center;
   line-height: 45px;
   margin-bottom: 5vh;
+  @media ${breakpoints.desktopSmall} {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  @media ${breakpoints.tablet} {
+    font-size: 30px;
+    line-height: 30px;
+  }
 `;
 
 const StyledUl = styled.ul`
   text-align: center;
+  li{
+    @media ${breakpoints.desktopSmall} {
+      width: 155px;
+      &:not(:first-child){
+        margin-left: 2%;
+      }
+    }
+    @media ${breakpoints.tablet} {
+      width: 113px;
+      font-size: 20px;
+      &:not(:first-child){
+        margin-left: 1%;
+      }
+      &#javascript{
+        font-size: 17px;
+      }
+    }
+  }
 `;
 
 const StyledSvgHolder = styled.div`

@@ -1,7 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-export const mobileBreakpoint = "max-width: 767px";
-
 export const colors = {
   primary: "#e69191",
   secondary: "#a593f2",
@@ -23,6 +21,15 @@ export const mainContainer = `
     margin: 0 auto;
     position: relative;
   `;
+
+export const breakpoints = {
+    desktop: `(min-width: 1260px)`,
+    desktopSmall: `(max-width: 1259px)`,
+    tablet: `(max-width: 1023px)`,
+    mobile: `(max-width: 767px)`,
+    workPillFixes: `(max-width: 1360px) and (min-width: 1260px)`,
+}
+
 
 export const GlobalStyles = createGlobalStyle`
     // css reset

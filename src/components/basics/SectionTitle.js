@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { colors } from "../../assets/globalStyles";
+import { colors, breakpoints } from "../../assets/globalStyles";
 
 export class SectionTitle extends React.PureComponent {
   render() {
@@ -27,5 +27,14 @@ const StyledSectionTitle = styled.h3`
     margin-top: 20px;
     position: absolute;
     left: -180px;
+  }
+  @media ${breakpoints.desktopSmall} {
+    &:after {
+      width: calc(80vw + 100px);
+    }
+  }
+  @media ${breakpoints.tablet} {
+    font-size: 52px;
+    letter-spacing: 32px;
   }
 `;

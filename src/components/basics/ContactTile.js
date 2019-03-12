@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import { colors } from "../../assets/globalStyles";
+import { colors, breakpoints } from "../../assets/globalStyles";
 
 export class ContactTile extends React.PureComponent {
   render() {
@@ -27,6 +27,12 @@ const StyledContactLinkHolder = styled.div`
   display: inline-block;
   &:not(:first-child) {
     margin-left: 8%;
+  }
+  @media ${breakpoints.desktopSmall} {
+    width: 24%;
+    &:not(:first-child) {
+      margin-left: 1%;
+    }
   }
   a{
     text-decoration: none;
@@ -60,10 +66,16 @@ const StyledContactTitle = styled.h4`
   padding: 20px 0 0 20px;
   font-size: 24px;
   color: ${colors.secondary};
+  @media ${breakpoints.desktopSmall} {
+    font-size: 22px;
+  }
 `;
 
 const StyledContactBriefDesc = styled.div`
   padding-left: 20px;
   font-size: 18px;
   margin-top: -6px;
+  @media ${breakpoints.desktopSmall} {
+    font-size: 16px;
+  }
 `;

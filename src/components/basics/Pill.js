@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 import { colors } from "../../assets/globalStyles";
 
+import { slugify } from "../../assets/helpers"
+
 export class Pill extends React.PureComponent {
   getClassName = () => {
     let className = "";
@@ -16,7 +18,7 @@ export class Pill extends React.PureComponent {
 
   render() {
     return (
-      <StyledPill className={this.getClassName()}>{this.props.pill}</StyledPill>
+      <StyledPill id={slugify(this.props.pill)} className={this.getClassName()}>{this.props.pill}</StyledPill>
     );
   }
 }
@@ -38,5 +40,9 @@ const StyledPill = styled.li`
   &.grey-pill {
     background: ${colors.greyLight};
     color: white;
+  }
+  &#google-analytics{
+    font-size: 15px;
+    line-height: 31px;
   }
 `;

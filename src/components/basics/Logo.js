@@ -10,7 +10,7 @@ export const Logo = () => (
     query LogoImg {
         allFile: file(relativePath: { eq: "bruno-spitti-logo.png" }) {
           childImageSharp {
-            fixed{
+            fixed(width: 139, height: 139){
               ...GatsbyImageSharpFixed
             }
           }

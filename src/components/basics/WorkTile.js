@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled, { keyframes } from "styled-components";
 
-import { colors, mainContainer } from "../../assets/globalStyles";
+import { colors, mainContainer, breakpoints } from "../../assets/globalStyles";
 
 import { HTMLContent } from "../helpers/Content";
 import { Pill } from "./Pill";
@@ -133,13 +133,13 @@ const StyledJobDescriptionOuter = styled.div`
   opacity: 0;
   visibility: hidden;
   background: #f7f7f7;
-  width: 200%;
-  margin-left: -50%;
   margin-top: -30px;
   margin-bottom: 100px;
   z-index: 9999999;
   padding: 0;
   position: relative;
+  width: 100vw;
+  left: calc(-50vw + 50%);
   &.show {
     animation: ${expandsJobDesc} 0.2s ease forwards;
   }
@@ -174,10 +174,20 @@ const StyledPillsHolder = styled.div`
   ul {
     margin-bottom: 60px;
     li {
-      font-size: 18px !important;
+      font-size: 18px;
       width: 190px;
       &:not(:first-child) {
         margin-left: 12px;
+      }
+      @media ${breakpoints.workPillFixes} {
+        width: 172px;
+      }
+      @media ${breakpoints.desktopSmall} {
+        width: 280px;
+        margin-bottom: 15px;
+        &:nth-child(4) {
+          margin-left: 0;
+        }
       }
     }
   }

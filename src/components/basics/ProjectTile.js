@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import { colors } from "../../assets/globalStyles";
+import { colors, breakpoints } from "../../assets/globalStyles";
 
 export class ProjectTile extends React.PureComponent {
   render() {
@@ -72,6 +72,12 @@ const StyledProjectHolder = styled.div`
     left: -3px;
     bottom: -3px;
     z-index: 1;
+  }
+  @media ${breakpoints.desktopSmall} {
+    width: 47%;
+    &:not(:nth-child(2n + 1)) {
+      margin-left: 6%;
+    }
   }
 `;
 

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { rgba } from "polished";
 
-import { colors } from "../assets/globalStyles";
+import { colors, breakpoints } from "../assets/globalStyles";
 
 import { TextFromString } from "./helpers/Content";
 import { SectionTitle } from "./basics/SectionTitle";
@@ -38,6 +38,12 @@ export default class Contact extends React.PureComponent {
 const StyledMainSection = styled.section`
   position: relative;
   padding: 10vh 0 5vh;
+  h3 {
+    @media ${breakpoints.tablet} {
+      font-size: 46px;
+      letter-spacing: 20px;
+    }
+  }
 `;
 
 const StyledFigure = styled.div`
