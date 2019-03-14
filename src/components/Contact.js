@@ -57,6 +57,13 @@ const StyledFigure = styled.div`
   top: 10px;
   width: 270px;
   height: 270px;
+  @media ${breakpoints.mobile} {
+    width: 200px;
+    height: 200px;
+    left: -160px;
+    margin-left: 0;
+    top: 80px;
+  }
   &:after {
     content: "";
     display: block;

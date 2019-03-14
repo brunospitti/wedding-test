@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { rgba } from "polished";
 
-import { colors } from "../assets/globalStyles";
+import { colors, breakpoints } from "../assets/globalStyles";
 
 import { SectionTitle } from "./basics/SectionTitle";
 import { WorkTile } from "./basics/WorkTile";
@@ -40,5 +40,8 @@ const StyledMainSection = styled.section`
   padding: 10vh 0 5vh;
   h3 {
     letter-spacing: 10px !important;
+    @media ${breakpoints.mobileSmall} {
+      font-size: 33px;
+    }
   }
 `;

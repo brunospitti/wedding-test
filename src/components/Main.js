@@ -47,6 +47,21 @@ const StyledH1 = styled.h1`
     font-size: 52px;
     letter-spacing: 33px;
   }
+  @media ${breakpoints.mobile} {
+    padding-left: 13px;
+    font-size: 50px;
+    letter-spacing: 36px;
+    line-height: 55px;
+    padding-top: 24vh;
+    text-align: left;
+  }
+  @media ${breakpoints.mobileSmall} {
+    padding-top: 17vh;
+    padding-left: 10px;
+    font-size: 40px;
+    letter-spacing: 26px;
+    line-height: 42px;
+  }
 `;
 
 const StyledH2 = styled.h2`
@@ -63,6 +78,13 @@ const StyledH2 = styled.h2`
     font-size: 30px;
     line-height: 30px;
   }
+  @media ${breakpoints.mobile} {
+    font-size: 27px;
+    line-height: 27px;
+  }
+  @media ${breakpoints.mobileSmall} {
+    font-size: 23px;
+  }
 `;
 
 const StyledUl = styled.ul`
@@ -75,13 +97,22 @@ const StyledUl = styled.ul`
       }
     }
     @media ${breakpoints.tablet} {
-      width: 113px;
+      width: 123px;
       font-size: 20px;
-      &:not(:first-child){
-        margin-left: 1%;
-      }
       &#javascript{
-        font-size: 17px;
+        font-size: 18px;
+      }
+    }
+    @media ${breakpoints.mobile} {
+      &#html,
+      &#cssscss{
+        margin-top: 10px;
+      }
+    }
+    @media ${breakpoints.mobileSmall} {
+      margin-left: 0 !important;
+      &:not(:nth-child(2n + 1)) {
+        margin-left: 25px !important;
       }
     }
   }
@@ -98,5 +129,8 @@ const StyledSvgHolder = styled.div`
     transform: scaleY(0.6);
     stroke-width: 8px;
     stroke: white;
+    @media ${breakpoints.mobile} {
+      width: 100px;
+    }
   }
 `;

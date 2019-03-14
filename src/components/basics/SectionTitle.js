@@ -37,4 +37,18 @@ const StyledSectionTitle = styled.h3`
     font-size: 52px;
     letter-spacing: 32px;
   }
+  @media ${breakpoints.mobile} {
+    font-size: 40px;
+    letter-spacing: 24px;
+    line-height: 40px;
+    margin-bottom: 60px;
+    &:after {
+      left: -10px;
+      width: 90vw;
+    }
+  }
+  @media ${breakpoints.mobileSmall} {
+    font-size: 38px;
+    letter-spacing: 10px;
+  }
 `;

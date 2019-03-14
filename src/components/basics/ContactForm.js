@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { rgba } from "polished";
 
-import { colors } from "../../assets/globalStyles";
+import { colors, breakpoints } from "../../assets/globalStyles";
 
 import { encode, autoExpand } from "../../assets/helpers.js"
 
@@ -109,6 +109,9 @@ export class ContactForm extends React.Component {
 
 const StyledContactFormHolder = styled.div`
   margin-bottom: 10vh;
+  @media ${breakpoints.tablet} {
+    margin-top: -8vh;
+  }
 `
 
 const StyledSuccess = styled.div`
@@ -154,6 +157,12 @@ const StyledInput = styled.input`
   &:not(:nth-child(2n + 1)) {
     margin-left: 8%;
   }
+  @media ${breakpoints.mobileSmall} {
+    width: 100%;
+    &:not(:nth-child(2n + 1)) {
+      margin-left: 0;
+    }
+	}
 `
 
 const StyledTextarea = styled.textarea`

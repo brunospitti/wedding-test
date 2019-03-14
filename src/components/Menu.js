@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 
 import { slugify } from "../assets/helpers";
 
-import { colors } from "../assets/globalStyles";
+import { colors, breakpoints } from "../assets/globalStyles";
 import { scrollToElement } from "../assets/isElementVisible";
 
 export class Menu extends React.PureComponent {
@@ -67,13 +67,10 @@ const expandsMenuText = keyframes`
   0% {
     opacity: 0;
     font-size: 10px;
-   
   }
   100% {
     opacity: 1;
     font-size: 22px;
-    
-
   }
 `;
 
@@ -81,12 +78,10 @@ const compressMenuText = keyframes`
   0% {
     opacity: 1;
     font-size: 22px;
-    
   }
   100% {
     opacity: 0;
     font-size: 10px;
-    
   }
 `;
 
@@ -120,6 +115,9 @@ const StyledMenu = styled.div`
       }
     }
   }
+  @media ${breakpoints.mobile} {
+    display: none;
+	}
 `;
 
 const StyledMenuItem = styled.li`
@@ -127,6 +125,9 @@ const StyledMenuItem = styled.li`
   margin-bottom: 5px;
   margin-right: 40px;
   height: 30px;
+  @media ${breakpoints.tablet} {
+    margin-right: 20px;
+	}
   .menu-item-holder {
     display: inline-block;
     cursor: pointer;

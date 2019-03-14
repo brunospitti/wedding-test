@@ -14,22 +14,28 @@ export const fontFamily =
 export const fontFamilyTitle =
   "'Archivo Black', 'Space Mono', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', 'segoe ui', helvetica, roboto, noto, arial, sans-serif";
 
-export const mainContainer = `
-    width: 100%;
-    max-width: 1360px;
-    padding: 0 80px;
-    margin: 0 auto;
-    position: relative;
-  `;
-
 export const breakpoints = {
-    desktop: `(min-width: 1260px)`,
-    desktopSmall: `(max-width: 1259px)`,
-    tablet: `(max-width: 1023px)`,
-    mobile: `(max-width: 767px)`,
-    workPillFixes: `(max-width: 1360px) and (min-width: 1260px)`,
+	desktop: `(min-width: 1260px)`,
+	desktopSmall: `(max-width: 1259px)`,
+	tablet: `(max-width: 1023px)`,
+	mobile: `(max-width: 767px)`,
+	mobileSmall: `(max-width: 400px)`,
+	workPillFixes: `(max-width: 1360px) and (min-width: 1260px)`,
 }
 
+export const mainContainer = `
+	width: 100%;
+	max-width: 1360px;
+	padding: 0 80px;
+	margin: 0 auto;
+	position: relative;
+	@media ${breakpoints.tablet} {
+		padding: 0 40px;
+	}
+	@media ${breakpoints.mobile} {
+		padding: 0 10px;
+	}
+`;
 
 export const GlobalStyles = createGlobalStyle`
     // css reset
@@ -85,15 +91,25 @@ export const GlobalStyles = createGlobalStyle`
 
     // global styles
     @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Space+Mono:400,700');
-    body {
+    html,
+		body {
         overflow-x: hidden;
     }
     
     * {
+				touch-action: auto;
         font-family: ${fontFamily};
         font-size: 22px;
         line-height: 30px;
         color: ${colors.greyDark};
         font-weight: 300;
+				@media ${breakpoints.mobile} {
+					font-size: 18px;
+    			line-height: 26px;
+				}
+				@media ${breakpoints.mobileSmall} {
+					font-size: 16px;
+					line-height: 24px;
+				}
     }
 `;

@@ -79,13 +79,23 @@ const StyledProjectHolder = styled.div`
       margin-left: 6%;
     }
   }
+  @media ${breakpoints.tablet} {
+    width: 100%;
+    margin-left: 0 !important;
+	}
 `;
 
 const StyledProjectTitle = styled.h4`
   margin-bottom: 30px;
+  @media ${breakpoints.mobileSmall} {
+    margin-bottom: 24px;
+  }
   a {
     text-decoration: none;
     font-size: 24px;
+    @media ${breakpoints.mobile} {
+      font-size: 22px;
+	  }
   }
 `;
 
@@ -93,6 +103,10 @@ const StyledProjectBriefDesc = styled.div`
   font-size: 18px;
   line-height: 20px;
   margin-bottom: 30px;
+  @media ${breakpoints.mobileSmall} {
+    font-size: 15px;
+    line-height: 18px;
+  }
 `;
 
 const StyledLinkHolder = styled.div`

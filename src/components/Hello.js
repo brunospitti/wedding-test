@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { rgba } from "polished";
 
-import { colors } from "../assets/globalStyles";
+import { colors, breakpoints } from "../assets/globalStyles";
 
 import { SectionTitle } from "./basics/SectionTitle";
 import { TextFromString } from "./helpers/Content";
@@ -13,9 +13,8 @@ export default class Hello extends React.PureComponent {
       <StyledMainSection className="homepage-section" id="about-me-section">
         <SectionTitle title={`${this.props.sectionTitle},`} />
         <StyledFigure />
-        <TextFromString
+        <StyledTextFromString
           text={this.props.sectionText}
-          style={{ marginBottom: "350px" }}
         />
       </StyledMainSection>
     );
@@ -35,4 +34,16 @@ const StyledFigure = styled.div`
   margin-left: -50px;
   position: absolute;
   z-index: -1;
+  @media ${breakpoints.mobile} {
+    width: 200px;
+    height: 200px;
+    margin-top: -40px;
+  }
 `;
+
+const StyledTextFromString = styled(TextFromString)`
+  margin-bottom: 35vh;
+  @media ${breakpoints.mobile} {
+    margin-bottom: 25vh;
+  }
+`

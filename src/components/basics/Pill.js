@@ -41,8 +41,4 @@ const StyledPill = styled.li`
     background: ${colors.greyLight};
     color: white;
   }
-  &#google-analytics{
-    font-size: 15px;
-    line-height: 31px;
-  }
 `;

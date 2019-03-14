@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { rgba } from "polished";
 
-import { colors } from "../assets/globalStyles";
+import { colors, breakpoints } from "../assets/globalStyles";
 
 import { SectionTitle } from "./basics/SectionTitle";
 import { TextFromString } from "./helpers/Content";
@@ -25,11 +25,10 @@ export default class Projects extends React.PureComponent {
     return (
       <StyledMainSection className="homepage-section" id="projects-section">
         <SectionTitle title={this.props.sectionTitle} />
-        <TextFromString
+        <StyledTextFromString
           text={this.props.sectionText}
-          style={{ marginBottom: "150px" }}
         />
-        <div style={{marginBottom: "250px"}}>
+        <StyledProjectTilesOuter>
           <StyledProjectTilesHolder
             className={this.state.showMore ? "expanded" : "collapsed"}
             >
@@ -45,18 +44,18 @@ export default class Projects extends React.PureComponent {
                 );
               })}
           </StyledProjectTilesHolder>
-            <StyledButtonHolder>
-              <Button
-                white
-                clickBehavior={this.showMoreFunc}
-                text={
-                  this.state.showMore
-                  ? "Show less projects"
-                  : "Show more projects"
-                }
-                />
-            </StyledButtonHolder>
-        </div>
+          <StyledButtonHolder>
+            <Button
+              white
+              clickBehavior={this.showMoreFunc}
+              text={
+                this.state.showMore
+                ? "Show less projects"
+                : "Show more projects"
+              }
+              />
+          </StyledButtonHolder>
+        </StyledProjectTilesOuter>
       </StyledMainSection>
     );
   }
@@ -66,6 +65,13 @@ const StyledMainSection = styled.section`
   position: relative;
   padding: 10vh 0 5vh;
 `;
+
+const StyledProjectTilesOuter = styled.div`
+  margin-bottom: 250px;
+  @media ${breakpoints.mobile} {
+    margin-bottom: 160px;
+  }
+`
 
 const StyledProjectTilesHolder = styled.div`
   &.expanded {
@@ -78,6 +84,15 @@ const StyledProjectTilesHolder = styled.div`
   }
 `;
 
+
+const StyledTextFromString = styled(TextFromString)`
+  margin-bottom: 150px;
+  @media ${breakpoints.mobile} {
+    margin-bottom: 100px;
+  }
+`
+
+
 const StyledButtonHolder = styled.div`
   position: absolute;
   bottom: 250px;
@@ -85,6 +100,9 @@ const StyledButtonHolder = styled.div`
   width: 100%;
   text-align: center;
   z-index: 9999;
+  @media ${breakpoints.mobile} {
+    bottom: 160px;
+  }
   button {
     border-bottom: 1px solid;
     border-radius: 0;

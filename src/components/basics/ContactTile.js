@@ -34,6 +34,26 @@ const StyledContactLinkHolder = styled.div`
       margin-left: 1%;
     }
   }
+  @media ${breakpoints.tablet} {
+    width: 48%;
+    margin-left: 0 !important;
+    margin-bottom: 70px;
+    &:not(:nth-child(2n + 1)) {
+      margin-left: 4% !important;
+    }
+  }
+  @media ${breakpoints.mobile} {
+		&:not(:nth-child(2n + 1)) {
+      margin-left: 2% !important;
+    }
+	}
+  @media ${breakpoints.mobileSmall} {
+		margin-left: 0 !important;
+    width: 100%;
+    &:not(:nth-child(2n + 1)) {
+      margin-left: 0 !important;
+    }
+	}
   a{
     text-decoration: none;
   }
@@ -69,6 +89,9 @@ const StyledContactTitle = styled.h4`
   @media ${breakpoints.desktopSmall} {
     font-size: 22px;
   }
+  @media ${breakpoints.mobile} {
+		font-size: 20px;
+	}
 `;
 
 const StyledContactBriefDesc = styled.div`

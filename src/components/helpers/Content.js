@@ -9,9 +9,10 @@ export const HTMLContent = ({ content, className, style }) => (
   />
 );
 
-export const TextFromString = ({ text, style }) => (
+export const TextFromString = ({ text, className, style }) => (
   <div
     style={style}
+    className={className}
     dangerouslySetInnerHTML={{
       __html: text.replace(/(?:\r\n|\r|\n)/g, "<br>")
     }}

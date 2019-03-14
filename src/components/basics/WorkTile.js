@@ -76,12 +76,19 @@ const StyledWorkTitle = styled.h4`
   font-size: 30px;
   line-height: 32px;
   margin-bottom: 15px;
+  @media ${breakpoints.mobile} {
+    font-size: 25px;
+    line-height: 30px;
+  }
 `;
 
 const StyledWorkPeriod = styled.div`
   font-size: 22px;
   line-height: 20px;
   margin-bottom: 50px;
+  @media ${breakpoints.mobile} {
+    font-size: 20px;
+  }
 `;
 
 const StyledWorkBriefDesc = styled.div`
@@ -150,6 +157,14 @@ const StyledJobDescriptionOuter = styled.div`
 
 const StyledJobDescription = styled.div`
   ${mainContainer};
+  padding: 0 90px;
+  @media ${breakpoints.tablet} {
+		padding: 0 50px;
+	}
+  @media ${breakpoints.mobile} {
+		padding: 0 20px;
+    margin-top: -30px;
+	}
   strong {
     font-weight: bold;
   }
@@ -179,6 +194,10 @@ const StyledPillsHolder = styled.div`
       &:not(:first-child) {
         margin-left: 12px;
       }
+      &#google-analytics{
+        font-size: 15px;
+        line-height: 31px;
+      }
       @media ${breakpoints.workPillFixes} {
         width: 172px;
       }
@@ -187,6 +206,25 @@ const StyledPillsHolder = styled.div`
         margin-bottom: 15px;
         &:nth-child(4) {
           margin-left: 0;
+        }
+      }
+      @media ${breakpoints.tablet} {
+        margin-left: 0 !important;
+        width: 48%;
+        &:not(:nth-child(2n + 1)) {
+          margin-left: 4% !important;
+        }
+      }
+      @media ${breakpoints.mobile} {
+        &#play-framework{
+          font-size: 13px;
+          padding: 11px 7px 8px;
+          line-height: 18px;
+        }
+        &#google-analytics{
+          font-size: 12px;
+          line-height: 25px;
+          padding: 8px 7px 5px;
         }
       }
     }
