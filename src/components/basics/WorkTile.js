@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import styled, { keyframes } from "styled-components";
 
 import { colors, mainContainer, breakpoints } from "../../assets/globalStyles";

@@ -1,9 +1,7 @@
 import React from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
-import { rgba } from "polished";
 
-import { colors, breakpoints } from "../assets/globalStyles";
+import { breakpoints } from "../assets/globalStyles";
 
 import { SectionTitle } from "./basics/SectionTitle";
 import { WorkTile } from "./basics/WorkTile";

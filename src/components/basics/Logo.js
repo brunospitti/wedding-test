@@ -3,7 +3,6 @@ import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components";
 
-
 export const Logo = () => (
   <StaticQuery
     query={graphql`
@@ -28,4 +27,4 @@ export const Logo = () => (
 const StyledLogoHolder = styled.div`
   padding: 50px;
   text-align: center;
-`
+`;

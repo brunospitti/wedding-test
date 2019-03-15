@@ -1,10 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
+import styled from "styled-components";
+
+import { colors, breakpoints } from "../assets/globalStyles";
+
 import Layout from "../components/helpers/Layout";
-import Content, { HTMLContent } from "../components/helpers/Content";
+import { TextFromString } from "../components/helpers/Content";
 import { NonStretchedImg } from "../components/basics/NonStretchedImg";
+import { Header } from "../components/basics/Header";
+import { ProjectPageTitle } from "../components/basics/ProjectPageTitle";
+
 
 export const ProjectTemplate = ({
   helmet,
@@ -14,13 +20,17 @@ export const ProjectTemplate = ({
   let projectScreenshot = project.screenshot
   let projectImg = projectScreenshot != null ? projectImgs.filter(img => img.node.fluid.originalName === projectScreenshot.relativePath)[0] : ""
   return (
-    <section className="section">
+    <StyledProjectPage>
     {helmet || ""}
-      <div>{project.title}</div>
+      <Header pageTitle={project.title}/>
+      <ProjectPageTitle title="Description"/>
+      <TextFromString
+        text={project.description}
+      />
       {projectImg != "" &&
         <NonStretchedImg fluid={projectImg.node.fluid} />
       }
-    </section>
+    </StyledProjectPage>
   );
 };
 
@@ -47,6 +57,14 @@ const Project = ({ data }) => {
   );
 };
 
+const StyledProjectPage = styled.section`
+  h1 {
+    padding: 0;
+    font-size: 30px;
+    width: 85%;
+    margin: 0 auto 2vh;
+  }
+`;
 
 export default Project;
 
