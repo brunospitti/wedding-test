@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { colors } from "../../assets/globalStyles";
 
-import { slugify } from "../../assets/helpers"
+import { slugify } from "../../assets/helpers";
 
 export class Pill extends React.PureComponent {
   getClassName = () => {
@@ -18,7 +18,9 @@ export class Pill extends React.PureComponent {
 
   render() {
     return (
-      <StyledPill id={slugify(this.props.pill)} className={this.getClassName()}>{this.props.pill}</StyledPill>
+      <StyledPill id={slugify(this.props.pill)} className={this.getClassName()}>
+        {this.props.pill}
+      </StyledPill>
     );
   }
 }
@@ -29,6 +31,7 @@ const StyledPill = styled.li`
   width: 190px;
   text-align: center;
   border-radius: 6px;
+  vertical-align: top;
   &:not(:first-child) {
     margin-left: 3%;
   }
