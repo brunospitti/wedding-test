@@ -2,13 +2,14 @@ import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import styled from "styled-components";
+import { darken } from "polished";
 
 import { colors, breakpoints } from "../assets/globalStyles";
 
 import Layout from "../components/helpers/Layout";
 import { TextFromString } from "../components/helpers/Content";
 import { ImgHolder } from "../components/basics/ImgHolder";
-import { Pill } from "../components/basics/Pill";
+import { SixPillsARow } from "../components/basics/SixPillsARow";
 import { Header } from "../components/basics/Header";
 import { ProjectPageTitle } from "../components/basics/ProjectPageTitle";
 import { Logo } from "../components/basics/Logo";
@@ -40,11 +41,7 @@ export const ProjectTemplate = ({ helmet, project, projectImgs }) => {
 
       <StyledTextBlock>
         <ProjectPageTitle title="Technologies used" />
-        <StyledPillHolder>
-          {project.technologies.map(tech => (
-            <Pill primary key={tech} pill={tech} />
-          ))}
-        </StyledPillHolder>
+        <SixPillsARow pills={project.technologies} />
       </StyledTextBlock>
 
       <StyledTextBlock>
@@ -97,6 +94,33 @@ const StyledProjectPage = styled.section`
   }
 `;
 
+const StyledTextBlock = styled.div`
+  margin: 8vh 0;
+  .pills-holder {
+    li {
+    }
+  }
+`;
+
+const StyledATag = styled.a`
+  padding: 12px 30px 15px;
+  border-radius: 7px;
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  margin-top: 10px;
+  display: inline-block;
+  background: ${props => (props.tertiary ? colors.tertiary : colors.secondary)};
+  margin-left: ${props => props.marginLeft && "50px"};
+  transition: 0.25s all ease;
+  &:hover {
+    background: ${props =>
+      props.tertiary
+        ? darken(0.1, colors.tertiary)
+        : darken(0.1, colors.secondary)};
+  }
+`;
+
 export default Project;
 
 export const pageQuery = graphql`
@@ -132,22 +156,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
-
-const StyledTextBlock = styled.div`
-  margin: 8vh 0;
-`;
-
-const StyledPillHolder = styled.div``;
-
-const StyledATag = styled.a`
-  padding: 12px 30px 15px;
-  border-radius: 7px;
-  text-decoration: none;
-  color: white;
-  font-size: 1.1em;
-  margin-top: 10px;
-  display: inline-block;
-  background: ${props => (props.tertiary ? colors.tertiary : colors.secondary)};
-  margin-left: ${props => props.marginLeft && "50px"};
 `;

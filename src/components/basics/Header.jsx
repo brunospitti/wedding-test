@@ -1,16 +1,29 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "gatsby";
 
-import { fontFamilyTitle, colors, breakpoints } from "../../assets/globalStyles";
+import {
+  fontFamilyTitle,
+  colors,
+  breakpoints
+} from "../../assets/globalStyles";
 
 import { BrunoSpitti } from "./BrunoSpitti";
 
 export const Header = props => (
-  <React.Fragment>
-    <BrunoSpitti/>
+  <StyledHeader>
+    <Link to="/">
+      <BrunoSpitti />
+    </Link>
     <StyledH2>{props.pageTitle}</StyledH2>
-  </React.Fragment>
-)
+  </StyledHeader>
+);
+
+const StyledHeader = styled.div`
+  a {
+    text-decoration: none;
+  }
+`;
 
 const StyledH2 = styled.h2`
   font-size: 25px;

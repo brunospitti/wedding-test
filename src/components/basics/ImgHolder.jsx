@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { darken } from "polished";
 
+import { breakpoints } from "../../assets/globalStyles";
+
 import { NonStretchedImg } from "./NonStretchedImg";
 
 export const ImgHolder = props => (
@@ -38,4 +40,12 @@ const StyledImgHolderRibbon = styled.div`
   height: 220px;
   top: calc(50% - (220px / 2));
   left: calc(-50vw + 50%);
+  @media ${breakpoints.tablet} {
+    height: 150px;
+    top: calc(50% - (150px / 2));
+  }
+  @media ${breakpoints.mobile} {
+    height: 100px;
+    top: calc(50% - (100px / 2));
+  }
 `;

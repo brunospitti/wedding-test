@@ -1,18 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 
-import { colors } from "../../assets/globalStyles";
+import { colors, breakpoints } from "../../assets/globalStyles";
 
 import { slugify } from "../../assets/helpers";
 
 export class Pill extends React.PureComponent {
   getClassName = () => {
     let className = "";
-    if (this.props.primary) {
-      className = "primary-pill";
-    } else if (this.props.grey) {
-      className = "grey-pill";
+
+    if (slugify(this.props.pill).length >= 16) {
+      className += " long-name-pill ";
     }
+
+    if (this.props.primary) {
+      className += " primary-pill ";
+    } else if (this.props.grey) {
+      className += " grey-pill ";
+    }
+
     return className;
   };
 
@@ -43,5 +49,26 @@ const StyledPill = styled.li`
   &.grey-pill {
     background: ${colors.greyLight};
     color: white;
+  }
+  @media ${breakpoints.desktop} {
+    &.long-name-pill {
+      font-size: 16px;
+      line-height: 17px;
+      padding: 4px 15px 6px;
+    }
+  }
+  @media ${breakpoints.mobile} {
+    &.long-name-pill {
+      font-size: 12px;
+      line-height: 25px;
+      padding: 7px;
+    }
+  }
+  @media ${breakpoints.mobileSmall} {
+    &.long-name-pill {
+      font-size: 14px;
+      line-height: 13px;
+      padding: 5px 7px 8px;
+    }
   }
 `;

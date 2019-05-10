@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 import { colors, mainContainer, breakpoints } from "../../assets/globalStyles";
 
 import { HTMLContent } from "../helpers/Content";
-import { Pill } from "./Pill";
+import { SixPillsARow } from "./SixPillsARow";
 
 export class WorkTile extends React.PureComponent {
   state = {
@@ -15,8 +15,6 @@ export class WorkTile extends React.PureComponent {
     let jobDescEl = document.querySelector(
       `#work-title-${this.props.workInfo.index}`
     );
-    console.log("TCL: WorkTile -> jobDescEl", jobDescEl);
-    console.log("TCL: WorkTile -> this.props.id", this.props.id);
     this.setState({ showJobDesc: bool });
     bool
       ? (jobDescEl.style.display = "block")
@@ -43,16 +41,12 @@ export class WorkTile extends React.PureComponent {
         >
           <StyledJobDescription>
             <HTMLContent content={workDesc} />
-            <StyledPillsHolder>
+            <div>
               <p>
                 <strong>Main technologies/tools:</strong>
               </p>
-              <ul className="pills-holder">
-                {workInfo.technologies.map((tech, i) => (
-                  <Pill primary key={tech} pill={tech} />
-                ))}
-              </ul>
-            </StyledPillsHolder>
+              <SixPillsARow pills={workInfo.technologies} />
+            </div>
             <StyledButton onClick={() => this.handleClick(false)}>
               Read less.
             </StyledButton>
@@ -158,12 +152,12 @@ const StyledJobDescription = styled.div`
   ${mainContainer};
   padding: 0 90px;
   @media ${breakpoints.tablet} {
-		padding: 0 50px;
-	}
+    padding: 0 50px;
+  }
   @media ${breakpoints.mobile} {
-		padding: 0 20px;
+    padding: 0 20px;
     margin-top: -30px;
-	}
+  }
   strong {
     font-weight: bold;
   }
@@ -178,52 +172,6 @@ const StyledJobDescription = styled.div`
         }
         &:not(:first-child) {
           margin-top: 30px;
-        }
-      }
-    }
-  }
-`;
-
-const StyledPillsHolder = styled.div`
-  ul {
-    margin-bottom: 60px;
-    li {
-      font-size: 18px;
-      width: 190px;
-      &:not(:first-child) {
-        margin-left: 12px;
-      }
-      &#google-analytics{
-        font-size: 15px;
-        line-height: 31px;
-      }
-      @media ${breakpoints.workPillFixes} {
-        width: 172px;
-      }
-      @media ${breakpoints.desktopSmall} {
-        width: 280px;
-        margin-bottom: 15px;
-        &:nth-child(4) {
-          margin-left: 0;
-        }
-      }
-      @media ${breakpoints.tablet} {
-        margin-left: 0 !important;
-        width: 48%;
-        &:not(:nth-child(2n + 1)) {
-          margin-left: 4% !important;
-        }
-      }
-      @media ${breakpoints.mobile} {
-        &#play-framework{
-          font-size: 13px;
-          padding: 11px 7px 8px;
-          line-height: 18px;
-        }
-        &#google-analytics{
-          font-size: 12px;
-          line-height: 25px;
-          padding: 8px 7px 5px;
         }
       }
     }
