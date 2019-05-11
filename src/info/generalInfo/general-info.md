@@ -52,8 +52,8 @@ contactIntoInfo:
   - brunospitti
   - Bruno Spitti
 contactIntoURL:
-  - '#'
-  - '#'
+  - 'tel:+353838724192'
+  - 'mailto:me@brunospitti.com?Subject=Lets%20Chat'
   - 'https://github.com/brunospitti'
   - 'https://www.linkedin.com/in/brunospitti/'
 ---
