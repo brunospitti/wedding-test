@@ -43,25 +43,26 @@ export const ProjectTemplate = ({ helmet, project, projectImgs }) => {
         <ProjectPageTitle title="Technologies used" />
         <SixPillsARow pills={project.technologies} />
       </StyledTextBlock>
-
-      <StyledTextBlock>
-        <ProjectPageTitle title="Check for yourself" />
-        {project.live_url &&
-        <StyledATag tertiary href={project.live_url} target="_blank">
-          View live project
-        </StyledATag>
-        }
-        {project.github_url &&
-        <StyledATag
-        secondary
-        marginLeft
-        href={project.github_url}
-        target="_blank"
-        >
-          View github repo
-        </StyledATag>
-        }
-      </StyledTextBlock>
+      {(project.github_url || project.live_url) &&
+        <StyledTextBlock>
+          <ProjectPageTitle title="Check for yourself" />
+          {project.live_url &&
+          <StyledATag tertiary href={project.live_url} target="_blank">
+            View live project
+          </StyledATag>
+          }
+          {project.github_url &&
+          <StyledATag
+          secondary
+          marginLeft
+          href={project.github_url}
+          target="_blank"
+          >
+            View github repo
+          </StyledATag>
+          }
+        </StyledTextBlock>
+      }
 
       <Logo />
     </StyledProjectPage>
