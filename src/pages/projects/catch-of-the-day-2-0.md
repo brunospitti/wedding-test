@@ -28,7 +28,7 @@ technologies:
   - React
   - React Create App
   - React Router
-  - React Transition Group
+  - React Transition
   - Prop Types
   - Firebase
   - Re-base
