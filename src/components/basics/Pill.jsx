@@ -61,7 +61,7 @@ const StyledPill = styled.li`
     &.long-name-pill {
       font-size: 12px;
       line-height: 25px;
-      padding: 7px;
+      padding: 7px 3px;
     }
   }
   @media ${breakpoints.mobileSmall} {

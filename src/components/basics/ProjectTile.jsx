@@ -119,5 +119,8 @@ const StyledLinkHolder = styled.div`
     font-size: 16px;
     text-decoration: none;
     font-weight: bold;
+  @media ${breakpoints.mobileSmall} {
+    font-size: 15px;
+  }
   }
 `;

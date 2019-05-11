@@ -46,17 +46,21 @@ export const ProjectTemplate = ({ helmet, project, projectImgs }) => {
 
       <StyledTextBlock>
         <ProjectPageTitle title="Check for yourself" />
+        {project.live_url &&
         <StyledATag tertiary href={project.live_url} target="_blank">
           View live project
         </StyledATag>
+        }
+        {project.github_url &&
         <StyledATag
-          secondary
-          marginLeft
-          href={project.github_url}
-          target="_blank"
+        secondary
+        marginLeft
+        href={project.github_url}
+        target="_blank"
         >
           View github repo
         </StyledATag>
+        }
       </StyledTextBlock>
 
       <Logo />
@@ -118,6 +122,10 @@ const StyledATag = styled.a`
       props.tertiary
         ? darken(0.1, colors.tertiary)
         : darken(0.1, colors.secondary)};
+  }
+  @media ${breakpoints.mobile} {
+    width: 100%;
+    margin: 10px 0 !important;
   }
 `;
 

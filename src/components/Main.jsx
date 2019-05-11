@@ -71,15 +71,23 @@ const StyledUl = styled.ul`
       }
     }
     @media ${breakpoints.mobile} {
+      width: 118px;
+      padding-left: 4px;
       &#html,
       &#cssscss{
         margin-top: 10px;
+      }
+      &#html{
+        margin-left: 0;
       }
     }
     @media ${breakpoints.mobileSmall} {
       margin-left: 0 !important;
       &:not(:nth-child(2n + 1)) {
         margin-left: 25px !important;
+      }
+      &#javascript{
+        margin-top: 10px;
       }
     }
   }

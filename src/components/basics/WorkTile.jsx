@@ -2,6 +2,8 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 
 import { colors, mainContainer, breakpoints } from "../../assets/globalStyles";
+import { scrollToElement } from "../../assets/isElementVisible";
+
 
 import { HTMLContent } from "../helpers/Content";
 import { SixPillsARow } from "./SixPillsARow";
@@ -16,16 +18,22 @@ export class WorkTile extends React.PureComponent {
       `#work-title-${this.props.workInfo.index}`
     );
     this.setState({ showJobDesc: bool });
-    bool
-      ? (jobDescEl.style.display = "block")
-      : (jobDescEl.style.display = "none");
+    if(bool) {
+      jobDescEl.style.display = "block";
+    } else {
+      jobDescEl.style.display = "none";
+      scrollToElement('work');
+    }
+    
   };
 
   render() {
     const { workInfo, workDesc } = this.props;
     return (
       <StyledWorkTileHolder>
-        <StyledWorkMainInfo>
+        <StyledWorkMainInfo
+          id={`work-section-${workInfo.index}`}
+        >
           <StyledWorkTitle>{workInfo.title}</StyledWorkTitle>
           <StyledWorkPeriod>{workInfo.period}</StyledWorkPeriod>
           <StyledWorkBriefDesc>

@@ -25,7 +25,7 @@ const StyledH1 = styled.h1`
     letter-spacing: 33px;
   }
   @media ${breakpoints.mobile} {
-    padding-left: 13px;
+    padding-left: 3px;
     font-size: 50px;
     letter-spacing: 36px;
     line-height: 55px;

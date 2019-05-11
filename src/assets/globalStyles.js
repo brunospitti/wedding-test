@@ -33,7 +33,7 @@ export const mainContainer = `
 		padding: 0 40px;
 	}
 	@media ${breakpoints.mobile} {
-		padding: 0 10px;
+		padding: 0 20px;
 	}
 `;
 
