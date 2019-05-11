@@ -30,12 +30,11 @@ technologies:
   - React
   - React Create App
   - React Router
-  - React Trasnsition Group
+  - React Transition
   - Prop Types
   - Firebase
   - Re-base
   - Stylus
-  - ''
 live_url: 'https://catch-of-the-day.brunospitti.com'
 github_url: 'https://github.com/brunospitti/catch-of-the-day'
 ---
