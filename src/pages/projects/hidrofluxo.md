@@ -5,7 +5,7 @@ title: Hidrofluxo
 brief_description: >-
   Academic project based on data visualization regarding the residential water
   usage built with Arduino prototype and Android app.
-screenshot: ''
+screenshot: /img/bruno-spitti-hidrofluxo.png
 description: >-
   One of my graduation group’s projects, based on data visualization regarding
   the residential water usage. It has two parts, a prototype of water flow meter
