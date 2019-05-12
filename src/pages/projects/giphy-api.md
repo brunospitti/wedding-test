@@ -3,7 +3,7 @@ templateKey: project
 index: '9'
 title: Giphy API
 brief_description: Basic gif search website built with React fetching Giphy’s API.
-screenshot: /img/search-some-gifs.png
+screenshot: /img/bruno-spitti-giphy-api.png
 description: >-
   This is a simple gif search website based on the Giphy's API. It fetches the
   API with the searched parameter typed by the user and initially prints 8 gifs.
