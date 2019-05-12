@@ -5,6 +5,7 @@ title: Awapé
 brief_description: >-
   Academic project on Invisible Water Consumption, based on a WordPress built
   social platform and an Android app.
+screenshot: /img/bruno-spitti-awape.png
 description: >-
   One of my graduation group’s projects, which it's main goal is to create
   awareness of your personal Invisible Water Consumption, also known as Water
