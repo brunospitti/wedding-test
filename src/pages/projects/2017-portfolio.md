@@ -5,7 +5,7 @@ title: 2017 Portfolio
 brief_description: >-
   My portfolio with a deeper focus on demonstrating web design and user
   interaction skills.
-screenshot: /img/bruno-spitti-web-designer-in-dublin.png
+screenshot: /img/bruno-spitti-2017-portfolio.png
 description: >-
   This is my first portfolio built entirely by myself (design and development),
   it has mainly the focus of demonstrating my skills at web design as well as
