@@ -3,7 +3,7 @@ templateKey: project
 index: '4'
 title: Catch of the day
 brief_description: Wes Bos’ course. Built following his course on React.
-screenshot: /img/catch-of-the-day.png
+screenshot: /img/bruno-spitti-catch-of-the-day.png
 description: >-
   This webapp is built following Wes Bos' course on React and it's a simulation
   of a seafood market website where the store owner can update price and and
