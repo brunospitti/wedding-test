@@ -95,7 +95,7 @@ export const GlobalStyles = createGlobalStyle`
 		body {
         overflow-x: hidden;
     }
-    
+
     * {
 				touch-action: auto;
         font-family: ${fontFamily};

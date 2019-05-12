@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import Parallax from 'react-rellax'
 
 import { colors, breakpoints } from "../assets/globalStyles";
-import Arrow from "../assets/img/arrow.svg";
+import SvgArrow from "../assets/img/geometric-shapes/arrow.svg";
 
+import { GroupedBorderTriangleUp } from "./shapes/GroupedBorderTriangleUp";
 import { BrunoSpitti } from "./basics/BrunoSpitti";
 import { Pill } from "./basics/Pill";
 
@@ -11,7 +13,10 @@ export default class Main extends React.PureComponent {
   render() {
     return (
       <StyledMainSection className="homepage-section" id="home-section">
-        <BrunoSpitti/>
+        <Parallax speed={-2}>
+          <GroupedBorderTriangleUp />
+        </Parallax>
+        <BrunoSpitti id="bruno-spitti-logo-main"/>
         <StyledH2>Front-end developer</StyledH2>
         <StyledUl>
           {this.props.mainTech.map(tech => (
@@ -19,7 +24,7 @@ export default class Main extends React.PureComponent {
           ))}
         </StyledUl>
         <StyledSvgHolder>
-          <Arrow />
+          <SvgArrow />
         </StyledSvgHolder>
       </StyledMainSection>
     );

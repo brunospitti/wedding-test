@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 import { fontFamilyTitle, colors, breakpoints } from "../../assets/globalStyles";
 
-export const BrunoSpitti = () => (
-  <StyledH1>Bruno Spitti</StyledH1>
+export const BrunoSpitti = (props) => (
+  <StyledH1 id={props.id}>Bruno Spitti</StyledH1>
 )
 
 const StyledH1 = styled.h1`
