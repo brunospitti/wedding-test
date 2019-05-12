@@ -5,7 +5,7 @@ title: Remind me
 brief_description: >-
   Completely functional reminder web app built using React, Redux, Firebase and
   Styled-Components.
-screenshot: /img/reminder-fill-report-and-then-relax-.png
+screenshot: /img/bruno-spitti-remind-me.png
 description: >-
   Remind me web app based on Microsoft’s To-do with multiple lists capability,
   sort list items by different aspects of each item, add reminder with
