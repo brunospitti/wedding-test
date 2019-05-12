@@ -5,7 +5,7 @@ title: Catch of the day 2.0
 brief_description: >-
   Built following learned topics on Wes Bos’ course from scratch, included more
   features.
-screenshot: /img/catch-of-the-day-1-.png
+screenshot: /img/bruno-spitti-catch-of-the-day-2.0.png
 description: >-
   After I completed Wes Bos' React course I decided to recreate the same web app
   from scratch to actually test if I learned his teachings or simply copied what
