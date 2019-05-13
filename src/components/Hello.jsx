@@ -4,18 +4,24 @@ import { rgba } from "polished";
 
 import { colors, breakpoints } from "../assets/globalStyles";
 
+import withMainContainer from "../hocs/withMainContainer";
 import { SectionTitle } from "./basics/SectionTitle";
 import { TextFromString } from "./helpers/Content";
 
 export default class Hello extends React.PureComponent {
+  HelloContent = () => (
+    <React.Fragment>
+      <SectionTitle title={`${this.props.sectionTitle},`} />
+      <StyledFigure />
+      <StyledTextFromString text={this.props.sectionText} />
+    </React.Fragment>
+  );
+
   render() {
+    let HelloWithMainContainer = withMainContainer(this.HelloContent);
     return (
       <StyledMainSection className="homepage-section" id="about-me-section">
-        <SectionTitle title={`${this.props.sectionTitle},`} />
-        <StyledFigure />
-        <StyledTextFromString
-          text={this.props.sectionText}
-        />
+        <HelloWithMainContainer />
       </StyledMainSection>
     );
   }
@@ -46,4 +52,4 @@ const StyledTextFromString = styled(TextFromString)`
   @media ${breakpoints.mobile} {
     margin-bottom: 25vh;
   }
-`
+`;

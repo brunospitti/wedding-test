@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { breakpoints } from "../assets/globalStyles";
 
+import withMainContainer from "../hocs/withMainContainer";
 import { SectionTitle } from "./basics/SectionTitle";
 import { TextFromString } from "./helpers/Content";
 import { ProjectTile } from "./basics/ProjectTile";
@@ -17,43 +18,45 @@ export default class Projects extends React.PureComponent {
     this.setState({ showMore: !this.state.showMore });
   };
 
-  render() {
-    const { projects } = this.props;
-
-    return (
-      <StyledMainSection className="homepage-section" id="projects-section">
-        <SectionTitle title={this.props.sectionTitle} />
-        <StyledTextFromString
-          text={this.props.sectionText}
-        />
-        <StyledProjectTilesOuter>
-          <StyledProjectTilesHolder
-            className={this.state.showMore ? "expanded" : "collapsed"}
-            >
-            {projects.map(({ node: project }) => {
-              const info = project.frontmatter;
-              return (
-                <ProjectTile
+  ProjectsContent = () => (
+    <React.Fragment>
+      <SectionTitle title={this.props.sectionTitle} />
+      <StyledTextFromString text={this.props.sectionText} />
+      <StyledProjectTilesOuter>
+        <StyledProjectTilesHolder
+          className={this.state.showMore ? "expanded" : "collapsed"}
+        >
+          {this.props.projects.map(({ node: project }) => {
+            const info = project.frontmatter;
+            return (
+              <ProjectTile
                 key={info.title}
                 projectTitle={info.title}
                 projectBriefDesc={info.brief_description}
                 projectURL={project.fields.slug}
-                />
-                );
-              })}
-          </StyledProjectTilesHolder>
-          <StyledButtonHolder>
-            <Button
-              white
-              clickBehavior={this.showMoreFunc}
-              text={
-                this.state.showMore
-                ? "Show less projects"
-                : "Show more projects"
-              }
               />
-          </StyledButtonHolder>
-        </StyledProjectTilesOuter>
+            );
+          })}
+        </StyledProjectTilesHolder>
+        <StyledButtonHolder>
+          <Button
+            white
+            clickBehavior={this.showMoreFunc}
+            text={
+              this.state.showMore ? "Show less projects" : "Show more projects"
+            }
+          />
+        </StyledButtonHolder>
+      </StyledProjectTilesOuter>
+    </React.Fragment>
+  );
+
+  render() {
+    let ProjectsWithMainContainer = withMainContainer(this.ProjectsContent);
+
+    return (
+      <StyledMainSection className="homepage-section" id="projects-section">
+        <ProjectsWithMainContainer />
       </StyledMainSection>
     );
   }
@@ -69,7 +72,7 @@ const StyledProjectTilesOuter = styled.div`
   @media ${breakpoints.mobile} {
     margin-bottom: 160px;
   }
-`
+`;
 
 const StyledProjectTilesHolder = styled.div`
   &.expanded {
@@ -82,14 +85,12 @@ const StyledProjectTilesHolder = styled.div`
   }
 `;
 
-
 const StyledTextFromString = styled(TextFromString)`
   margin-bottom: 150px;
   @media ${breakpoints.mobile} {
     margin-bottom: 100px;
   }
-`
-
+`;
 
 const StyledButtonHolder = styled.div`
   position: absolute;

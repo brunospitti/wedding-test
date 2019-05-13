@@ -3,31 +3,39 @@ import styled from "styled-components";
 
 import { breakpoints } from "../assets/globalStyles";
 
+import withMainContainer from "../hocs/withMainContainer";
 import { SectionTitle } from "./basics/SectionTitle";
 import { WorkTile } from "./basics/WorkTile";
 
 export default class WorkExperience extends React.PureComponent {
+  WorkExperienceContent = () => (
+    <React.Fragment>
+      <SectionTitle title={this.props.sectionTitle} />
+      <div>
+        {this.props.workExperiences.map(({ node: work }) => {
+          const info = work.frontmatter;
+          const infoHTML = work.html;
+          return (
+            <WorkTile
+              key={work.id}
+              id={work.id}
+              work={work}
+              workInfo={info}
+              workDesc={infoHTML}
+            />
+          );
+        })}
+      </div>
+    </React.Fragment>
+  );
   render() {
-    const { workExperiences } = this.props;
+    let WorkExperienceProjectsWithMainContainer = withMainContainer(
+      this.WorkExperienceContent
+    );
 
     return (
       <StyledMainSection className="homepage-section" id="work-section">
-        <SectionTitle title={this.props.sectionTitle} />
-        <div>
-          {workExperiences.map(({ node: work }) => {
-            const info = work.frontmatter;
-            const infoHTML = work.html;
-            return (
-              <WorkTile
-                key={work.id}
-                id={work.id}
-                work={work}
-                workInfo={info}
-                workDesc={infoHTML}
-              />
-            );
-          })}
-        </div>
+        <WorkExperienceProjectsWithMainContainer />
       </StyledMainSection>
     );
   }

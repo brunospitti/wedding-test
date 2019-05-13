@@ -1,31 +1,39 @@
 import React from "react";
 import styled from "styled-components";
-import Parallax from 'react-rellax'
+import Parallax from "react-rellax";
 
 import { colors, breakpoints } from "../assets/globalStyles";
 import SvgArrow from "../assets/img/geometric-shapes/arrow.svg";
 
+import withMainContainer from "../hocs/withMainContainer";
 import { GroupedBorderTriangleUp } from "./shapes/GroupedBorderTriangleUp";
 import { BrunoSpitti } from "./basics/BrunoSpitti";
 import { Pill } from "./basics/Pill";
 
 export default class Main extends React.PureComponent {
+  MainContent = () => (
+    <React.Fragment>
+      <BrunoSpitti id="bruno-spitti-logo-main" />
+      <StyledH2>Front-end developer</StyledH2>
+      <StyledUl>
+        {this.props.mainTech.map(tech => (
+          <Pill grey key={tech} pill={tech} />
+        ))}
+      </StyledUl>
+      <StyledSvgHolder>
+        <SvgArrow />
+      </StyledSvgHolder>
+    </React.Fragment>
+  );
+
   render() {
+    let MainWithMainContainer = withMainContainer(this.MainContent);
     return (
       <StyledMainSection className="homepage-section" id="home-section">
         <Parallax speed={-2}>
           <GroupedBorderTriangleUp />
         </Parallax>
-        <BrunoSpitti id="bruno-spitti-logo-main"/>
-        <StyledH2>Front-end developer</StyledH2>
-        <StyledUl>
-          {this.props.mainTech.map(tech => (
-            <Pill grey key={tech} pill={tech} />
-          ))}
-        </StyledUl>
-        <StyledSvgHolder>
-          <SvgArrow />
-        </StyledSvgHolder>
+        <MainWithMainContainer />
       </StyledMainSection>
     );
   }
@@ -61,17 +69,17 @@ const StyledH2 = styled.h2`
 
 const StyledUl = styled.ul`
   text-align: center;
-  li{
+  li {
     @media ${breakpoints.desktopSmall} {
       width: 155px;
-      &:not(:first-child){
+      &:not(:first-child) {
         margin-left: 2%;
       }
     }
     @media ${breakpoints.tablet} {
       width: 123px;
       font-size: 20px;
-      &#javascript{
+      &#javascript {
         font-size: 18px;
       }
     }
@@ -79,10 +87,10 @@ const StyledUl = styled.ul`
       width: 118px;
       padding-left: 4px;
       &#html,
-      &#cssscss{
+      &#cssscss {
         margin-top: 10px;
       }
-      &#html{
+      &#html {
         margin-left: 0;
       }
     }
@@ -91,7 +99,7 @@ const StyledUl = styled.ul`
       &:not(:nth-child(2n + 1)) {
         margin-left: 25px !important;
       }
-      &#javascript{
+      &#javascript {
         margin-top: 10px;
       }
     }

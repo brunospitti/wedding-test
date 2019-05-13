@@ -6,6 +6,7 @@ import { darken } from "polished";
 
 import { colors, breakpoints } from "../assets/globalStyles";
 
+import withMainContainer from "../hocs/withMainContainer";
 import Layout from "../components/helpers/Layout";
 import { TextFromString } from "../components/helpers/Content";
 import { ImgHolder } from "../components/basics/ImgHolder";
@@ -15,6 +16,55 @@ import { ProjectPageTitle } from "../components/basics/ProjectPageTitle";
 import { Logo } from "../components/basics/Logo";
 
 export const ProjectTemplate = ({ helmet, project, projectImgs }) => {
+  let ProjectPageContent = () => (
+    <React.Fragment>
+      <StyledProjectPage>
+        {helmet || ""}
+
+        <Header pageTitle={project.title} />
+        <StyledTextBlock>
+          <ProjectPageTitle title="Description" />
+          <TextFromString text={project.description} />
+        </StyledTextBlock>
+
+        {projectImg != "" && <ImgHolder fluidImg={projectImg.node.fluid} />}
+
+        <StyledTextBlock>
+          <ProjectPageTitle title="What I Learned" />
+          <TextFromString text={project.what_i_learned} />
+        </StyledTextBlock>
+
+        <StyledTextBlock>
+          <ProjectPageTitle title="Technologies used" />
+          <SixPillsARow pills={project.technologies} />
+        </StyledTextBlock>
+        {(project.github_url || project.live_url) && (
+          <StyledTextBlock>
+            <ProjectPageTitle title="Check for yourself" />
+            {project.live_url && (
+              <StyledATag tertiary href={project.live_url} target="_blank">
+                View live project
+              </StyledATag>
+            )}
+            {project.github_url && (
+              <StyledATag
+                secondary
+                marginLeft
+                href={project.github_url}
+                target="_blank"
+              >
+                View github repo
+              </StyledATag>
+            )}
+          </StyledTextBlock>
+        )}
+
+        <Logo />
+      </StyledProjectPage>
+    </React.Fragment>
+  );
+
+  let ProjectPageWithMainContainer = withMainContainer(ProjectPageContent);
   let projectScreenshot = project.screenshot;
   let projectImg =
     projectScreenshot != null
@@ -22,51 +72,7 @@ export const ProjectTemplate = ({ helmet, project, projectImgs }) => {
           img => img.node.fluid.originalName === projectScreenshot.relativePath
         )[0]
       : "";
-  return (
-    <StyledProjectPage>
-      {helmet || ""}
-
-      <Header pageTitle={project.title} />
-      <StyledTextBlock>
-        <ProjectPageTitle title="Description" />
-        <TextFromString text={project.description} />
-      </StyledTextBlock>
-
-      {projectImg != "" && <ImgHolder fluidImg={projectImg.node.fluid} />}
-
-      <StyledTextBlock>
-        <ProjectPageTitle title="What I Learned" />
-        <TextFromString text={project.what_i_learned} />
-      </StyledTextBlock>
-
-      <StyledTextBlock>
-        <ProjectPageTitle title="Technologies used" />
-        <SixPillsARow pills={project.technologies} />
-      </StyledTextBlock>
-      {(project.github_url || project.live_url) &&
-        <StyledTextBlock>
-          <ProjectPageTitle title="Check for yourself" />
-          {project.live_url &&
-          <StyledATag tertiary href={project.live_url} target="_blank">
-            View live project
-          </StyledATag>
-          }
-          {project.github_url &&
-          <StyledATag
-          secondary
-          marginLeft
-          href={project.github_url}
-          target="_blank"
-          >
-            View github repo
-          </StyledATag>
-          }
-        </StyledTextBlock>
-      }
-
-      <Logo />
-    </StyledProjectPage>
-  );
+  return <ProjectPageWithMainContainer />;
 };
 
 const Project = ({ data }) => {

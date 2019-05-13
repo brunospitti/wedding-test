@@ -1,9 +1,8 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
 
-import { GlobalStyles, mainContainer } from "../../assets/globalStyles";
+import { GlobalStyles } from "../../assets/globalStyles";
 
 const TemplateWrapper = ({ children }) => (
   <StaticQuery
@@ -43,7 +42,7 @@ const TemplateWrapper = ({ children }) => (
             content="width=device-width, initial-scale=1.0"
           />
         </Helmet>
-        <StyledContainer>{children}</StyledContainer>
+        <React.Fragment>{children}</React.Fragment>
         <GlobalStyles />
       </React.Fragment>
     )}
@@ -51,7 +50,3 @@ const TemplateWrapper = ({ children }) => (
 );
 
 export default TemplateWrapper;
-
-const StyledContainer = styled.div`
-  ${mainContainer};
-`;

@@ -4,32 +4,40 @@ import { rgba } from "polished";
 
 import { colors, breakpoints } from "../assets/globalStyles";
 
+import withMainContainer from "../hocs/withMainContainer";
 import { TextFromString } from "./helpers/Content";
 import { SectionTitle } from "./basics/SectionTitle";
 import { ContactTile } from "./basics/ContactTile";
 import { ContactForm } from "./basics/ContactForm";
 
 export default class Contact extends React.PureComponent {
+  ContactContent = () => (
+    <React.Fragment>
+      <SectionTitle title={this.props.sectionTitle} />
+      <StyledFigure />
+      <TextFromString
+        text={this.props.sectionText}
+        style={{ marginBottom: "5vh" }}
+      />
+      <div style={{ marginBottom: "10vh" }}>
+        {this.props.contactIntoTitles.map((contact, i) => (
+          <ContactTile
+            key={contact}
+            contactInfoTitle={this.props.contactIntoTitles[i]}
+            contactInfoInfo={this.props.contactIntoInfo[i]}
+            contactInfoURL={this.props.contactIntoURL[i]}
+          />
+        ))}
+      </div>
+      <ContactForm />
+    </React.Fragment>
+  );
+
   render() {
+    let ContactWithMainContainer = withMainContainer(this.ContactContent);
     return (
       <StyledMainSection className="homepage-section" id="lets-chat-section">
-        <SectionTitle title={this.props.sectionTitle} />
-        <StyledFigure />
-        <TextFromString
-          text={this.props.sectionText}
-          style={{ marginBottom: "5vh" }}
-        />
-        <div style={{ marginBottom: "10vh" }}>
-          {this.props.contactIntoTitles.map((contact, i) => (
-            <ContactTile
-              key={contact}
-              contactInfoTitle={this.props.contactIntoTitles[i]}
-              contactInfoInfo={this.props.contactIntoInfo[i]}
-              contactInfoURL={this.props.contactIntoURL[i]}
-            />
-          ))}
-        </div>
-        <ContactForm/>
+        <ContactWithMainContainer />
       </StyledMainSection>
     );
   }

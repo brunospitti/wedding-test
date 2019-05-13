@@ -15,15 +15,16 @@ export const fontFamilyTitle =
   "'Archivo Black', 'Space Mono', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', 'segoe ui', helvetica, roboto, noto, arial, sans-serif";
 
 export const breakpoints = {
-	desktop: `(min-width: 1260px)`,
-	desktopSmall: `(max-width: 1259px)`,
-	tablet: `(max-width: 1023px)`,
-	mobile: `(max-width: 767px)`,
-	mobileSmall: `(max-width: 400px)`,
-	workPillFixes: `(max-width: 1360px) and (min-width: 1260px)`,
-}
+  desktop: `(min-width: 1260px)`,
+  desktopSmall: `(max-width: 1259px)`,
+  tablet: `(max-width: 1023px)`,
+  mobile: `(max-width: 767px)`,
+  mobileSmall: `(max-width: 400px)`,
+  workPillFixes: `(max-width: 1360px) and (min-width: 1260px)`
+};
 
 export const mainContainer = `
+	height: 100%;
 	width: 100%;
 	max-width: 1360px;
 	padding: 0 80px;
