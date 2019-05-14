@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
 
-import { colors, breakpoints } from "../../assets/globalStyles";
+import { colors, breakpoints } from '../../assets/globalStyles'
 
 export class ProjectTile extends React.PureComponent {
   render() {
@@ -18,7 +18,7 @@ export class ProjectTile extends React.PureComponent {
           <Link to={this.props.projectURL}>Click here to read more.</Link>
         </StyledLinkHolder>
       </StyledProjectHolder>
-    );
+    )
   }
 }
 
@@ -33,8 +33,8 @@ const StyledProjectHolder = styled.div`
   vertical-align: top;
   margin-bottom: 60px;
   &:nth-child(6n-4),
-  &:nth-child(6n-5){
-    a{
+  &:nth-child(6n-5) {
+    a {
       color: ${colors.primary};
     }
     &:after {
@@ -42,8 +42,8 @@ const StyledProjectHolder = styled.div`
     }
   }
   &:nth-child(6n-2),
-  &:nth-child(6n-3){
-    a{
+  &:nth-child(6n-3) {
+    a {
       color: ${colors.secondary};
     }
     &:after {
@@ -51,8 +51,8 @@ const StyledProjectHolder = styled.div`
     }
   }
   &:nth-child(6n),
-  &:nth-child(6n-1){
-    a{
+  &:nth-child(6n-1) {
+    a {
       color: ${colors.tertiary};
     }
     &:after {
@@ -63,7 +63,7 @@ const StyledProjectHolder = styled.div`
     margin-left: 14%;
   }
   &:after {
-    content: "";
+    content: '';
     display: block;
     height: 50px;
     border-top: none !important;
@@ -82,8 +82,8 @@ const StyledProjectHolder = styled.div`
   @media ${breakpoints.tablet} {
     width: 100%;
     margin-left: 0 !important;
-	}
-`;
+  }
+`
 
 const StyledProjectTitle = styled.h4`
   margin-bottom: 30px;
@@ -95,9 +95,9 @@ const StyledProjectTitle = styled.h4`
     font-size: 24px;
     @media ${breakpoints.mobile} {
       font-size: 22px;
-	  }
+    }
   }
-`;
+`
 
 const StyledProjectBriefDesc = styled.div`
   font-size: 18px;
@@ -107,7 +107,7 @@ const StyledProjectBriefDesc = styled.div`
     font-size: 15px;
     line-height: 18px;
   }
-`;
+`
 
 const StyledLinkHolder = styled.div`
   text-align: center;
@@ -119,8 +119,8 @@ const StyledLinkHolder = styled.div`
     font-size: 16px;
     text-decoration: none;
     font-weight: bold;
-  @media ${breakpoints.mobileSmall} {
-    font-size: 15px;
+    @media ${breakpoints.mobileSmall} {
+      font-size: 15px;
+    }
   }
-  }
-`;
+`

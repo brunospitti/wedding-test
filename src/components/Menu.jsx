@@ -1,25 +1,25 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
+import React from 'react'
+import styled, { keyframes } from 'styled-components'
 
-import { slugify } from "../assets/helpers";
+import { slugify } from '../assets/helpers'
 
-import { colors, breakpoints } from "../assets/globalStyles";
-import { scrollToElement } from "../assets/isElementVisible";
+import { colors, breakpoints } from '../assets/globalStyles'
+import { scrollToElement } from '../assets/isElementVisible'
 
 export class Menu extends React.PureComponent {
   state = {
-    sectionNames: ["home", "about me", "projects", "work", "let's chat"],
-    expandMenu: false
-  };
+    sectionNames: ['home', 'about me', 'projects', 'work', "let's chat"],
+    expandMenu: false,
+  }
 
   handleMouseOver = bool => {
-    this.setState({ expandMenu: bool });
-  };
+    this.setState({ expandMenu: bool })
+  }
 
   render() {
     return (
       <StyledMenu
-        className={this.state.expandMenu ? "show" : "hide"}
+        className={this.state.expandMenu ? 'show' : 'hide'}
         onMouseOver={() => this.handleMouseOver(true)}
         onMouseLeave={() => this.handleMouseOver(false)}
       >
@@ -41,7 +41,7 @@ export class Menu extends React.PureComponent {
           ))}
         </ul>
       </StyledMenu>
-    );
+    )
   }
 }
 
@@ -52,7 +52,7 @@ const expandsMenu = keyframes`
   100% {
     width: 280px;
   }
-`;
+`
 
 const compressMenu = keyframes`
   0% {
@@ -61,7 +61,7 @@ const compressMenu = keyframes`
   100% {
     width: 100px;
   }
-`;
+`
 
 const expandsMenuText = keyframes`
   0% {
@@ -72,7 +72,7 @@ const expandsMenuText = keyframes`
     opacity: 1;
     font-size: 22px;
   }
-`;
+`
 
 const compressMenuText = keyframes`
   0% {
@@ -83,7 +83,7 @@ const compressMenuText = keyframes`
     opacity: 0;
     font-size: 10px;
   }
-`;
+`
 
 const StyledMenu = styled.div`
   width: 100px;
@@ -117,8 +117,8 @@ const StyledMenu = styled.div`
   }
   @media ${breakpoints.mobile} {
     display: none;
-	}
-`;
+  }
+`
 
 const StyledMenuItem = styled.li`
   text-align: right;
@@ -127,7 +127,7 @@ const StyledMenuItem = styled.li`
   height: 30px;
   @media ${breakpoints.tablet} {
     margin-right: 20px;
-	}
+  }
   .menu-item-holder {
     display: inline-block;
     cursor: pointer;
@@ -151,4 +151,4 @@ const StyledMenuItem = styled.li`
       border: none;
     }
   }
-`;
+`

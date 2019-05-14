@@ -1,33 +1,33 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
-import { colors, breakpoints } from "../../assets/globalStyles";
+import { colors, breakpoints } from '../../assets/globalStyles'
 
-import { slugify } from "../../assets/helpers";
+import { slugify } from '../../assets/helpers'
 
 export class Pill extends React.PureComponent {
   getClassName = () => {
-    let className = "";
+    let className = ''
 
     if (slugify(this.props.pill).length >= 16) {
-      className += " long-name-pill ";
+      className += ' long-name-pill '
     }
 
     if (this.props.primary) {
-      className += " primary-pill ";
+      className += ' primary-pill '
     } else if (this.props.grey) {
-      className += " grey-pill ";
+      className += ' grey-pill '
     }
 
-    return className;
-  };
+    return className
+  }
 
   render() {
     return (
       <StyledPill id={slugify(this.props.pill)} className={this.getClassName()}>
         {this.props.pill}
       </StyledPill>
-    );
+    )
   }
 }
 
@@ -71,4 +71,4 @@ const StyledPill = styled.li`
       padding: 5px 7px 8px;
     }
   }
-`;
+`

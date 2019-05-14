@@ -1,30 +1,30 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 
-import Layout from "../components/helpers/Layout";
-import { isElementVisible } from "../assets/isElementVisible";
+import Layout from '../components/helpers/Layout'
+import { isElementVisible } from '../assets/isElementVisible'
 
-import { Logo } from "../components/basics/Logo";
-import { Menu } from "../components/Menu";
-import Main from "../components/Main";
-import Hello from "../components/Hello";
-import Projects from "../components/Projects";
-import WorkExperience from "../components/WorkExperience";
-import Contact from "../components/Contact";
+import { Logo } from '../components/basics/Logo'
+import { Menu } from '../components/Menu'
+import Main from '../components/Main'
+import Hello from '../components/Hello'
+import Projects from '../components/Projects'
+import WorkExperience from '../components/WorkExperience'
+import Contact from '../components/Contact'
 
 export default class IndexPage extends React.PureComponent {
   componentDidMount() {
-    document.querySelector(".menu-item#home").classList.add("active");
+    document.querySelector('.menu-item#home').classList.add('active')
     window.onscroll = function() {
-      isElementVisible();
-    };
+      isElementVisible()
+    }
   }
   render() {
-    const { data } = this.props;
-    const generalInfo = data.generalInfo.edges[0].node.frontmatter;
-    const projects = data.projects.edges;
-    const workExperiences = data.workExperiences.edges;
+    const { data } = this.props
+    const generalInfo = data.generalInfo.edges[0].node.frontmatter
+    const projects = data.projects.edges
+    const workExperiences = data.workExperiences.edges
 
     return (
       <Layout>
@@ -50,19 +50,19 @@ export default class IndexPage extends React.PureComponent {
           contactIntoInfo={generalInfo.contactIntoInfo}
           contactIntoURL={generalInfo.contactIntoURL}
         />
-        <Logo/>
+        <Logo />
       </Layout>
-    );
+    )
   }
 }
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array
-    })
-  })
-};
+      edges: PropTypes.array,
+    }),
+  }),
+}
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -111,7 +111,7 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
 
 export const fragmentGeneral = graphql`
   fragment GeneralInfoFields on MarkdownRemark {
@@ -126,7 +126,7 @@ export const fragmentGeneral = graphql`
       contactIntoURL
     }
   }
-`;
+`
 
 export const fragmentProjects = graphql`
   fragment ProjectFields on MarkdownRemark {
@@ -145,7 +145,7 @@ export const fragmentProjects = graphql`
       github_url
     }
   }
-`;
+`
 
 export const fragmentWorks = graphql`
   fragment WorkFields on MarkdownRemark {
@@ -157,4 +157,4 @@ export const fragmentWorks = graphql`
       technologies
     }
   }
-`;
+`

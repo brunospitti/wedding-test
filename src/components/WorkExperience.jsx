@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
-import { breakpoints } from "../assets/globalStyles";
+import { breakpoints } from '../assets/globalStyles'
 
-import withMainContainer from "../hocs/withMainContainer";
-import { SectionTitle } from "./basics/SectionTitle";
-import { WorkTile } from "./basics/WorkTile";
+import withMainContainer from '../hocs/withMainContainer'
+import { SectionTitle } from './basics/SectionTitle'
+import { WorkTile } from './basics/WorkTile'
 
 export default class WorkExperience extends React.PureComponent {
   WorkExperienceContent = () => (
@@ -13,8 +13,8 @@ export default class WorkExperience extends React.PureComponent {
       <SectionTitle title={this.props.sectionTitle} />
       <div>
         {this.props.workExperiences.map(({ node: work }) => {
-          const info = work.frontmatter;
-          const infoHTML = work.html;
+          const info = work.frontmatter
+          const infoHTML = work.html
           return (
             <WorkTile
               key={work.id}
@@ -23,21 +23,21 @@ export default class WorkExperience extends React.PureComponent {
               workInfo={info}
               workDesc={infoHTML}
             />
-          );
+          )
         })}
       </div>
     </React.Fragment>
-  );
+  )
   render() {
     let WorkExperienceProjectsWithMainContainer = withMainContainer(
       this.WorkExperienceContent
-    );
+    )
 
     return (
       <StyledMainSection className="homepage-section" id="work-section">
         <WorkExperienceProjectsWithMainContainer />
       </StyledMainSection>
-    );
+    )
   }
 }
 
@@ -50,4 +50,4 @@ const StyledMainSection = styled.section`
       font-size: 33px;
     }
   }
-`;
+`

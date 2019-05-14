@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
-import { fontFamilyTitle, colors, breakpoints } from "../../assets/globalStyles";
+import { fontFamilyTitle, colors, breakpoints } from '../../assets/globalStyles'
 
-export const BrunoSpitti = (props) => (
+export const BrunoSpitti = props => (
   <StyledH1 id={props.id}>Bruno Spitti</StyledH1>
 )
 
@@ -39,4 +39,4 @@ const StyledH1 = styled.h1`
     letter-spacing: 26px;
     line-height: 42px;
   }
-`;
+`

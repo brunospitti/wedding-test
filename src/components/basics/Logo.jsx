@@ -1,15 +1,15 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
-import styled from "styled-components";
+import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import styled from 'styled-components'
 
 export const Logo = () => (
   <StaticQuery
     query={graphql`
-    query LogoImg {
+      query LogoImg {
         allFile: file(relativePath: { eq: "bruno-spitti-logo.png" }) {
           childImageSharp {
-            fixed(width: 139, height: 139){
+            fixed(width: 139, height: 139) {
               ...GatsbyImageSharpFixed
             }
           }
@@ -27,4 +27,4 @@ export const Logo = () => (
 const StyledLogoHolder = styled.div`
   padding: 50px;
   text-align: center;
-`;
+`

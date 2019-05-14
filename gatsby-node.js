@@ -1,9 +1,9 @@
-const path = require("path");
-const { createFilePath } = require("gatsby-source-filesystem");
-const { fmImagesToRelative } = require("gatsby-remark-relative-images");
+const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
+const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
 
   return graphql(`
     {
@@ -25,14 +25,14 @@ exports.createPages = ({ actions, graphql }) => {
     }
   `).then(result => {
     if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()));
-      return Promise.reject(result.errors);
+      result.errors.forEach(e => console.error(e.toString()))
+      return Promise.reject(result.errors)
     }
 
-    const projects = result.data.allMarkdownRemark.edges;
+    const projects = result.data.allMarkdownRemark.edges
 
     projects.forEach(edge => {
-      const id = edge.node.id;
+      const id = edge.node.id
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
@@ -40,27 +40,27 @@ exports.createPages = ({ actions, graphql }) => {
         ),
         // additional data can be passed via context
         context: {
-          id
-        }
-      });
-    });
-  });
-};
+          id,
+        },
+      })
+    })
+  })
+}
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
-  fmImagesToRelative(node); // convert image paths for gatsby images
+  const { createNodeField } = actions
+  fmImagesToRelative(node) // convert image paths for gatsby images
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+    const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,
-      value
-    });
+      value,
+    })
   }
-};
+}
 exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }) => {
-  const config = getConfig();
+  const config = getConfig()
 
   config.module.rules = [
     ...config.module.rules.filter(
@@ -71,9 +71,9 @@ exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }) => {
       test: /\.jsx?$/,
       exclude: modulePath =>
         /node_modules/.test(modulePath) &&
-        !/node_modules\/(swiper|dom7)/.test(modulePath)
-    }
-  ];
+        !/node_modules\/(swiper|dom7)/.test(modulePath),
+    },
+  ]
 
-  actions.replaceWebpackConfig(config);
-};
+  actions.replaceWebpackConfig(config)
+}

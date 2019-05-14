@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
-import { colors, breakpoints } from "../../assets/globalStyles";
+import { colors, breakpoints } from '../../assets/globalStyles'
 
 export class SectionTitle extends React.PureComponent {
   render() {
-    return <StyledSectionTitle>{this.props.title}</StyledSectionTitle>;
+    return <StyledSectionTitle>{this.props.title}</StyledSectionTitle>
   }
 }
 
@@ -19,7 +19,7 @@ const StyledSectionTitle = styled.h3`
   display: inline-block;
   margin-bottom: 80px;
   &:after {
-    content: "";
+    content: '';
     display: block;
     width: calc(60vw + 100px);
     height: 3px;
@@ -51,4 +51,4 @@ const StyledSectionTitle = styled.h3`
     font-size: 38px;
     letter-spacing: 10px;
   }
-`;
+`

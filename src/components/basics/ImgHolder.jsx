@@ -1,17 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import { darken } from "polished";
+import React from 'react'
+import styled from 'styled-components'
+import { darken } from 'polished'
 
-import { breakpoints } from "../../assets/globalStyles";
+import { breakpoints } from '../../assets/globalStyles'
 
-import { NonStretchedImg } from "./NonStretchedImg";
+import { NonStretchedImg } from './NonStretchedImg'
 
 export const ImgHolder = props => (
   <StyledImgHolder>
     <NonStretchedImg fluid={props.fluidImg} />
     <StyledImgHolderRibbon />
   </StyledImgHolder>
-);
+)
 
 const StyledImgHolder = styled.div`
   background: #f7f7f7;
@@ -20,18 +20,18 @@ const StyledImgHolder = styled.div`
   position: relative;
   margin: 10vh auto;
   &:after {
-    content: "";
+    content: '';
     width: 100%;
     height: 100%;
     display: block;
     margin: 10px 0 0 10px;
-    background: ${() => darken("0.1", "#f7f7f7")};
+    background: ${() => darken('0.1', '#f7f7f7')};
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
   }
-`;
+`
 const StyledImgHolderRibbon = styled.div`
   background: #f7f7f7;
   position: absolute;
@@ -48,4 +48,4 @@ const StyledImgHolderRibbon = styled.div`
     height: 100px;
     top: calc(50% - (100px / 2));
   }
-`;
+`

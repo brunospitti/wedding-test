@@ -1,39 +1,35 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
+import React from 'react'
+import styled, { keyframes } from 'styled-components'
 
-import { colors, mainContainer, breakpoints } from "../../assets/globalStyles";
-import { scrollToElement } from "../../assets/isElementVisible";
+import { colors, mainContainer, breakpoints } from '../../assets/globalStyles'
+import { scrollToElement } from '../../assets/isElementVisible'
 
-
-import { HTMLContent } from "../helpers/Content";
-import { SixPillsARow } from "./SixPillsARow";
+import { HTMLContent } from '../helpers/Content'
+import { SixPillsARow } from './SixPillsARow'
 
 export class WorkTile extends React.PureComponent {
   state = {
-    showJobDesc: false
-  };
+    showJobDesc: false,
+  }
 
   handleClick = bool => {
     let jobDescEl = document.querySelector(
       `#work-title-${this.props.workInfo.index}`
-    );
-    this.setState({ showJobDesc: bool });
-    if(bool) {
-      jobDescEl.style.display = "block";
+    )
+    this.setState({ showJobDesc: bool })
+    if (bool) {
+      jobDescEl.style.display = 'block'
     } else {
-      jobDescEl.style.display = "none";
-      scrollToElement('work');
+      jobDescEl.style.display = 'none'
+      scrollToElement('work')
     }
-    
-  };
+  }
 
   render() {
-    const { workInfo, workDesc } = this.props;
+    const { workInfo, workDesc } = this.props
     return (
       <StyledWorkTileHolder>
-        <StyledWorkMainInfo
-          id={`work-section-${workInfo.index}`}
-        >
+        <StyledWorkMainInfo id={`work-section-${workInfo.index}`}>
           <StyledWorkTitle>{workInfo.title}</StyledWorkTitle>
           <StyledWorkPeriod>{workInfo.period}</StyledWorkPeriod>
           <StyledWorkBriefDesc>
@@ -44,7 +40,7 @@ export class WorkTile extends React.PureComponent {
           </StyledButton>
         </StyledWorkMainInfo>
         <StyledJobDescriptionOuter
-          className={this.state.showJobDesc ? "show" : "hide"}
+          className={this.state.showJobDesc ? 'show' : 'hide'}
           id={`work-title-${workInfo.index}`}
         >
           <StyledJobDescription>
@@ -61,17 +57,17 @@ export class WorkTile extends React.PureComponent {
           </StyledJobDescription>
         </StyledJobDescriptionOuter>
       </StyledWorkTileHolder>
-    );
+    )
   }
 }
 
 const StyledWorkTileHolder = styled.div`
   margin-bottom: 100px;
-`;
+`
 const StyledWorkMainInfo = styled.div`
   position: relative;
   z-index: 0;
-`;
+`
 
 const StyledWorkTitle = styled.h4`
   font-size: 30px;
@@ -81,7 +77,7 @@ const StyledWorkTitle = styled.h4`
     font-size: 25px;
     line-height: 30px;
   }
-`;
+`
 
 const StyledWorkPeriod = styled.div`
   font-size: 22px;
@@ -90,11 +86,11 @@ const StyledWorkPeriod = styled.div`
   @media ${breakpoints.mobile} {
     font-size: 20px;
   }
-`;
+`
 
 const StyledWorkBriefDesc = styled.div`
   margin-bottom: 60px;
-`;
+`
 
 const StyledButton = styled.button`
   background: none;
@@ -103,7 +99,7 @@ const StyledButton = styled.button`
   font-weight: bold;
   color: ${colors.tertiary};
   cursor: pointer;
-`;
+`
 
 const expandsJobDesc = keyframes`
   0% {
@@ -118,7 +114,7 @@ const expandsJobDesc = keyframes`
     visibility: visible;
     padding: 70px 0;
   }
-`;
+`
 
 const compressJobDesc = keyframes`
   0% {
@@ -133,7 +129,7 @@ const compressJobDesc = keyframes`
     visibility: hidden;
     padding: 0;
   }
-`;
+`
 
 const StyledJobDescriptionOuter = styled.div`
   display: none;
@@ -154,7 +150,7 @@ const StyledJobDescriptionOuter = styled.div`
   &.hide {
     animation: ${compressJobDesc} 0.2s ease forwards;
   }
-`;
+`
 
 const StyledJobDescription = styled.div`
   ${mainContainer};
@@ -174,7 +170,7 @@ const StyledJobDescription = styled.div`
     &:not(.pills-holder) {
       li {
         &:before {
-          content: "-";
+          content: '-';
           display: inline-block;
           margin-right: 10px;
         }
@@ -184,4 +180,4 @@ const StyledJobDescription = styled.div`
       }
     }
   }
-`;
+`

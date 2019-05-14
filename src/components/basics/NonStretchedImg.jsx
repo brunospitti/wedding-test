@@ -1,5 +1,5 @@
-import React from "react"
-import Img from "gatsby-image"
+import React from 'react'
+import Img from 'gatsby-image'
 
 export const NonStretchedImg = props => {
   let normalizedProps = props
@@ -9,7 +9,7 @@ export const NonStretchedImg = props => {
       style: {
         ...(props.style || {}),
         maxWidth: props.fluid.presentationWidth,
-        margin: "0 auto", // Used to center the image
+        margin: '0 auto', // Used to center the image
       },
     }
   }

@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import { rgba } from "polished";
+import React from 'react'
+import styled from 'styled-components'
+import { rgba } from 'polished'
 
-import { colors, breakpoints } from "../assets/globalStyles";
+import { colors, breakpoints } from '../assets/globalStyles'
 
-import withMainContainer from "../hocs/withMainContainer";
-import { TextFromString } from "./helpers/Content";
-import { SectionTitle } from "./basics/SectionTitle";
-import { ContactTile } from "./basics/ContactTile";
-import { ContactForm } from "./basics/ContactForm";
+import withMainContainer from '../hocs/withMainContainer'
+import { TextFromString } from './helpers/Content'
+import { SectionTitle } from './basics/SectionTitle'
+import { ContactTile } from './basics/ContactTile'
+import { ContactForm } from './basics/ContactForm'
 
 export default class Contact extends React.PureComponent {
   ContactContent = () => (
@@ -17,9 +17,9 @@ export default class Contact extends React.PureComponent {
       <StyledFigure />
       <TextFromString
         text={this.props.sectionText}
-        style={{ marginBottom: "5vh" }}
+        style={{ marginBottom: '5vh' }}
       />
-      <div style={{ marginBottom: "10vh" }}>
+      <div style={{ marginBottom: '10vh' }}>
         {this.props.contactIntoTitles.map((contact, i) => (
           <ContactTile
             key={contact}
@@ -31,15 +31,15 @@ export default class Contact extends React.PureComponent {
       </div>
       <ContactForm />
     </React.Fragment>
-  );
+  )
 
   render() {
-    let ContactWithMainContainer = withMainContainer(this.ContactContent);
+    let ContactWithMainContainer = withMainContainer(this.ContactContent)
     return (
       <StyledMainSection className="homepage-section" id="lets-chat-section">
         <ContactWithMainContainer />
       </StyledMainSection>
-    );
+    )
   }
 }
 
@@ -52,7 +52,7 @@ const StyledMainSection = styled.section`
       letter-spacing: 20px;
     }
   }
-`;
+`
 
 const StyledFigure = styled.div`
   background: ${rgba(colors.secondary, 0.1)};
@@ -73,7 +73,7 @@ const StyledFigure = styled.div`
     top: 80px;
   }
   &:after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: 0;
@@ -82,4 +82,4 @@ const StyledFigure = styled.div`
     height: 280px;
     background: white;
   }
-`;
+`

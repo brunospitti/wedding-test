@@ -1,51 +1,51 @@
-import React from "react";
-import styled from "styled-components";
-import { rgba } from "polished";
+import React from 'react'
+import styled from 'styled-components'
+import { rgba } from 'polished'
 
-import { colors, breakpoints } from "../../assets/globalStyles";
+import { colors, breakpoints } from '../../assets/globalStyles'
 
-import { encode, autoExpand } from "../../assets/helpers.js"
+import { encode, autoExpand } from '../../assets/helpers.js'
 
-import { Button } from "./Button";
+import { Button } from './Button'
 
 export class ContactForm extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       sucess: false,
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: ""
-    };
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: '',
+    }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     autoExpand()
   }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+    this.setState({ [e.target.name]: e.target.value })
+  }
 
   handleSubmit = e => {
-    e.preventDefault();
-    const form = e.target;
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    e.preventDefault()
+    const form = e.target
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        "form-name": form.getAttribute("name"),
-        ...this.state
-      })
+        'form-name': form.getAttribute('name'),
+        ...this.state,
+      }),
     })
       .then(() => this.handleSucess())
-      .catch(err => this.handleError(err));
-  };
+      .catch(err => this.handleError(err))
+  }
 
   handleSucess = () => {
-    this.setState({sucess: true})
+    this.setState({ sucess: true })
   }
 
   handleError = err => {
@@ -54,27 +54,30 @@ export class ContactForm extends React.Component {
 
   handleFormBack = () => {
     this.setState({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-      sucess: false
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: '',
+      sucess: false,
     })
   }
 
   render() {
     return (
       <StyledContactFormHolder>
-        {this.state.sucess ?
+        {this.state.sucess ? (
           <StyledSuccess>
             <div>
               <span>Hi {this.state.name}, thanks for your contact!</span>
               I'll be in touch as soon as possible... ;)
-              <Button clickBehavior={this.handleFormBack} text="< Send another message"/>
+              <Button
+                clickBehavior={this.handleFormBack}
+                text="< Send another message"
+              />
             </div>
           </StyledSuccess>
-        :
+        ) : (
           <form
             name="contact"
             method="post"
@@ -87,25 +90,54 @@ export class ContactForm extends React.Component {
             <input type="hidden" name="form-name" value="contact" />
             <p hidden>
               <label>
-                Don’t fill this out:{" "}
+                Don’t fill this out:{' '}
                 <input name="bot-field" onChange={this.handleChange} />
               </label>
             </p>
-            <StyledInput required type="text" name="name" placeholder="Name (required)" onChange={this.handleChange} />
-            <StyledInput required type="email" name="email" placeholder="E-mail (required)" onChange={this.handleChange} />
-            <StyledInput type="text" name="phone" placeholder="Phone" onChange={this.handleChange} />
-            <StyledInput type="text" name="subject" placeholder="Subject" onChange={this.handleChange} />
-            <StyledTextarea required rows="1" name="message" placeholder="Message (required)" onChange={this.handleChange} />
-            { this.state.name != "" && this.state.email != ""  && this.state.message != "" &&
-              <Button buttonType="submit" text="Send"/>
-            }
+            <StyledInput
+              required
+              type="text"
+              name="name"
+              placeholder="Name (required)"
+              onChange={this.handleChange}
+            />
+            <StyledInput
+              required
+              type="email"
+              name="email"
+              placeholder="E-mail (required)"
+              onChange={this.handleChange}
+            />
+            <StyledInput
+              type="text"
+              name="phone"
+              placeholder="Phone"
+              onChange={this.handleChange}
+            />
+            <StyledInput
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              onChange={this.handleChange}
+            />
+            <StyledTextarea
+              required
+              rows="1"
+              name="message"
+              placeholder="Message (required)"
+              onChange={this.handleChange}
+            />
+            {this.state.name != '' &&
+              this.state.email != '' &&
+              this.state.message != '' && (
+                <Button buttonType="submit" text="Send" />
+              )}
           </form>
-        }
+        )}
       </StyledContactFormHolder>
-    );
+    )
   }
 }
-
 
 const StyledContactFormHolder = styled.div`
   margin-bottom: 10vh;
@@ -120,14 +152,14 @@ const StyledSuccess = styled.div`
   padding: 15px 20px;
   border: 2px solid ${colors.tertiary};
   border-left-width: 10px;
-  div{
+  div {
     font-size: 0.9em;
-    span{
+    span {
       display: block;
       color: ${colors.tertiary};
       font-size: 1.2em;
     }
-    button{
+    button {
       font-size: 0.9em;
       display: block;
       margin: 10px 0;
@@ -162,7 +194,7 @@ const StyledInput = styled.input`
     &:not(:nth-child(2n + 1)) {
       margin-left: 0;
     }
-	}
+  }
 `
 
 const StyledTextarea = styled.textarea`

@@ -1,8 +1,8 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { StaticQuery, graphql } from "gatsby";
+import React from 'react'
+import Helmet from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 
-import { GlobalStyles } from "../../assets/globalStyles";
+import { GlobalStyles } from '../../assets/globalStyles'
 
 const TemplateWrapper = ({ children }) => (
   <StaticQuery
@@ -114,6 +114,6 @@ const TemplateWrapper = ({ children }) => (
       </React.Fragment>
     )}
   />
-);
+)
 
-export default TemplateWrapper;
+export default TemplateWrapper

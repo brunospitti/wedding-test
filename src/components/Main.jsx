@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import Parallax from "react-rellax";
+import React from 'react'
+import styled from 'styled-components'
+import Parallax from 'react-rellax'
 
-import { colors, breakpoints } from "../assets/globalStyles";
-import SvgArrow from "../assets/img/geometric-shapes/arrow.svg";
+import { colors, breakpoints } from '../assets/globalStyles'
+import SvgArrow from '../assets/img/geometric-shapes/arrow.svg'
 
-import withMainContainer from "../hocs/withMainContainer";
-import { GroupedBorderTriangleUp } from "./shapes/GroupedBorderTriangleUp";
-import { BrunoSpitti } from "./basics/BrunoSpitti";
-import { Pill } from "./basics/Pill";
+import withMainContainer from '../hocs/withMainContainer'
+import { GroupedBorderTriangleUp } from './shapes/GroupedBorderTriangleUp'
+import { BrunoSpitti } from './basics/BrunoSpitti'
+import { Pill } from './basics/Pill'
 
 export default class Main extends React.PureComponent {
   MainContent = () => (
@@ -24,10 +24,10 @@ export default class Main extends React.PureComponent {
         <SvgArrow />
       </StyledSvgHolder>
     </React.Fragment>
-  );
+  )
 
   render() {
-    let MainWithMainContainer = withMainContainer(this.MainContent);
+    let MainWithMainContainer = withMainContainer(this.MainContent)
     return (
       <StyledMainSection className="homepage-section" id="home-section">
         <Parallax speed={-2}>
@@ -35,14 +35,14 @@ export default class Main extends React.PureComponent {
         </Parallax>
         <MainWithMainContainer />
       </StyledMainSection>
-    );
+    )
   }
 }
 
 const StyledMainSection = styled.section`
   height: 100vh;
   position: relative;
-`;
+`
 
 const StyledH2 = styled.h2`
   font-size: 45px;
@@ -65,7 +65,7 @@ const StyledH2 = styled.h2`
   @media ${breakpoints.mobileSmall} {
     font-size: 23px;
   }
-`;
+`
 
 const StyledUl = styled.ul`
   text-align: center;
@@ -104,7 +104,7 @@ const StyledUl = styled.ul`
       }
     }
   }
-`;
+`
 
 const StyledSvgHolder = styled.div`
   position: absolute;
@@ -121,4 +121,4 @@ const StyledSvgHolder = styled.div`
       width: 100px;
     }
   }
-`;
+`
