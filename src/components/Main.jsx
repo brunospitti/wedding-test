@@ -1,14 +1,16 @@
-import React from 'react'
-import styled from 'styled-components'
-import Parallax from 'react-rellax'
+import React from "react";
+import styled from "styled-components";
+import Parallax from "react-rellax";
 
-import { colors, breakpoints } from '../assets/globalStyles'
-import SvgArrow from '../assets/img/geometric-shapes/arrow.svg'
+import { colors, breakpoints } from "../assets/globalStyles";
+import SvgArrow from "../assets/img/geometric-shapes/arrow.svg";
+import StripedCircle from "../assets/img/geometric-shapes/striped-circle.svg";
 
-import withMainContainer from '../hocs/withMainContainer'
-import { GroupedBorderTriangleUp } from './shapes/GroupedBorderTriangleUp'
-import { BrunoSpitti } from './basics/BrunoSpitti'
-import { Pill } from './basics/Pill'
+import withMainContainer from "../hocs/withMainContainer";
+import withGradientFill from "../hocs/withGradientFill";
+import { GroupedBorderTriangleUp } from "./shapes/GroupedBorderTriangleUp";
+import { BrunoSpitti } from "./basics/BrunoSpitti";
+import { Pill } from "./basics/Pill";
 
 export default class Main extends React.PureComponent {
   MainContent = () => (
@@ -24,25 +26,45 @@ export default class Main extends React.PureComponent {
         <SvgArrow />
       </StyledSvgHolder>
     </React.Fragment>
-  )
+  );
+
+  svgGradientObj = {
+    topColor: colors.tertiary,
+    bottomColor: colors.secondary,
+    opacity: "0.3"
+  };
 
   render() {
-    let MainWithMainContainer = withMainContainer(this.MainContent)
+    let MainWithMainContainer = withMainContainer(this.MainContent);
+    let StripedCircleWithGradientFill = withGradientFill(StripedCircle);
     return (
       <StyledMainSection className="homepage-section" id="home-section">
-        <Parallax speed={-2}>
+        <Parallax speed={-3}>
           <GroupedBorderTriangleUp />
         </Parallax>
         <MainWithMainContainer />
+        <Parallax speed={4}>
+          <StyledGradient>
+            <StripedCircleWithGradientFill
+              svgGradientObj={this.svgGradientObj}
+            />
+          </StyledGradient>
+        </Parallax>
       </StyledMainSection>
-    )
+    );
   }
 }
 
 const StyledMainSection = styled.section`
   height: 100vh;
   position: relative;
-`
+  .grouped-border-triangle-up {
+    position: absolute;
+    top: 10vh;
+    left: 30px;
+    transform: rotateZ(67deg);
+  }
+`;
 
 const StyledH2 = styled.h2`
   font-size: 45px;
@@ -65,7 +87,7 @@ const StyledH2 = styled.h2`
   @media ${breakpoints.mobileSmall} {
     font-size: 23px;
   }
-`
+`;
 
 const StyledUl = styled.ul`
   text-align: center;
@@ -104,7 +126,7 @@ const StyledUl = styled.ul`
       }
     }
   }
-`
+`;
 
 const StyledSvgHolder = styled.div`
   position: absolute;
@@ -121,4 +143,12 @@ const StyledSvgHolder = styled.div`
       width: 100px;
     }
   }
-`
+`;
+
+const StyledGradient = styled.div`
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  bottom: 30px;
+  right: -25px;
+`;

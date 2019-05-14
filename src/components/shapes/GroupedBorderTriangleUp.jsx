@@ -1,25 +1,20 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
-import SvgBorderTriangleUp from '../../assets/img/geometric-shapes/border-triangle-up.svg'
+import SvgBorderTriangleUp from "../../assets/img/geometric-shapes/border-triangle-up.svg";
 
-import { colors } from '../../assets/globalStyles'
+import { colors } from "../../assets/globalStyles";
 
 export const GroupedBorderTriangleUp = () => (
-  <StyledSvgsHolder>
+  <StyledSvgsHolder className="grouped-border-triangle-up">
     <SvgBorderTriangleUp id="svg-grouped-border-triangle-up-1" />
     <SvgBorderTriangleUp id="svg-grouped-border-triangle-up-2" />
     <SvgBorderTriangleUp id="svg-grouped-border-triangle-up-3" />
     <SvgBorderTriangleUp id="svg-grouped-border-triangle-up-4" />
   </StyledSvgsHolder>
-)
+);
 
 const StyledSvgsHolder = styled.div`
-  position: absolute;
-  top: 10vh;
-  left: 0;
-  transform: rotateZ(67deg);
-
   svg {
     position: absolute;
     width: 70px;
@@ -37,4 +32,4 @@ const StyledSvgsHolder = styled.div`
       top: -180px;
     }
   }
-`
+`;
