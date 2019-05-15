@@ -24,6 +24,7 @@ technologies:
   - GraphQL
   - Netlify CMS
   - Styled Components
+  - Rellax
   - Eslint
   - Babel
   - Prettier
