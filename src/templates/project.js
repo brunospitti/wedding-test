@@ -1,25 +1,28 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import styled from 'styled-components'
-import { darken } from 'polished'
+import React from "react";
+import Helmet from "react-helmet";
+import { graphql } from "gatsby";
+import styled from "styled-components";
+import { darken } from "polished";
+import Parallax from "react-rellax";
 
-import { colors, breakpoints } from '../assets/globalStyles'
+import SvgStripes from "../assets/img/geometric-shapes/stripes.svg";
 
-import withMainContainer from '../hocs/withMainContainer'
-import Layout from '../components/helpers/Layout'
-import { TextFromString } from '../components/helpers/Content'
-import { ImgHolder } from '../components/basics/ImgHolder'
-import { SixPillsARow } from '../components/basics/SixPillsARow'
-import { Header } from '../components/basics/Header'
-import { ProjectPageTitle } from '../components/basics/ProjectPageTitle'
-import { Logo } from '../components/basics/Logo'
+import { colors, breakpoints } from "../assets/globalStyles";
+
+import withMainContainer from "../hocs/withMainContainer";
+import Layout from "../components/helpers/Layout";
+import { TextFromString } from "../components/helpers/Content";
+import { ImgHolder } from "../components/basics/ImgHolder";
+import { SixPillsARow } from "../components/basics/SixPillsARow";
+import { Header } from "../components/basics/Header";
+import { ProjectPageTitle } from "../components/basics/ProjectPageTitle";
+import { Footer } from "../components/basics/Footer";
 
 export const ProjectTemplate = ({ helmet, project, projectImgs }) => {
   let ProjectPageContent = () => (
     <React.Fragment>
       <StyledProjectPage>
-        {helmet || ''}
+        {helmet || ""}
 
         <Header pageTitle={project.title} />
         <StyledTextBlock>
@@ -27,7 +30,7 @@ export const ProjectTemplate = ({ helmet, project, projectImgs }) => {
           <TextFromString text={project.description} />
         </StyledTextBlock>
 
-        {projectImg != '' && <ImgHolder fluidImg={projectImg.node.fluid} />}
+        {projectImg != "" && <ImgHolder fluidImg={projectImg.node.fluid} />}
 
         <StyledTextBlock>
           <ProjectPageTitle title="What I Learned" />
@@ -58,26 +61,24 @@ export const ProjectTemplate = ({ helmet, project, projectImgs }) => {
             )}
           </StyledTextBlock>
         )}
-
-        <Logo />
       </StyledProjectPage>
     </React.Fragment>
-  )
+  );
 
-  let ProjectPageWithMainContainer = withMainContainer(ProjectPageContent)
-  let projectScreenshot = project.screenshot
+  let ProjectPageWithMainContainer = withMainContainer(ProjectPageContent);
+  let projectScreenshot = project.screenshot;
   let projectImg =
     projectScreenshot != null
       ? projectImgs.filter(
           img => img.node.fluid.originalName === projectScreenshot.relativePath
         )[0]
-      : ''
-  return <ProjectPageWithMainContainer />
-}
+      : "";
+  return <ProjectPageWithMainContainer />;
+};
 
 const Project = ({ data }) => {
-  const project = data.project.frontmatter
-  const projectImgs = data.projectImgs.edges
+  const project = data.project.frontmatter;
+  const projectImgs = data.projectImgs.edges;
 
   return (
     <Layout>
@@ -91,9 +92,13 @@ const Project = ({ data }) => {
           </Helmet>
         }
       />
+      <Parallax speed={3}>
+        <StyledSvgStripes />
+      </Parallax>
+      <Footer />
     </Layout>
-  )
-}
+  );
+};
 
 const StyledProjectPage = styled.section`
   h1 {
@@ -103,7 +108,7 @@ const StyledProjectPage = styled.section`
     width: 85%;
     margin: 0 auto 2vh;
   }
-`
+`;
 
 const StyledTextBlock = styled.div`
   margin: 8vh 0;
@@ -111,7 +116,7 @@ const StyledTextBlock = styled.div`
     li {
     }
   }
-`
+`;
 
 const StyledATag = styled.a`
   padding: 12px 30px 15px;
@@ -122,7 +127,7 @@ const StyledATag = styled.a`
   margin-top: 10px;
   display: inline-block;
   background: ${props => (props.tertiary ? colors.tertiary : colors.secondary)};
-  margin-left: ${props => props.marginLeft && '50px'};
+  margin-left: ${props => props.marginLeft && "50px"};
   transition: 0.25s all ease;
   &:hover {
     background: ${props =>
@@ -134,9 +139,17 @@ const StyledATag = styled.a`
     width: 100%;
     margin: 10px 0 !important;
   }
-`
+`;
 
-export default Project
+const StyledSvgStripes = styled(SvgStripes)`
+  height: 120px;
+  position: absolute;
+  transform: rotate(90deg);
+  right: 40px;
+  fill: ${colors.greyLight};
+`;
+
+export default Project;
 
 export const pageQuery = graphql`
   query ProjectByID($id: String!) {
@@ -171,4 +184,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

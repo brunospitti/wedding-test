@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import Parallax from "react-rellax";
 
-import { breakpoints } from "../assets/globalStyles";
+import { breakpoints, colors } from "../assets/globalStyles";
+import Circle from "../assets/img/geometric-shapes/circle.svg";
+import BorderPlus from "../assets/img/geometric-shapes/border-plus.svg";
+import BorderCube from "../assets/img/geometric-shapes/border-cube.svg";
 
 import withMainContainer from "../hocs/withMainContainer";
 import { SectionTitle } from "./basics/SectionTitle";
@@ -20,6 +24,18 @@ export default class Projects extends React.PureComponent {
 
   ProjectsContent = () => (
     <React.Fragment>
+      <React.Fragment>
+        <Parallax speed={1}>
+          <StyledCircle />
+        </Parallax>
+        <Parallax speed={2}>
+          <StyledBorderPlus />
+        </Parallax>
+        <Parallax speed={3}>
+          <StyledBorderCube />
+        </Parallax>
+      </React.Fragment>
+
       <SectionTitle title={this.props.sectionTitle} />
       <StyledTextFromString text={this.props.sectionText} />
       <StyledProjectTilesOuter>
@@ -61,6 +77,41 @@ export default class Projects extends React.PureComponent {
     );
   }
 }
+
+const StyledCircle = styled(Circle)`
+  width: 115px;
+  position: absolute;
+  top: 150px;
+  left: -62px;
+  fill: ${colors.greyLight};
+  @media ${breakpoints.mobile} {
+    transform: scale(0.7);
+  }
+`;
+
+const StyledBorderPlus = styled(BorderPlus)`
+  width: 25px;
+  position: absolute;
+  top: 1050px;
+  right: -60px;
+  path {
+    stroke: ${colors.secondary};
+  }
+  @media ${breakpoints.tablet} {
+    right: -20px;
+  }
+`;
+
+const StyledBorderCube = styled(BorderCube)`
+  width: 90px;
+  position: absolute;
+  top: 1550px;
+  left: -50px;
+  fill: ${colors.tertiary};
+  @media ${breakpoints.mobile} {
+    transform: scale(0.8);
+  }
+`;
 
 const StyledMainSection = styled.section`
   position: relative;

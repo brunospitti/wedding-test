@@ -63,6 +63,12 @@ const StyledMainSection = styled.section`
     top: 10vh;
     left: 30px;
     transform: rotateZ(67deg);
+    @media ${breakpoints.mobile} {
+      transform: rotateZ(67deg) scale(0.6);
+      top: 8vh;
+      left: 20px;
+      opacity: 0.5;
+    }
   }
 `;
 
@@ -131,8 +137,17 @@ const StyledUl = styled.ul`
 const StyledSvgHolder = styled.div`
   position: absolute;
   text-align: center;
-  width: 100%;
+  width: calc(100% - 80px);
   bottom: 0;
+  @media ${breakpoints.desktopSmall} {
+    width: calc(100% - 80px);
+  }
+  @media ${breakpoints.tablet} {
+    width: calc(100% - 40px);
+  }
+  @media ${breakpoints.mobile} {
+    width: calc(100% - 20px);
+  }
   svg {
     fill: ${colors.secondary};
     width: 140px;
@@ -151,4 +166,8 @@ const StyledGradient = styled.div`
   height: 150px;
   bottom: 30px;
   right: -25px;
+  @media ${breakpoints.mobile} {
+    transform: scale(0.6);
+    right: -50px;
+  }
 `;

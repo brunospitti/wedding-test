@@ -1,18 +1,18 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const colors = {
-  primary: '#e69191',
-  secondary: '#a593f2',
-  tertiary: '#6fe2a5',
-  greyDark: '#535353',
-  greyLight: '#eaeaea',
-}
+  primary: "#e69191",
+  secondary: "#a593f2",
+  tertiary: "#6fe2a5",
+  greyDark: "#535353",
+  greyLight: "#eaeaea"
+};
 
 export const fontFamily =
-  "'Space Mono', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', 'segoe ui', helvetica, roboto, noto, arial, sans-serif"
+  "'Space Mono', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', 'segoe ui', helvetica, roboto, noto, arial, sans-serif";
 
 export const fontFamilyTitle =
-  "'Archivo Black', 'Space Mono', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', 'segoe ui', helvetica, roboto, noto, arial, sans-serif"
+  "'Archivo Black', 'Space Mono', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', 'segoe ui', helvetica, roboto, noto, arial, sans-serif";
 
 export const breakpoints = {
   desktop: `(min-width: 1260px)`,
@@ -20,8 +20,8 @@ export const breakpoints = {
   tablet: `(max-width: 1023px)`,
   mobile: `(max-width: 767px)`,
   mobileSmall: `(max-width: 400px)`,
-  workPillFixes: `(max-width: 1360px) and (min-width: 1260px)`,
-}
+  workPillFixes: `(max-width: 1360px) and (min-width: 1260px)`
+};
 
 export const mainContainer = `
 	height: 100%;
@@ -36,7 +36,14 @@ export const mainContainer = `
 	@media ${breakpoints.mobile} {
 		padding: 0 20px;
 	}
-`
+`;
+export const outerContainer = `
+	height: 100%;
+	width: 100%;
+	max-width: 1920px;
+	margin: 0 auto;
+	position: relative;
+`;
 
 export const GlobalStyles = createGlobalStyle`
     // css reset
@@ -113,4 +120,4 @@ export const GlobalStyles = createGlobalStyle`
 					line-height: 24px;
 				}
     }
-`
+`;
