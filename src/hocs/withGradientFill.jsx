@@ -1,5 +1,5 @@
+/* eslint-disable react/display-name */
 import React from "react";
-import styled from "styled-components";
 
 export default function withGradientFill(WrappedComponent) {
   return class extends React.Component {
@@ -13,7 +13,7 @@ export default function withGradientFill(WrappedComponent) {
           <svg
             style={{ width: 0, height: 0, position: "absolute" }}
             aria-hidden="true"
-            focusable="false"
+            hocks="false"
           >
             <linearGradient id={this.gradientId} x2="1" y2="1">
               <stop offset="0%" stopColor={this.svgGradientObj.topColor} />

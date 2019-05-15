@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
-import { rgba } from 'polished'
+import React from "react";
+import styled from "styled-components";
+import { rgba } from "polished";
 
-import { colors, breakpoints } from '../assets/globalStyles'
+import { colors, breakpoints } from "../assets/globalStyles";
 
-import withMainContainer from '../hocs/withMainContainer'
-import { SectionTitle } from './basics/SectionTitle'
-import { TextFromString } from './helpers/Content'
+import withMainContainer from "../hocs/withMainContainer";
+import { SectionTitle } from "./basics/SectionTitle";
+import { TextFromString } from "./helpers/Content";
 
 export default class Hello extends React.PureComponent {
   HelloContent = () => (
@@ -15,22 +15,22 @@ export default class Hello extends React.PureComponent {
       <StyledFigure />
       <StyledTextFromString text={this.props.sectionText} />
     </React.Fragment>
-  )
+  );
 
   render() {
-    let HelloWithMainContainer = withMainContainer(this.HelloContent)
+    let HelloWithMainContainer = withMainContainer(this.HelloContent);
     return (
       <StyledMainSection className="homepage-section" id="about-me-section">
         <HelloWithMainContainer />
       </StyledMainSection>
-    )
+    );
   }
 }
 
 const StyledMainSection = styled.section`
   position: relative;
   padding: 10vh 0 5vh;
-`
+`;
 
 const StyledFigure = styled.div`
   width: 360px;
@@ -45,11 +45,11 @@ const StyledFigure = styled.div`
     height: 200px;
     margin-top: -40px;
   }
-`
+`;
 
 const StyledTextFromString = styled(TextFromString)`
   margin-bottom: 35vh;
   @media ${breakpoints.mobile} {
     margin-bottom: 25vh;
   }
-`
+`;

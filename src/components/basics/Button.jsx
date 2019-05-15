@@ -1,39 +1,39 @@
-import React from 'react'
-import styled from 'styled-components'
-import { lighten } from 'polished'
+import React from "react";
+import styled from "styled-components";
+import { lighten } from "polished";
 
-import { colors } from '../../assets/globalStyles'
+import { colors } from "../../assets/globalStyles";
 
 export class Button extends React.PureComponent {
   getMainColor = () => {
-    let mainColor = colors.greyLight
+    let mainColor = colors.greyLight;
     if (this.props.primary) {
-      mainColor = colors.primary
+      mainColor = colors.primary;
     } else if (this.props.secondary) {
-      mainColor = colors.secondary
+      mainColor = colors.secondary;
     } else if (this.props.white) {
-      mainColor = '#ffffff'
+      mainColor = "#ffffff";
     }
 
-    return mainColor
-  }
+    return mainColor;
+  };
 
   render() {
     return (
       <StyledButton
-        type={this.props.buttonType || 'button'}
+        type={this.props.buttonType || "button"}
         onClick={this.props.clickBehavior}
         mainColor={this.getMainColor()}
         className={this.props.className}
       >
         {this.props.text}
       </StyledButton>
-    )
+    );
   }
 }
 
 // styled components
-const StyledButton = styled('button')`
+const StyledButton = styled("button")`
   cursor: pointer;
   background: ${props => props.mainColor};
   border: 0;
@@ -45,4 +45,4 @@ const StyledButton = styled('button')`
   &:hover {
     background: ${props => lighten(0.04, props.mainColor)};
   }
-`
+`;

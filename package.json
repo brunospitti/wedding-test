@@ -9,7 +9,8 @@
     "build": "npm run clean && gatsby build",
     "dev": "npm run clean && gatsby develop",
     "serve": "gatsby serve",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js, ,src/**/*.jsx}\"",
+    "format": "prettier --write \"{gatsby-*.js,src/**/*.js, ,src/**/*.jsx}\"",
+    "lint": "eslint \"{gatsby-*.js,src/**/*.js, ,src/**/*.jsx}\" --quiet",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -45,6 +46,11 @@
   },
   "devDependencies": {
     "babel-preset-gatsby": "^0.1.11",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
     "prettier": "^1.15.3",
     "rimraf": "^2.6.2",
     "svg-react-loader": "^0.4.6"

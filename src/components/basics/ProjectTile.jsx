@@ -1,8 +1,8 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import styled from 'styled-components'
+import React from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
 
-import { colors, breakpoints } from '../../assets/globalStyles'
+import { colors, breakpoints } from "../../assets/globalStyles";
 
 export class ProjectTile extends React.PureComponent {
   render() {
@@ -18,7 +18,7 @@ export class ProjectTile extends React.PureComponent {
           <Link to={this.props.projectURL}>Click here to read more.</Link>
         </StyledLinkHolder>
       </StyledProjectHolder>
-    )
+    );
   }
 }
 
@@ -63,7 +63,7 @@ const StyledProjectHolder = styled.div`
     margin-left: 14%;
   }
   &:after {
-    content: '';
+    content: "";
     display: block;
     height: 50px;
     border-top: none !important;
@@ -83,7 +83,7 @@ const StyledProjectHolder = styled.div`
     width: 100%;
     margin-left: 0 !important;
   }
-`
+`;
 
 const StyledProjectTitle = styled.h4`
   margin-bottom: 30px;
@@ -97,7 +97,7 @@ const StyledProjectTitle = styled.h4`
       font-size: 22px;
     }
   }
-`
+`;
 
 const StyledProjectBriefDesc = styled.div`
   font-size: 18px;
@@ -107,7 +107,7 @@ const StyledProjectBriefDesc = styled.div`
     font-size: 15px;
     line-height: 18px;
   }
-`
+`;
 
 const StyledLinkHolder = styled.div`
   text-align: center;
@@ -123,4 +123,4 @@ const StyledLinkHolder = styled.div`
       font-size: 15px;
     }
   }
-`
+`;

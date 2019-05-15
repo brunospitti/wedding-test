@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
-import { colors, breakpoints } from '../../assets/globalStyles'
+import { colors, breakpoints } from "../../assets/globalStyles";
 
 export class ContactTile extends React.PureComponent {
   render() {
@@ -15,7 +15,7 @@ export class ContactTile extends React.PureComponent {
           </StyledContactBriefDesc>
         </a>
       </StyledContactLinkHolder>
-    )
+    );
   }
 }
 
@@ -54,7 +54,7 @@ const StyledContactLinkHolder = styled.div`
   a {
     text-decoration: none;
   }
-`
+`;
 
 const StyledContactBox = styled.div`
   display: block;
@@ -66,7 +66,7 @@ const StyledContactBox = styled.div`
   margin-bottom: 60px;
   z-index: -1;
   &:after {
-    content: '';
+    content: "";
     display: block;
     height: 20px;
     border: 3px solid ${colors.secondary};
@@ -77,7 +77,7 @@ const StyledContactBox = styled.div`
     bottom: -3px;
     z-index: 1;
   }
-`
+`;
 
 const StyledContactTitle = styled.h4`
   padding: 20px 0 0 20px;
@@ -89,7 +89,7 @@ const StyledContactTitle = styled.h4`
   @media ${breakpoints.mobile} {
     font-size: 20px;
   }
-`
+`;
 
 const StyledContactBriefDesc = styled.div`
   padding-left: 20px;
@@ -98,4 +98,4 @@ const StyledContactBriefDesc = styled.div`
   @media ${breakpoints.desktopSmall} {
     font-size: 16px;
   }
-`
+`;

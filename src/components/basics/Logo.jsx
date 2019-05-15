@@ -1,7 +1,7 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import styled from 'styled-components'
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
+import styled from "styled-components";
 
 export const Logo = () => (
   <StaticQuery
@@ -22,9 +22,9 @@ export const Logo = () => (
       </StyledLogoHolder>
     )}
   />
-)
+);
 
 const StyledLogoHolder = styled.div`
   padding: 50px;
   text-align: center;
-`
+`;

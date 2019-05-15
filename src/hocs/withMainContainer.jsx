@@ -1,7 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+/* eslint-disable react/display-name */
+import React from "react";
+import styled from "styled-components";
 
-import { mainContainer } from '../assets/globalStyles'
+import { mainContainer } from "../assets/globalStyles";
 
 export default function withMainContainer(WrappedComponent) {
   return class extends React.Component {
@@ -10,11 +11,11 @@ export default function withMainContainer(WrappedComponent) {
         <StyledContainer>
           <WrappedComponent {...this.props} />
         </StyledContainer>
-      )
+      );
     }
-  }
+  };
 }
 
 const StyledContainer = styled.div`
   ${mainContainer};
-`
+`;

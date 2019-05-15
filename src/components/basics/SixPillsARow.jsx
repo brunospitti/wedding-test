@@ -1,17 +1,17 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
-import { Pill } from './Pill'
+import { Pill } from "./Pill";
 
-import { breakpoints } from '../../assets/globalStyles'
+import { breakpoints } from "../../assets/globalStyles";
 
 export const SixPillsARow = props => (
   <StyledPillsHolder className="pills-holder">
-    {props.pills.map((pill, i) => (
+    {props.pills.map(pill => (
       <Pill primary key={pill} pill={pill} />
     ))}
   </StyledPillsHolder>
-)
+);
 
 const StyledPillsHolder = styled.ul`
   margin-bottom: 60px;
@@ -62,4 +62,4 @@ const StyledPillsHolder = styled.ul`
       }
     }
   }
-`
+`;

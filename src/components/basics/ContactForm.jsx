@@ -1,67 +1,66 @@
-import React from 'react'
-import styled from 'styled-components'
-import { rgba } from 'polished'
+import React from "react";
+import styled from "styled-components";
 
-import { colors, breakpoints } from '../../assets/globalStyles'
+import { colors, breakpoints } from "../../assets/globalStyles";
 
-import { encode, autoExpand } from '../../assets/helpers.js'
+import { encode, autoExpand } from "../../assets/helpers.js";
 
-import { Button } from './Button'
+import { Button } from "./Button";
 
 export class ContactForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       sucess: false,
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
-    }
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: ""
+    };
   }
 
   componentDidMount() {
-    autoExpand()
+    autoExpand();
   }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   handleSubmit = e => {
-    e.preventDefault()
-    const form = e.target
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    e.preventDefault();
+    const form = e.target;
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        'form-name': form.getAttribute('name'),
-        ...this.state,
-      }),
+        "form-name": form.getAttribute("name"),
+        ...this.state
+      })
     })
       .then(() => this.handleSucess())
-      .catch(err => this.handleError(err))
-  }
+      .catch(err => this.handleError(err));
+  };
 
   handleSucess = () => {
-    this.setState({ sucess: true })
-  }
+    this.setState({ sucess: true });
+  };
 
   handleError = err => {
-    console.log(`Error -> ${err}`)
-  }
+    console.log(`Error -> ${err}`);
+  };
 
   handleFormBack = () => {
     this.setState({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
-      sucess: false,
-    })
-  }
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+      sucess: false
+    });
+  };
 
   render() {
     return (
@@ -70,7 +69,7 @@ export class ContactForm extends React.Component {
           <StyledSuccess>
             <div>
               <span>Hi {this.state.name}, thanks for your contact!</span>
-              I'll be in touch as soon as possible... ;)
+              I`&apos;`,ll be in touch as soon as possible... ;)
               <Button
                 clickBehavior={this.handleFormBack}
                 text="< Send another message"
@@ -90,7 +89,7 @@ export class ContactForm extends React.Component {
             <input type="hidden" name="form-name" value="contact" />
             <p hidden>
               <label>
-                Don’t fill this out:{' '}
+                Don’t fill this out:{" "}
                 <input name="bot-field" onChange={this.handleChange} />
               </label>
             </p>
@@ -127,15 +126,15 @@ export class ContactForm extends React.Component {
               placeholder="Message (required)"
               onChange={this.handleChange}
             />
-            {this.state.name != '' &&
-              this.state.email != '' &&
-              this.state.message != '' && (
+            {this.state.name != "" &&
+              this.state.email != "" &&
+              this.state.message != "" && (
                 <Button buttonType="submit" text="Send" />
               )}
           </form>
         )}
       </StyledContactFormHolder>
-    )
+    );
   }
 }
 
@@ -144,7 +143,7 @@ const StyledContactFormHolder = styled.div`
   @media ${breakpoints.tablet} {
     margin-top: -8vh;
   }
-`
+`;
 
 const StyledSuccess = styled.div`
   background: #fcfcfc;
@@ -169,7 +168,7 @@ const StyledSuccess = styled.div`
       padding: 10px;
     }
   }
-`
+`;
 
 const sharedStyles = `
   border: 0;
@@ -181,7 +180,7 @@ const sharedStyles = `
     opacity: 1;
     font-size: 0.9em;
   }
-`
+`;
 
 const StyledInput = styled.input`
   width: 46%;
@@ -195,11 +194,11 @@ const StyledInput = styled.input`
       margin-left: 0;
     }
   }
-`
+`;
 
 const StyledTextarea = styled.textarea`
   resize: vertical;
   width: 100%;
   min-height: 50px;
   ${sharedStyles};
-`
+`;
