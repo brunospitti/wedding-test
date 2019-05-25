@@ -69,7 +69,7 @@ export class ContactForm extends React.Component {
           <StyledSuccess>
             <div>
               <span>Hi {this.state.name}, thanks for your contact!</span>
-              I`&apos;`,ll be in touch as soon as possible... ;)
+              I&apos;ll be in touch as soon as possible ;)
               <Button
                 clickBehavior={this.handleFormBack}
                 text="< Send another message"
