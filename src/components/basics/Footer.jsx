@@ -4,15 +4,15 @@ import styled from "styled-components";
 import { Logo } from "./Logo";
 import { FooterShapes } from "../shapes/FooterShapes";
 
-export const Footer = () => (
-  <StyledFooter>
-    <Logo />
+export const Footer = ({ footerLogo }) => (
+  <StyledFooter height={footerLogo ? "506px" : "260px"}>
+    {footerLogo && <Logo />}
     <FooterShapes />
   </StyledFooter>
 );
 
 const StyledFooter = styled.div`
   display: block;
-  height: 506px;
+  height: ${props => props.height};
   overflow: hidden;
 `;

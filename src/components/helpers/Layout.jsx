@@ -4,8 +4,9 @@ import { StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
 import { GlobalStyles, outerContainer } from "../../assets/globalStyles";
+import { Footer } from "../basics/Footer";
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ children, footerLogo }) => (
   <StaticQuery
     query={graphql`
       query HeadingQuery {
@@ -111,6 +112,7 @@ const TemplateWrapper = ({ children }) => (
           />
         </Helmet>
         <StyledLayout>{children}</StyledLayout>
+        <Footer footerLogo={footerLogo} />
         <GlobalStyles />
       </React.Fragment>
     )}

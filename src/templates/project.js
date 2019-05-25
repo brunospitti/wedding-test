@@ -16,7 +16,6 @@ import { ImgHolder } from "../components/basics/ImgHolder";
 import { SixPillsARow } from "../components/basics/SixPillsARow";
 import { Header } from "../components/basics/Header";
 import { ProjectPageTitle } from "../components/basics/ProjectPageTitle";
-import { Footer } from "../components/basics/Footer";
 
 export const ProjectTemplate = ({ helmet, project, projectImgs }) => {
   let ProjectPageContent = () => (
@@ -81,7 +80,7 @@ const Project = ({ data }) => {
   const projectImgs = data.projectImgs.edges;
 
   return (
-    <Layout>
+    <Layout footerLogo={true}>
       <ProjectTemplate
         project={project}
         projectImgs={projectImgs}
@@ -95,7 +94,6 @@ const Project = ({ data }) => {
       <Parallax speed={3}>
         <StyledSvgStripes />
       </Parallax>
-      <Footer />
     </Layout>
   );
 };

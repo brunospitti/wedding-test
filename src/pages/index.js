@@ -5,7 +5,6 @@ import { graphql } from "gatsby";
 import Layout from "../components/helpers/Layout";
 import { isElementVisible } from "../assets/isElementVisible";
 
-import { Footer } from "../components/basics/Footer";
 import { Menu } from "../components/Menu";
 import Main from "../components/Main";
 import Hello from "../components/Hello";
@@ -27,7 +26,7 @@ export default class IndexPage extends React.PureComponent {
     const workExperiences = data.workExperiences.edges;
 
     return (
-      <Layout>
+      <Layout footerLogo={true}>
         <Menu sectionTitles={generalInfo.sectiontitles} />
         <Main mainTech={generalInfo.mainTech} />
         <Hello
@@ -50,7 +49,6 @@ export default class IndexPage extends React.PureComponent {
           contactIntoInfo={generalInfo.contactIntoInfo}
           contactIntoURL={generalInfo.contactIntoURL}
         />
-        <Footer />
       </Layout>
     );
   }
