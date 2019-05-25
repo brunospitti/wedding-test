@@ -1,7 +1,7 @@
 ---
 templateKey: workExperience
 index: '1'
-title: Cartrawler - Software Engineer (Front-end)
+title: CarTrawler - Software Engineer (Front-end)
 period: 09/2017 - Present
 brief_description: >-
   Development of landing pages and widgets; agile software development; fast
