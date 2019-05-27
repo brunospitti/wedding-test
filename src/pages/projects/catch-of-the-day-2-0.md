@@ -26,13 +26,13 @@ what_i_learned: >-
   skills and general knowledge of the Framework and its environment.
 technologies:
   - React
+  - Firebase
+  - SCSS
   - React Create App
   - React Router
   - React Transition
   - Prop Types
-  - Firebase
   - Re-base
-  - SCSS
   - Github
   - Netlify
 live_url: 'https://catch-of-the-day-2-0.brunospitti.com'
