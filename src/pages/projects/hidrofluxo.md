@@ -26,11 +26,11 @@ what_i_learned: >-
 technologies:
   - Arduino
   - Bluetooth receptor
+  - Javascript
   - Wifi receptor
   - Prototyping sensors
   - HTML
   - CSS
-  - Javascript
   - Phonegap
   - Cordova
   - Github
