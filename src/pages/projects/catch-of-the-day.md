@@ -28,13 +28,13 @@ what_i_learned: >-
   required for a smooth user experience.
 technologies:
   - React
+  - Firebase
+  - Stylus
   - React Create App
   - React Router
   - React Transition
   - Prop Types
-  - Firebase
   - Re-base
-  - Stylus
 live_url: 'https://catch-of-the-day.brunospitti.com'
 github_url: 'https://github.com/brunospitti/catch-of-the-day'
 ---
