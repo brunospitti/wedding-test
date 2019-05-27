@@ -29,9 +29,9 @@ what_i_learned: >-
 technologies:
   - React
   - Redux
-  - Firebase Database
-  - Firebase Authentication
+  - Firebase
   - Styled Components
+  - Firebase Authentication
   - Loadable
   - Prop Types
   - Eslint
