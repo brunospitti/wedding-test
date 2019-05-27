@@ -28,8 +28,7 @@ hello: >-
   designs and experiences to the user.
 projects: >-
   I’ve always strived to work with the newest technologies and best practices
-  throughout my career. My main focus has been with React, Redux, Javascript,
-  HTML and CSS/SCSS.
+  throughout my career.
 
 
   I’ve added some of my recent projects below. Each project has a live demo link
