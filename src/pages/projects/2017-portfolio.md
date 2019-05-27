@@ -23,9 +23,9 @@ what_i_learned: >-
   e-mail. (not in place anymore as I changed the server and would have to remove
   PHP's functionality)
 technologies:
+  - Javascript
   - HTML
   - CSS
-  - Javascript
   - Jquery
   - Parallax
   - PHP
