@@ -24,9 +24,10 @@ hello: >-
   Universities in Brazil, Anhembi Morumbi.
 
 
-  I love building websites from scratch as well as improving an existing one. I
-  believe that the analysis of data extracted from the website is crucial to
-  make more assertive designs and experiences to the user.
+  I love building features and scalable components for websites as well as
+  working on projects with a team of developers. I believe that the analysis of
+  data extracted from the website is crucial to make more assertive designs and
+  experiences to the user.
 projects: >-
   I am a big believer that a software engineer has to always be in touch with
   the newest technologies and best practices.
