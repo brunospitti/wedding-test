@@ -5,7 +5,6 @@ import Parallax from "react-rellax";
 import { breakpoints, colors } from "../assets/globalStyles";
 import Circle from "../assets/img/geometric-shapes/circle.svg";
 import BorderPlus from "../assets/img/geometric-shapes/border-plus.svg";
-import BorderCube from "../assets/img/geometric-shapes/border-cube.svg";
 
 import withMainContainer from "../hocs/withMainContainer";
 import { SectionTitle } from "./basics/SectionTitle";
@@ -30,9 +29,6 @@ export default class Projects extends React.PureComponent {
         </Parallax>
         <Parallax speed={2}>
           <StyledBorderPlus />
-        </Parallax>
-        <Parallax speed={3}>
-          <StyledBorderCube />
         </Parallax>
       </React.Fragment>
 
@@ -100,17 +96,6 @@ const StyledBorderPlus = styled(BorderPlus)`
   }
   @media ${breakpoints.tablet} {
     right: -20px;
-  }
-`;
-
-const StyledBorderCube = styled(BorderCube)`
-  width: 90px;
-  position: absolute;
-  top: 1550px;
-  left: -50px;
-  fill: ${colors.tertiary};
-  @media ${breakpoints.mobile} {
-    transform: scale(0.8);
   }
 `;
 
