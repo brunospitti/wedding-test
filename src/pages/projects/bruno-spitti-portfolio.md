@@ -1,6 +1,6 @@
 ---
 templateKey: project
-index: '2'
+index: 9
 title: Bruno Spitti Portfolio
 brief_description: 'This website. :)'
 description: >-
