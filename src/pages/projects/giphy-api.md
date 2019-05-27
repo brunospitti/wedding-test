@@ -15,10 +15,10 @@ what_i_learned: |-
 technologies:
   - React
   - SCSS
-  - Parcel Bundler
-  - Javascript
-  - Babel
   - Giphy API
+  - Javascript
+  - Parcel Bundler
+  - Babel
 live_url: 'https://giphy-api.brunospitti.com'
 github_url: 'https://github.com/brunospitti/giphyAPI'
 ---
