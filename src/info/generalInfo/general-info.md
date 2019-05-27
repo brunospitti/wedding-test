@@ -13,29 +13,27 @@ sectiontitles:
   - Work Experience
   - Let's chat
 hello: >-
-  I'm Bruno Spitti, a Front-end developer who loves his job.
-
-  I am an Italian citizen, which entitles me to work full-time across Europe,
-  was born in São Paulo, Brazil and I’ve been living in Dublin since March,
-  2017.
+  I’m Bruno Spitti, an Italian Front-end developer with a passion for developing
+  with React, Redux, Javascript, HTML and CSS/SCSS
 
 
-  In 2016 I’ve got my major in Digital Design at one of the greatest
+  In 2016 I graduated with a major in Digital Design in one of the greatest
   Universities in Brazil, Anhembi Morumbi.
 
 
-  I love building features and scalable components for websites as well as
-  working on projects with a team of developers. I believe that the analysis of
-  data extracted from the website is crucial to make more assertive designs and
-  experiences to the user.
+  I love building and improving websites, working on features and scalable
+  components as well as working on projects with a team of developers and I am
+  at home when I can combine creativity with programming. I believe that the
+  analysis of data extracted from the website is crucial to make more assertive
+  designs and experiences to the user.
 projects: >-
-  I am a big believer that a software engineer has to always be in touch with
-  the newest technologies and best practices.
+  I’ve always strived to work with the newest technologies and best practices
+  throughout my career. My main focus has been with React, Redux, Javascript,
+  HTML and CSS/SCSS.
 
 
-  I’ve separated below some projects I’ve worked on my spare time as a way of
-  keep learning new things. All of them with a live demo link and a brief
-  section of what I’ve learned while developing it.
+  I’ve added some of my recent projects below. Each project has a live demo link
+  and a brief section of what I’ve learned while developing it.
 contact: >-
   Shall we?
 
