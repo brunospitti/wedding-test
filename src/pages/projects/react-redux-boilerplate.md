@@ -24,9 +24,9 @@ what_i_learned: >-
 technologies:
   - React
   - Redux
-  - Loadable
   - Styled Components
   - Jest
+  - Loadable
   - Reach Router
   - Eslint
   - Babel
