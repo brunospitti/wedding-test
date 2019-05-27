@@ -22,8 +22,8 @@ technologies:
   - React
   - Gatsby.js
   - GraphQL
-  - Netlify CMS
   - Styled Components
+  - Netlify CMS
   - Rellax
   - Eslint
   - Babel
