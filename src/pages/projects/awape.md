@@ -30,10 +30,10 @@ what_i_learned: >-
 technologies:
   - Ionic Framework
   - Angular
+  - Javascript
   - HTML
   - SCSS
   - CSS
-  - Javascript
   - Gulp
   - Bower
   - Firebase
