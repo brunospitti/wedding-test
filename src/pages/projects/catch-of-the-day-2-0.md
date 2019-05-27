@@ -1,6 +1,6 @@
 ---
 templateKey: project
-index: 2
+index: '2'
 title: Catch of the day 2.0
 brief_description: >-
   Built following learned topics on Wes Bos’ course from scratch, included more
