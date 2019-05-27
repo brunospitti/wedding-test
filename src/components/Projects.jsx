@@ -50,6 +50,7 @@ export default class Projects extends React.PureComponent {
                 projectTitle={info.title}
                 projectBriefDesc={info.brief_description}
                 projectURL={project.fields.slug}
+                projectTechs={info.technologies}
               />
             );
           })}
@@ -93,7 +94,7 @@ const StyledBorderPlus = styled(BorderPlus)`
   width: 25px;
   position: absolute;
   top: 1050px;
-  right: -60px;
+  right: -160px;
   path {
     stroke: ${colors.secondary};
   }
@@ -126,13 +127,17 @@ const StyledProjectTilesOuter = styled.div`
 `;
 
 const StyledProjectTilesHolder = styled.div`
+  padding-top: 30px;
   &.expanded {
     max-height: auto;
     overflow: initial;
   }
   &.collapsed {
-    max-height: 930px;
+    max-height: 965px;
     overflow: hidden;
+    @media ${breakpoints.mobileSmall} {
+      max-height: 1100px;
+    }
   }
 `;
 

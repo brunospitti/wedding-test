@@ -1,8 +1,8 @@
 ---
 templateKey: project
-index: '9'
+index: "9"
 title: Bruno Spitti Portfolio
-brief_description: 'This website. :)'
+brief_description: "This website. :)"
 description: >-
   My portfolio with a simpler and cleaner layout, in comparison to my previous
   one, and it has deeper focus on demonstrating my skills as a Software Engineer
@@ -20,7 +20,7 @@ what_i_learned: >-
   around it.
 technologies:
   - React
-  - Gatsby.js
+  - Gatsby
   - GraphQL
   - Styled Components
   - Netlify CMS
@@ -30,7 +30,6 @@ technologies:
   - Prettier
   - Github
   - Netlify
-live_url: 'https://brunospitti.com'
-github_url: 'https://github.com/brunospitti/bruno-spitti-com'
+live_url: "https://brunospitti.com"
+github_url: "https://github.com/brunospitti/bruno-spitti-com"
 ---
-

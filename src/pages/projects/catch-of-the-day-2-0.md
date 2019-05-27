@@ -1,6 +1,6 @@
 ---
 templateKey: project
-index: '2'
+index: "2"
 title: Catch of the day 2.0
 brief_description: >-
   Built following learned topics on Wes Bos’ course from scratch, included more
@@ -27,7 +27,7 @@ what_i_learned: >-
 technologies:
   - React
   - Firebase
-  - SCSS
+  - SASS
   - React Create App
   - React Router
   - React Transition
@@ -35,7 +35,6 @@ technologies:
   - Re-base
   - Github
   - Netlify
-live_url: 'https://catch-of-the-day-2-0.brunospitti.com'
-github_url: 'https://github.com/brunospitti/catch-of-the-day-2.0'
+live_url: "https://catch-of-the-day-2-0.brunospitti.com"
+github_url: "https://github.com/brunospitti/catch-of-the-day-2.0"
 ---
-

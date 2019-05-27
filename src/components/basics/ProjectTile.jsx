@@ -4,10 +4,14 @@ import styled from "styled-components";
 
 import { colors, breakpoints } from "../../assets/globalStyles";
 
+import { TechLogos } from "./TechLogos";
+
 export class ProjectTile extends React.PureComponent {
   render() {
     return (
       <StyledProjectHolder>
+        <TechLogos techs={this.props.projectTechs.slice(0, 4)} />
+
         <StyledProjectTitle>
           <Link to={this.props.projectURL}>{this.props.projectTitle}</Link>
         </StyledProjectTitle>
@@ -28,8 +32,8 @@ const StyledProjectHolder = styled.div`
   position: relative;
   background: #fcfcfc;
   border: 3px solid #f4f4f4;
-  padding: 20px 20px 5px;
-  height: 250px;
+  padding: 25px 20px 5px;
+  height: 260px;
   vertical-align: top;
   margin-bottom: 60px;
   &:nth-child(6n-4),
@@ -82,6 +86,9 @@ const StyledProjectHolder = styled.div`
   @media ${breakpoints.tablet} {
     width: 100%;
     margin-left: 0 !important;
+  }
+  @media ${breakpoints.mobileSmall} {
+    height: 300px;
   }
 `;
 

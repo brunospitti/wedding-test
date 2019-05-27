@@ -1,6 +1,6 @@
 ---
 templateKey: project
-index: '8'
+index: "8"
 title: Awapé
 brief_description: >-
   Academic project on Invisible Water Consumption, based on a WordPress built
@@ -32,7 +32,7 @@ technologies:
   - Angular
   - Javascript
   - HTML
-  - SCSS
+  - SASS
   - CSS
   - Gulp
   - Bower
@@ -42,4 +42,3 @@ technologies:
   - PHP
   - Github
 ---
-
