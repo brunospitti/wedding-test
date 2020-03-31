@@ -7,7 +7,7 @@ sectiontitles:
   - section
 hello: hello
 projects: aaaa
-contact: aaaaaaaa
+contact: bbbbbb
 contactIntoTitles:
   - aa
 contactIntoInfo:
