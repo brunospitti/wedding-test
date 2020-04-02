@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { GlobalStyles, outerContainer } from '../../assets/globalStyles';
 
-const TemplateWrapper = ({ children }) => (
+export const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query HeadingQuery {
@@ -39,5 +39,3 @@ const TemplateWrapper = ({ children }) => (
 const StyledLayout = styled.div`
   ${outerContainer}
 `;
-
-export default TemplateWrapper;
