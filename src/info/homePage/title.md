@@ -1,17 +1,17 @@
 ---
 templateKey: homePage
-title: title
+title: pt-br
 mainTech:
-  - main
+  - pt-br - main tech
 sectiontitles:
-  - section
-hello: hello
-projects: aaaa
-contact: bbbbbb
+  - pt-br - section titles
+hello: pt-br - hello
+projects: pt-br - projects
+contact: pt-br - contact
 contactIntoTitles:
-  - aa
+  - pt-br - contact titles
 contactIntoInfo:
-  - aaa
+  - pt-br - contact info
 contactIntoURL:
-  - aaa
+  - pt-br - contact url
 ---
