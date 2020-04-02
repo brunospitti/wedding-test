@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import Layout from '../components/helpers/Layout';
+import { Layout } from '../components/helpers/Layout';
 
 const NotFoundPage = () => (
-  <Layout footerLogo={false}>
+  <Layout>
     <Styled404Page>
       <Styled404Text>
         <h2>I don't have this page you're looking for...</h2>

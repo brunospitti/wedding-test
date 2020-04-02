@@ -64,6 +64,7 @@ module.exports = {
               destinationDir: 'static',
             },
           },
+          'gatsby-plugin-use-query-params',
         ],
       },
     },

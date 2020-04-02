@@ -1,40 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import { useQueryParam, StringParam } from 'use-query-params';
 
 import { Layout } from '../components/helpers/Layout';
 import { Banner } from '../components/Banner';
 
 const languages = ['pt-br', 'en'];
 
-export default class IndexPage extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.url = new URL(props.location.href);
-    this.params = new URLSearchParams(this.url.search);
+const IndexPage = (props) => {
+  const name = useQueryParam('name', StringParam)[0];
+  const URLLang = useQueryParam('lang', StringParam)[0];
+  const language = languages.includes(URLLang) ? URLLang : 'pt-br';
+  const info = props.data.homePage.edges.filter(
+    (edge) => edge.node.fields.slug === `/homePage/${language}/`
+  )[0].node.frontmatter;
 
-    this.URLLang = this.params.get('lang');
+  console.log('IndexPage -> render -> info', info);
+  console.log('IndexPage -> render -> name', name);
+  console.log('IndexPage -> render -> language', language);
 
-    this.language = languages.includes(this.URLLang) ? this.URLLang : 'pt-br';
-    this.name = this.params.get('name');
-    this.info = props.data.homePage.edges.filter(
-      (edge) => edge.node.fields.slug === `/homePage/${this.language}/`
-    )[0].node.frontmatter;
-  }
-
-  render() {
-    const { language, name, info } = this;
-    console.log('IndexPage -> render -> info', info);
-    console.log('IndexPage -> render -> name', name);
-    console.log('IndexPage -> render -> language', language);
-
-    return (
-      <Layout>
-        <Banner />
-      </Layout>
-    );
-  }
-}
+  return (
+    <Layout>
+      <Banner />
+      {name} - {language}
+    </Layout>
+  );
+};
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
@@ -43,6 +35,8 @@ IndexPage.propTypes = {
     }),
   }),
 };
+
+export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexQuery {
