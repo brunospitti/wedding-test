@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export const HTMLContent = ({ content, className, style }) => (
   <div
@@ -14,7 +14,7 @@ export const TextFromString = ({ text, className, style }) => (
     style={style}
     className={className}
     dangerouslySetInnerHTML={{
-      __html: text.replace(/(?:\r\n|\r|\n)/g, "<br>")
+      __html: text.replace(/(?:\r\n|\r|\n)/g, '<br>'),
     }}
   />
 );
@@ -27,7 +27,7 @@ const Content = ({ content, className, style }) => (
 
 Content.propTypes = {
   content: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 HTMLContent.propTypes = Content.propTypes;

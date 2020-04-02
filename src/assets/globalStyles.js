@@ -1,18 +1,17 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const colors = {
-  primary: "#e69191",
-  secondary: "#a593f2",
-  tertiary: "#6fe2a5",
-  greyDark: "#535353",
-  greyLight: "#eaeaea"
+  primary: '#e69191',
+  secondary: '#a593f2',
+  tertiary: '#6fe2a5',
+  greyDark: '#535353',
+  greyLight: '#eaeaea',
 };
 
 export const fontFamily =
-  "'Space Mono', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', 'segoe ui', helvetica, roboto, noto, arial, sans-serif";
+  "'Bellota Text', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', 'segoe ui', helvetica, roboto, noto, arial, sans-serif";
 
-export const fontFamilyTitle =
-  "'Archivo Black', 'Space Mono', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', 'segoe ui', helvetica, roboto, noto, arial, sans-serif";
+export const fontFamilyTitle = `'Tangerine', ${fontFamily}`;
 
 export const breakpoints = {
   desktop: `(min-width: 1260px)`,
@@ -20,7 +19,7 @@ export const breakpoints = {
   tablet: `(max-width: 1023px)`,
   mobile: `(max-width: 767px)`,
   mobileSmall: `(max-width: 400px)`,
-  workPillFixes: `(max-width: 1360px) and (min-width: 1260px)`
+  workPillFixes: `(max-width: 1360px) and (min-width: 1260px)`,
 };
 
 export const mainContainer = `
@@ -97,8 +96,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
 
-    // global styles
-    @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Space+Mono:400,700');
+    /* global styles */
+    @import url('https://fonts.googleapis.com/css?family=Bellota+Text:400,700|Tangerine:400,700&display=swap');
     html,
 		body {
         overflow-x: hidden;

@@ -1,16 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "gatsby";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
 
-import Layout from "../components/helpers/Layout";
-import { Header } from "../components/basics/Header";
+import Layout from '../components/helpers/Layout';
 
 const NotFoundPage = () => (
   <Layout footerLogo={false}>
     <Styled404Page>
-      <Header pageTitle="404" />
       <Styled404Text>
-        <h2>I don't have this page you're loking for...</h2>
+        <h2>I don't have this page you're looking for...</h2>
         <p>
           Why don't we go back to the <Link to="/">home page</Link>?
         </p>

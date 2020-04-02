@@ -1,15 +1,15 @@
 backend:
   name: git-gateway
-  repo: brunospitti/bruno-spitti-com
+  repo: brunospitti/wedding-test
   branch: master
 
 media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "generalInfo"
-    label: "General Info"
-    folder: "src/info/generalInfo"
+  - name: "homePage"
+    label: "Home page"
+    folder: "src/info/homePage"
     create: true
     slug: "{{slug}}"
     fields:
@@ -17,7 +17,7 @@ collections:
           label: "Template Key",
           name: "templateKey",
           widget: "hidden",
-          default: "generalInfo",
+          default: "homePage",
         }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Main Tech", name: "mainTech", widget: "list" }
@@ -32,67 +32,3 @@ collections:
         }
       - { label: "Contact Info Info", name: "contactIntoInfo", widget: "list" }
       - { label: "Contact Info URL", name: "contactIntoURL", widget: "list" }
-
-  - name: "projects"
-    label: "Projects"
-    folder: "src/pages/projects"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "project",
-        }
-      - { label: "Index", name: "index", widget: "number" }
-      - { label: "Title", name: "title", widget: "string" }
-      - {
-          label: "Brief Description",
-          name: "brief_description",
-          widget: "text",
-        }
-      - {
-          label: "Screenshot",
-          name: "screenshot",
-          widget: "image",
-          required: false,
-        }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "What I learned", name: "what_i_learned", widget: "text" }
-      - { label: "Technologies used", name: "technologies", widget: "list" }
-      - {
-          label: "Check yourself live URL",
-          name: "live_url",
-          widget: "string",
-          required: false,
-        }
-      - {
-          label: "Check yourself github URL",
-          name: "github_url",
-          widget: "string",
-          required: false,
-        }
-
-  - name: "workExperience"
-    label: "Work Experience"
-    folder: "src/info/workExperience"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "workExperience",
-        }
-      - { label: "Index", name: "index", widget: "number" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Period", name: "period", widget: "string" }
-      - {
-          label: "Brief Description",
-          name: "brief_description",
-          widget: "text",
-        }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Technologies used", name: "technologies", widget: "list" }
