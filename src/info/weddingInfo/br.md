@@ -28,6 +28,16 @@ invitation: |-
   19/dezembro/2020 – 16h
 
   Fazenda Fagundes | Rod. Arão Sahm, 1632-1748, Mairiporã – SP
-rsvp: br - RSVP
+rsvp: >-
+  Se você(s) esta lendo isso agora é porque queremos muito ver você(s) lá na
+  Fazenda para essa momento incrivel, portanto gostariamos que confirmasse sua
+  presença abaixo.
+
+
+  Como sabemos que a Fazenda não é proxima e a estrada não ajuda muito,
+  organizamos o serviço de van para que todos possam se divertir a vontade, sem
+  preocupações.
+
+  * Ida e volta - R$35,00 por pessoa.
 finalPhrase: br - final
 ---
