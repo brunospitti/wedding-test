@@ -1,9 +1,9 @@
 ---
 templateKey: weddingInfo
-language: br
-weddingDate: br - date
-intro: br - intro
-invitation: br - invitation
-rsvp: br - RSVP
-finalPhrase: br - final
+language: en
+weddingDate: en - date
+intro: en - intro
+invitation: en - invitation
+rsvp: en - RSVP
+finalPhrase: en - final
 ---
