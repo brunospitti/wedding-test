@@ -22,7 +22,12 @@ intro: >-
 
 
   Enfim...Demorou mas chegou!!! Eai, pronto pra mais essa?
-invitation: br - invitation
+invitation: |-
+  Você está convidado para celebrar o nosso casamento
+
+  19/dezembro/2020 – 16h
+
+  Fazenda Fagundes | Rod. Arão Sahm, 1632-1748, Mairiporã – SP
 rsvp: br - RSVP
 finalPhrase: br - final
 ---
