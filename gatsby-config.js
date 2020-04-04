@@ -1,8 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Bruno Spitti | Front-end Developer in Dublin',
-    description:
-      "Hello, I'm Bruno Spitti, a Front-end Developer living in Dublin. This is my portfolio where you can see my most recent projects and work experience.",
+    title: 'Casamento Vitória e Bruno Spitti',
+    description: 'Casamento Vitória e Bruno Spitti',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
