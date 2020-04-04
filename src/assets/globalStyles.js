@@ -1,11 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const colors = {
-  primary: '#e69191',
+  primary: '#2b5854',
   secondary: '#a593f2',
   tertiary: '#6fe2a5',
   greyDark: '#535353',
   greyLight: '#eaeaea',
+  bgColor: '#f7f7f7',
 };
 
 export const fontFamily =
@@ -25,7 +26,7 @@ export const breakpoints = {
 export const mainContainer = `
 	height: 100%;
 	width: 100%;
-	max-width: 1360px;
+	max-width: 1260px;
 	padding: 0 80px;
 	margin: 0 auto;
 	position: relative;
@@ -39,7 +40,7 @@ export const mainContainer = `
 export const outerContainer = `
 	height: 100%;
 	width: 100%;
-	max-width: 1920px;
+	max-width: 1700px;
 	margin: 0 auto;
 	position: relative;
 `;
@@ -77,7 +78,7 @@ export const GlobalStyles = createGlobalStyle`
         list-style: none;
     }
     blockquote, q {
-        quotes: none;
+			quotes: none;
     }
     blockquote:before, blockquote:after,
     q:before, q:after {
@@ -97,21 +98,23 @@ export const GlobalStyles = createGlobalStyle`
 
 
     /* global styles */
-    @import url('https://fonts.googleapis.com/css?family=Bellota+Text:400,700|Tangerine:400,700&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Bellota+Text:300,400,700|Tangerine:400,700&display=swap');
     html,
 		body {
         overflow-x: hidden;
+        background-color: ${colors.bgColor};
     }
 
     * {
-				touch-action: auto;
+        box-sizing: border-box;
+        touch-action: auto;
         font-family: ${fontFamily};
-        font-size: 22px;
-        line-height: 30px;
+        font-size: 16px;
+        line-height: 26px;
         color: ${colors.greyDark};
-        font-weight: 300;
+        font-weight: 400;
 				@media ${breakpoints.mobile} {
-					font-size: 18px;
+                font-size: 18px;
     			line-height: 26px;
 				}
 				@media ${breakpoints.mobileSmall} {

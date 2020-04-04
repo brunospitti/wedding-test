@@ -19,6 +19,7 @@
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-netlify": "^2.0.17",
     "gatsby-plugin-netlify-cms": "^4.0.1",
+    "gatsby-plugin-page-transitions": "^1.0.8",
     "gatsby-plugin-react-helmet": "^3.0.4",
     "gatsby-plugin-react-svg": "^2.1.1",
     "gatsby-plugin-sass": "^2.0.7",

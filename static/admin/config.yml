@@ -7,28 +7,43 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "homePage"
-    label: "Home page"
-    folder: "src/info/homePage"
+  - name: 'weddingInfo'
+    label: 'Wedding Info'
+    folder: 'src/info/weddingInfo'
     create: true
-    slug: "{{slug}}"
+    slug: '{{language}}'
     fields:
       - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "homePage",
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'weddingInfo',
         }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Main Tech", name: "mainTech", widget: "list" }
-      - { label: "Section titles", name: "sectiontitles", widget: "list" }
-      - { label: "Hello", name: "hello", widget: "text" }
-      - { label: "Projects", name: "projects", widget: "text" }
-      - { label: "Contact", name: "contact", widget: "text" }
+      - { label: 'Language', name: 'language', widget: 'string' }
+      - { label: 'Wedding date', name: 'weddingDate', widget: 'string' }
+      - { label: 'Introduction', name: 'intro', widget: 'text' }
+      - { label: 'Invitation', name: 'invitation', widget: 'text' }
+      - { label: 'RSVP', name: 'rsvp', widget: 'text' }
+      - { label: 'Final phrase', name: 'finalPhrase', widget: 'text' }
+
+  - name: 'homePage'
+    label: 'Home page'
+    folder: 'src/info/homePage'
+    create: true
+    slug: '{{slug}}'
+    fields:
       - {
-          label: "Contact Info Titles",
-          name: "contactIntoTitles",
-          widget: "list",
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'homePage',
         }
-      - { label: "Contact Info Info", name: "contactIntoInfo", widget: "list" }
-      - { label: "Contact Info URL", name: "contactIntoURL", widget: "list" }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Main Tech', name: 'mainTech', widget: 'list' }
+      - { label: 'Section titles', name: 'sectiontitles', widget: 'list' }
+      - { label: 'Hello', name: 'hello', widget: 'text' }
+      - { label: 'Projects', name: 'projects', widget: 'text' }
+      - { label: 'Contact', name: 'contact', widget: 'text' }
+      - { label: 'Contact Info Titles', name: 'contactIntoTitles', widget: 'list' }
+      - { label: 'Contact Info Info', name: 'contactIntoInfo', widget: 'list' }
+      - { label: 'Contact Info URL', name: 'contactIntoURL', widget: 'list' }

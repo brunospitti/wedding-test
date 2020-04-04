@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { fontFamilyTitle } from '../assets/globalStyles';
-export const Banner = (props) => {
+export const Banner = ({ date }) => {
   return (
     <StyledBanner>
       <StyledTitle>
         <span id="title">Vitória & Bruno</span>
-        <span id="date">19 de dezembro de 2020</span>
+        <span id="date">{date}</span>
       </StyledTitle>
     </StyledBanner>
   );
