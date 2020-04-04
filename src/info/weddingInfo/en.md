@@ -20,7 +20,21 @@ intro: >-
 
 
   Anyway, better later than never! Ready for this one?
-invitation: en - invitation
-rsvp: en - RSVP
+invitation: |-
+  You’re invited to celebrate our marriage!
+
+  December 19, 2020 – 4pm
+
+  Fazenda Fagundes | Rod. Arão Sahm, 1632-1748, Mairiporã – São Paulo - Brazil
+rsvp: >-
+  If you reading this now is because we really want to see you there for this
+  amazing moment, therefore we would like you to RSVP below.
+
+
+  As we know the place is not easy to get to and the roads don’t help, we have
+  organised a shuttle van service so all of you can enjoy the party with no
+  worries.
+
+  * Return trip - R$35,00 per person.
 finalPhrase: en - final
 ---
