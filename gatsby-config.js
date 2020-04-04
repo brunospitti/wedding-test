@@ -56,6 +56,7 @@ module.exports = {
               destinationDir: 'static',
             },
           },
+          'gatsby-plugin-netlify-cms',
           'gatsby-plugin-use-query-params',
         ],
       },
@@ -66,12 +67,6 @@ module.exports = {
         rule: {
           include: /assets/,
         },
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
     'gatsby-plugin-netlify', // make sure to keep it last in the array
