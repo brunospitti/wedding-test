@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { useQueryParam, StringParam } from 'use-query-params';
 
 import { Layout } from '../components/helpers/Layout';
 import { TextFromString } from '../components/helpers/Content';
 import { Section, SectionRaw } from '../components/helpers/Section';
+import { PhotosCarousel } from '../components/PhotosCarousel';
 import { Banner } from '../components/Banner';
 import { Title } from '../components/Title';
 import { Invite } from '../components/Invite';
@@ -31,26 +33,35 @@ const IndexPage = (props) => {
   invitationInfo.weddingDate = info.weddingDate;
 
   const carouselImages = props.data.carouselImages;
-  console.log('IndexPage -> carouselImages', carouselImages);
-  return (
-    <Layout>
-      <Header name={name} language={language} />
-      <Banner date={info.weddingDate} />
-      <Section>
-        <TextFromString
-          text={info.intro}
-          style={{ padding: '0 8em', textAlign: 'justify' }}
-        />
-      </Section>
-      <SectionRaw>
-        <Invite name={name} info={invitationInfo} />
-      </SectionRaw>
-      <Section>
-        <Title text="Nosso amor" />
-      </Section>
 
-      <div style={{ marginTop: '500px' }}></div>
-    </Layout>
+  return (
+    <StyledIndex>
+      <Layout>
+        <Header name={name} language={language} />
+        <Banner date={info.weddingDate} />
+        <Section>
+          <TextFromString
+            text={info.intro}
+            style={{ padding: '0 8em', textAlign: 'justify' }}
+          />
+        </Section>
+        <SectionRaw>
+          <Invite name={name} info={invitationInfo} />
+        </SectionRaw>
+        <Section>
+          <Title text="Nosso amor" />
+          <PhotosCarousel images={carouselImages} />
+        </Section>
+        <SectionRaw>
+          <div className="flower-decoration"></div>
+        </SectionRaw>
+        <Section>
+          <Title text="Nossos padrinhos" />
+        </Section>
+
+        <div style={{ marginTop: '500px' }}></div>
+      </Layout>
+    </StyledIndex>
   );
 };
 
@@ -61,6 +72,20 @@ IndexPage.propTypes = {
     }),
   }),
 };
+
+const StyledIndex = styled.div`
+  .flower-decoration {
+    display: block;
+    width: 330px;
+    margin: -3em 0 -13em -60px;
+    height: 450px;
+    transform: rotate(40deg);
+    background-image: url('/img/flower-01.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+`;
 
 export default IndexPage;
 
@@ -96,6 +121,7 @@ export const pageQuery = graphql`
     }
     carouselImages: allImageSharp(
       filter: { fluid: { originalName: { regex: "/^nosso_amor/" } } }
+      sort: { fields: fluid___originalName }
     ) {
       edges {
         node {
