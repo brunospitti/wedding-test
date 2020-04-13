@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { fontFamilyTitle } from '../assets/globalStyles';
+
 export const Banner = ({ date }) => {
   return (
     <StyledBanner>

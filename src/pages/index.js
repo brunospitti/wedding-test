@@ -7,10 +7,11 @@ import { Layout } from '../components/helpers/Layout';
 import { TextFromString } from '../components/helpers/Content';
 import { Section, SectionRaw } from '../components/helpers/Section';
 import { Banner } from '../components/Banner';
+import { Title } from '../components/Title';
 import { Invite } from '../components/Invite';
 import { Header } from '../components/Header';
 
-const languages = ['pt-br', 'en'];
+const languages = ['br', 'en'];
 
 const IndexPage = (props) => {
   const name = useQueryParam('name', StringParam)[0];
@@ -20,10 +21,17 @@ const IndexPage = (props) => {
     (edge) => edge.node.fields.slug === `/weddingInfo/${language}/`
   )[0].node.frontmatter;
 
-  console.log('IndexPage -> render -> info', info);
-  console.log('IndexPage -> render -> name', name);
-  console.log('IndexPage -> render -> language', language);
+  let invitationInfo = {};
+  Object.entries(info).forEach(([infoKey, infoValue]) => {
+    if (infoKey.includes('invitation')) {
+      const key = infoKey.substring('invitation_'.length);
+      invitationInfo = { ...invitationInfo, [key]: infoValue };
+    }
+  });
+  invitationInfo.weddingDate = info.weddingDate;
 
+  const carouselImages = props.data.carouselImages;
+  console.log('IndexPage -> carouselImages', carouselImages);
   return (
     <Layout>
       <Header name={name} language={language} />
@@ -31,12 +39,16 @@ const IndexPage = (props) => {
       <Section>
         <TextFromString
           text={info.intro}
-          style={{ padding: '0 5em', textAlign: 'justify' }}
+          style={{ padding: '0 8em', textAlign: 'justify' }}
         />
       </Section>
       <SectionRaw>
-        <Invite name={name} text={info.invitation} />
+        <Invite name={name} info={invitationInfo} />
       </SectionRaw>
+      <Section>
+        <Title text="Nosso amor" />
+      </Section>
+
       <div style={{ marginTop: '500px' }}></div>
     </Layout>
   );
@@ -66,10 +78,32 @@ export const pageQuery = graphql`
           frontmatter {
             finalPhrase
             intro
-            invitation
+            invitation_hello
+            invitation_invite
+            invitation_weather_title
+            invitation_weather_min
+            invitation_weather_max
+            invitation_weather_prec
+            invitation_show_pictures
+            invitation_countdown_still
+            invitation_countdown_days
             language
             rsvp
             weddingDate
+          }
+        }
+      }
+    }
+    carouselImages: allImageSharp(
+      filter: { fluid: { originalName: { regex: "/^nosso_amor/" } } }
+    ) {
+      edges {
+        node {
+          id
+          fluid(maxWidth: 1000) {
+            originalName
+            presentationWidth
+            ...GatsbyImageSharpFluid
           }
         }
       }

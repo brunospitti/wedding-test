@@ -15,19 +15,19 @@ export const fontFamily =
 export const fontFamilyTitle = `'Tangerine', ${fontFamily}`;
 
 export const breakpoints = {
-  desktop: `(min-width: 1260px)`,
-  desktopSmall: `(max-width: 1259px)`,
+  desktopLarge: `(min-width: 1701px)`,
+  desktop: `(max-width: 1700px)`,
+  desktopSmall: `(max-width: 1400px)`,
+  desktopExtraSmall: `(max-width: 1200px)`,
   tablet: `(max-width: 1023px)`,
   mobile: `(max-width: 767px)`,
   mobileSmall: `(max-width: 400px)`,
-  workPillFixes: `(max-width: 1360px) and (min-width: 1260px)`,
 };
 
 export const mainContainer = `
 	height: 100%;
 	width: 100%;
 	max-width: 1260px;
-	padding: 0 80px;
 	margin: 0 auto;
 	position: relative;
 	@media ${breakpoints.tablet} {
@@ -109,17 +109,7 @@ export const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         touch-action: auto;
         font-family: ${fontFamily};
-        font-size: 16px;
-        line-height: 26px;
+        font-size: 18px;
         color: ${colors.greyDark};
-        font-weight: 400;
-				@media ${breakpoints.mobile} {
-                font-size: 18px;
-    			line-height: 26px;
-				}
-				@media ${breakpoints.mobileSmall} {
-					font-size: 16px;
-					line-height: 24px;
-				}
     }
 `;

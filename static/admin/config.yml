@@ -22,28 +22,42 @@ collections:
       - { label: 'Language', name: 'language', widget: 'string' }
       - { label: 'Wedding date', name: 'weddingDate', widget: 'string' }
       - { label: 'Introduction', name: 'intro', widget: 'text' }
-      - { label: 'Invitation', name: 'invitation', widget: 'text' }
+      - { label: 'Invitation - Hello', name: 'invitation-hello', widget: 'string' }
+      - { label: 'Invitation - Invite', name: 'invitation-invite', widget: 'string' }
+      - {
+          label: 'Invitation - Weather - Title',
+          name: 'invitation-weather-title',
+          widget: 'string',
+        }
+      - {
+          label: 'Invitation - Weather - Min',
+          name: 'invitation-weather-min',
+          widget: 'string',
+        }
+      - {
+          label: 'Invitation - Weather - Max',
+          name: 'invitation-weather-max',
+          widget: 'string',
+        }
+      - {
+          label: 'Invitation - Weather - Prec',
+          name: 'invitation-weather-prec',
+          widget: 'string',
+        }
+      - {
+          label: 'Invitation - Show Pictures',
+          name: 'invitation-show-pictures',
+          widget: 'text',
+        }
+      - {
+          label: 'Invitation - Countdown - Still',
+          name: 'invitation-countdown-still',
+          widget: 'string',
+        }
+      - {
+          label: 'Invitation - Countdown - Days',
+          name: 'invitation-countdown-days',
+          widget: 'string',
+        }
       - { label: 'RSVP', name: 'rsvp', widget: 'text' }
       - { label: 'Final phrase', name: 'finalPhrase', widget: 'text' }
-
-  - name: 'homePage'
-    label: 'Home page'
-    folder: 'src/info/homePage'
-    create: true
-    slug: '{{slug}}'
-    fields:
-      - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'homePage',
-        }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Main Tech', name: 'mainTech', widget: 'list' }
-      - { label: 'Section titles', name: 'sectiontitles', widget: 'list' }
-      - { label: 'Hello', name: 'hello', widget: 'text' }
-      - { label: 'Projects', name: 'projects', widget: 'text' }
-      - { label: 'Contact', name: 'contact', widget: 'text' }
-      - { label: 'Contact Info Titles', name: 'contactIntoTitles', widget: 'list' }
-      - { label: 'Contact Info Info', name: 'contactIntoInfo', widget: 'list' }
-      - { label: 'Contact Info URL', name: 'contactIntoURL', widget: 'list' }
