@@ -30,7 +30,7 @@ invitation-show-pictures: >-
   Click here to see some pictures of the location, marvel and imagine how the
   big day will be like
 invitation-countdown-still: Still
-invitation-countdown-days: Days left
+invitation-countdown-days: Days to go
 finalPhrase: en - final
 invitation: |-
   You’re invited to celebrate our marriage!
