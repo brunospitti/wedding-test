@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Loadable from 'react-loadable';
 import { graphql } from 'gatsby';
 import { useQueryParam, StringParam } from 'use-query-params';
 
 import { Layout } from '../components/helpers/Layout';
 import { TextFromString } from '../components/helpers/Content';
 import { Section, SectionRaw } from '../components/helpers/Section';
-import { PhotosCarousel } from '../components/PhotosCarousel';
 import { Banner } from '../components/Banner';
 import { Title } from '../components/Title';
 import { Invite } from '../components/Invite';
@@ -34,6 +34,15 @@ const IndexPage = (props) => {
 
   const carouselImages = props.data.carouselImages;
 
+  const LoadablePhotosCarousel = Loadable({
+    loader: () => import('../components/PhotosCarousel'),
+    loading: () => <div>loading</div>,
+    render(loaded, props) {
+      let Component = loaded.PhotosCarousel;
+      return <Component images={carouselImages} />;
+    },
+  });
+
   return (
     <StyledIndex>
       <Layout>
@@ -50,7 +59,7 @@ const IndexPage = (props) => {
         </SectionRaw>
         <Section>
           <Title text="Nosso amor" />
-          <PhotosCarousel images={carouselImages} />
+          <LoadablePhotosCarousel />
         </Section>
         <SectionRaw>
           <div className="flower-decoration"></div>
