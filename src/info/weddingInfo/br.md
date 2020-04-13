@@ -22,6 +22,18 @@ intro: >-
 
 
   Enfim...Demorou mas chegou!!! Eai, pronto pra mais essa?
+invitation-hello: Olá
+invitation-invite: Te convidamos para o nosso casamento
+invitation-weather-title: 'Previsão do tempo:'
+invitation-weather-min: 'Temp. Mínima:'
+invitation-weather-max: 'Temp. Máxima:'
+invitation-weather-prec: 'Preciptação:'
+invitation-show-pictures: >-
+  Clique aqui para ver algumas fotos da Fazenda, se maravilhar e imaginar como
+  será o grande dia
+invitation-countdown-still: Faltam
+invitation-countdown-days: dias
+finalPhrase: br - final
 invitation: |-
   Você está convidado para celebrar o nosso casamento
 
@@ -39,5 +51,4 @@ rsvp: >-
   preocupações.
 
   * Ida e volta - R$35,00 por pessoa.
-finalPhrase: br - final
 ---
