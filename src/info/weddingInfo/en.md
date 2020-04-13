@@ -20,6 +20,18 @@ intro: >-
 
 
   Anyway, better later than never! Ready for this one?
+invitation-hello: Hello
+invitation-invite: We invite you to our wedding
+invitation-weather-title: 'Weather forecast:'
+invitation-weather-min: 'Temp. min:'
+invitation-weather-max: 'Temp. max:'
+invitation-weather-prec: 'Precipitation:'
+invitation-show-pictures: >-
+  Click here to see some pictures of the location, marvel and imagine how the
+  big day will be like
+invitation-countdown-still: Still
+invitation-countdown-days: Days left
+finalPhrase: en - final
 invitation: |-
   You’re invited to celebrate our marriage!
 
@@ -36,5 +48,4 @@ rsvp: >-
   worries.
 
   * Return trip - R$35,00 per person.
-finalPhrase: en - final
 ---
