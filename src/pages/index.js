@@ -4,14 +4,15 @@ import styled from 'styled-components';
 import Loadable from 'react-loadable';
 import { graphql } from 'gatsby';
 import { useQueryParam, StringParam } from 'use-query-params';
+import BackgroundImage from 'gatsby-background-image';
 
 import { Layout } from '../components/helpers/Layout';
 import { TextFromString } from '../components/helpers/Content';
 import { Section, SectionRaw } from '../components/helpers/Section';
 import { Banner } from '../components/Banner';
 import { Title } from '../components/Title';
+import { Godfathers } from '../components/Godfathers';
 import { Invite } from '../components/Invite';
-import { Header } from '../components/Header';
 
 const languages = ['br', 'en'];
 
@@ -32,7 +33,19 @@ const IndexPage = (props) => {
   });
   invitationInfo.weddingDate = info.weddingDate;
 
-  const carouselImages = props.data.carouselImages;
+  const {
+    carouselImages,
+    godfathersImages,
+    flower01: {
+      childImageSharp: { fluid: flower01 },
+    },
+    flower02: {
+      childImageSharp: { fluid: flower02 },
+    },
+    flower03: {
+      childImageSharp: { fluid: flower03 },
+    },
+  } = props.data;
 
   const LoadablePhotosCarousel = Loadable({
     loader: () => import('../components/PhotosCarousel'),
@@ -46,8 +59,7 @@ const IndexPage = (props) => {
   return (
     <StyledIndex>
       <Layout>
-        <Header name={name} language={language} />
-        <Banner date={info.weddingDate} />
+        <Banner date={info.weddingDate} name={name} language={language} />
         <Section>
           <TextFromString
             text={info.intro}
@@ -62,10 +74,15 @@ const IndexPage = (props) => {
           <LoadablePhotosCarousel />
         </Section>
         <SectionRaw>
-          <div className="flower-decoration"></div>
+          <StyledFlower01 fluid={flower01} />
         </SectionRaw>
         <Section>
           <Title text="Nossos padrinhos" />
+          <Godfathers godfathersImages={godfathersImages} flowerImage={flower02} />
+          <StyledFlower03 fluid={flower03} />
+        </Section>
+        <Section>
+          <Title text="Nos presenteie" />
         </Section>
 
         <div style={{ marginTop: '500px' }}></div>
@@ -82,18 +99,25 @@ IndexPage.propTypes = {
   }),
 };
 
-const StyledIndex = styled.div`
-  .flower-decoration {
-    display: block;
-    width: 330px;
-    margin: -3em 0 -13em -60px;
-    height: 450px;
-    transform: rotate(40deg);
-    background-image: url('/img/flower-01.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+const StyledIndex = styled.div``;
+const StyledFlower01 = styled(BackgroundImage)`
+  display: block;
+  width: 330px;
+  margin: -3em 0 -13em -60px;
+  height: 450px;
+  transform: rotate(40deg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+const StyledFlower03 = styled(BackgroundImage)`
+  display: block;
+  width: 120px;
+  height: 370px;
+  margin: 15em auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 export default IndexPage;
@@ -128,6 +152,7 @@ export const pageQuery = graphql`
         }
       }
     }
+
     carouselImages: allImageSharp(
       filter: { fluid: { originalName: { regex: "/^nosso_amor/" } } }
       sort: { fields: fluid___originalName }
@@ -141,6 +166,44 @@ export const pageQuery = graphql`
             ...GatsbyImageSharpFluid
           }
         }
+      }
+    }
+
+    godfathersImages: allImageSharp(
+      filter: { fluid: { originalName: { regex: "/^padrinhos-/" } } }
+      sort: { fields: fluid___originalName }
+    ) {
+      edges {
+        node {
+          id
+          fluid(maxWidth: 1000) {
+            originalName
+            presentationWidth
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+
+    flower01: file(relativePath: { eq: "flower-01.png" }) {
+      ...fluidImage
+    }
+
+    flower02: file(relativePath: { eq: "flower-02.png" }) {
+      ...fluidImage
+    }
+
+    flower03: file(relativePath: { eq: "flower-03.png" }) {
+      ...fluidImage
+    }
+  }
+`;
+
+export const fluidImage = graphql`
+  fragment fluidImage on File {
+    childImageSharp {
+      fluid(quality: 90) {
+        ...GatsbyImageSharpFluid
       }
     }
   }

@@ -8,9 +8,7 @@ export const NonStretchedImg = (props) => {
       ...props,
       style: {
         ...(props.style || {}),
-        maxWidth: '80%',
-        width: '80%',
-        maxHeight: '300px',
+        maxWidth: props.fluid.presentationWidth,
         margin: '0 auto', // Used to center the image
       },
     };

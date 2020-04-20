@@ -2,25 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 import { Carousel } from 'react-responsive-carousel';
 
-import { fontFamilyTitle } from '../assets/globalStyles';
 import { NonStretchedImg } from './helpers/NonStretchedImg';
 
 export const PhotosCarousel = ({ images }) => {
   return (
     <StyledCarousel>
       <Carousel
-        swipeScrollTolerance={1}
+        swipeScrollTolerance={2}
         swipeable
         emulateTouch
         infiniteLoop
         centerMode
+        autoPlay
         centerSlidePercentage={50}
         showArrows={true}
         showStatus={false}
         showThumbs={false}
       >
-        {images.edges.map((image) => (
-          <NonStretchedImg fluid={image.node.fluid} />
+        {images.edges.map(({ node: { fluid } }) => (
+          <NonStretchedImg key={fluid.originalName} fluid={fluid} />
         ))}
       </Carousel>
     </StyledCarousel>
@@ -29,7 +29,7 @@ export const PhotosCarousel = ({ images }) => {
 
 // styled components
 const StyledCarousel = styled.div`
-  margin: 7em 0;
+  margin: 6.5em 0;
   .carousel-root {
     &:before {
       content: '';
@@ -51,6 +51,10 @@ const StyledCarousel = styled.div`
           background: transparent;
           .gatsby-image-wrapper {
             transition: all 0.25s ease;
+            height: 300px !important;
+            max-height: 300px !important;
+            max-width: 80% !important;
+            width: 80% !important;
           }
           &.selected {
             .gatsby-image-wrapper {
@@ -71,7 +75,7 @@ const StyledCarousel = styled.div`
         margin: auto;
         position: relative;
         .dot {
-          background: #2a5854;
+          background: #d69eb4;
           box-shadow: none;
           &.selected {
             width: 12px;
@@ -89,7 +93,7 @@ const StyledCarousel = styled.div`
       &.carousel-slider .control-arrow {
         opacity: 1;
         &:hover {
-          background: rgba(214, 158, 180, 0.31);
+          background: rgba(42, 88, 84, 0.3);
         }
       }
     }

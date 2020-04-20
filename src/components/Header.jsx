@@ -25,8 +25,16 @@ export const Header = ({ language, name }) => {
 
 // styled components
 const StyledHeader = styled.div`
-  display: flex;
-  padding: 0.75em 2em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  display: block;
+  background: #ffffff57;
+  border-radius: 0 0 0 6px;
+  width: 125px;
+  height: 65px;
+  padding: 0.75em 1em;
 `;
 
 const StyledFlags = styled.div`

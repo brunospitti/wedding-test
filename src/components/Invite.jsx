@@ -5,7 +5,6 @@ import differenceInDays from 'date-fns/differenceInDays';
 import { breakpoints, colors, fontFamilyTitle } from '../assets/globalStyles';
 
 export const Invite = ({ name, info }) => {
-  console.log('Invite -> info', info);
   const daysLeft = differenceInDays(new Date(2020, 11, 19), new Date());
   const [showPictures, setShowPictures] = useState(false);
 

@@ -1,24 +1,46 @@
 import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
+import BackgroundImage from 'gatsby-background-image';
 
+import { Header } from './Header';
 import { fontFamilyTitle } from '../assets/globalStyles';
 
-export const Banner = ({ date }) => {
-  return (
-    <StyledBanner>
-      <StyledTitle>
-        <span id="title">Vitória & Bruno</span>
-        <span id="date">{date}</span>
-      </StyledTitle>
-    </StyledBanner>
-  );
-};
+export const Banner = ({ date, name, language }) => (
+  <StaticQuery
+    query={graphql`
+      query {
+        allFile: file(relativePath: { eq: "Banner_raw.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 2000) {
+              originalName
+              presentationWidth
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    `}
+    render={({
+      allFile: {
+        childImageSharp: { fluid },
+      },
+    }) => (
+      <StyledBanner Tag="div" fluid={fluid} backgroundColor={`#a7ceca`}>
+        <Header name={name} language={language} />
+        <StyledTitle>
+          <span id="title">Vitória & Bruno</span>
+          <span id="date">{date}</span>
+        </StyledTitle>
+      </StyledBanner>
+    )}
+  />
+);
 
 // styled components
-const StyledBanner = styled.div`
+const StyledBanner = styled(BackgroundImage)`
   width: 100%;
   height: 750px;
-  background-image: url('/img/Banner_raw.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

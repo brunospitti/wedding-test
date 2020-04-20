@@ -11,4 +11,5 @@ export const Title = ({ text }) => {
 const StyledTitle = styled.div`
   font-family: ${fontFamilyTitle};
   font-size: 5em;
+  margin: 0.5em 0;
 `;
