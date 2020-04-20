@@ -15,7 +15,7 @@ export const Banner = ({ date, name, language }) => (
             fluid(maxWidth: 2000) {
               originalName
               presentationWidth
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid
             }
           }
         }
