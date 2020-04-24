@@ -38,6 +38,7 @@ const IndexPage = (props) => {
   const {
     carouselImages,
     godfathersImages,
+    inviteFazendaImages,
     flower01: {
       childImageSharp: { fluid: flower01 },
     },
@@ -47,6 +48,15 @@ const IndexPage = (props) => {
     flower03: {
       childImageSharp: { fluid: flower03 },
     },
+    flower04: {
+      childImageSharp: { fluid: flower04 },
+    },
+    inviteSun: {
+      childImageSharp: { fluid: inviteSun },
+    },
+    invitePhoto: {
+      childImageSharp: { fluid: invitePhoto },
+    },
   } = props.data;
 
   const LoadablePhotosCarousel = Loadable({
@@ -54,7 +64,7 @@ const IndexPage = (props) => {
     loading: () => <div>loading</div>,
     render(loaded, props) {
       let Component = loaded.PhotosCarousel;
-      return <Component images={carouselImages} />;
+      return <Component images={carouselImages} bgImgFluid={flower04} />;
     },
   });
 
@@ -66,7 +76,13 @@ const IndexPage = (props) => {
           <StyledTextFromString text={info.intro} />
         </Section>
         <SectionRaw>
-          <Invite name={name} info={invitationInfo} />
+          <Invite
+            name={name}
+            info={invitationInfo}
+            sunImage={inviteSun}
+            photoImage={invitePhoto}
+            fazendaImages={inviteFazendaImages}
+          />
         </SectionRaw>
         <Section>
           <Title text="Nosso amor" />
@@ -142,6 +158,11 @@ const StyledFlower03 = styled(BackgroundImage)`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  @media ${breakpoints.tablet} {
+    width: 90px;
+    height: 270px;
+    margin: 10em auto;
+  }
 `;
 
 export default IndexPage;
@@ -219,6 +240,34 @@ export const pageQuery = graphql`
 
     flower03: file(relativePath: { eq: "flower-03.png" }) {
       ...fluidImage
+    }
+
+    flower04: file(relativePath: { eq: "flower-decoration.png" }) {
+      ...fluidImage
+    }
+
+    inviteSun: file(relativePath: { eq: "sun.png" }) {
+      ...fluidImage
+    }
+
+    invitePhoto: file(relativePath: { eq: "photo.png" }) {
+      ...fluidImage
+    }
+
+    inviteFazendaImages: allImageSharp(
+      filter: { fluid: { originalName: { regex: "/^fazenda-/" } } }
+      sort: { fields: fluid___originalName }
+    ) {
+      edges {
+        node {
+          id
+          fluid(maxWidth: 1000) {
+            originalName
+            presentationWidth
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   }
 `;

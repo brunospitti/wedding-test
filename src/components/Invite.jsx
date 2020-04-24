@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import differenceInDays from 'date-fns/differenceInDays';
+import BackgroundImage from 'gatsby-background-image';
 
 import { breakpoints, colors, fontFamilyTitle } from '../assets/globalStyles';
 
-export const Invite = ({ name, info }) => {
+export const Invite = ({ name, info, fazendaImages, sunImage, photoImage }) => {
   const daysLeft = differenceInDays(new Date(2020, 11, 19), new Date());
   const [showPictures, setShowPictures] = useState(false);
 
@@ -28,6 +29,8 @@ export const Invite = ({ name, info }) => {
 
   const wrapperRef = useRef(null);
   useHideOutsideClick(wrapperRef);
+
+  const ImageToRender = showPictures ? StyledFazendaImageOpen : StyledFazendaImage;
 
   return (
     <StyledInviteWrapper>
@@ -60,7 +63,7 @@ export const Invite = ({ name, info }) => {
 
               <StyledInviteFooter>
                 <div className="temperature">
-                  <div className="sun"></div>
+                  <StyledSunImage fluid={sunImage} />
                   <div className="info">
                     <span id="title">{info.weather_title}</span>
                     <div>
@@ -74,7 +77,7 @@ export const Invite = ({ name, info }) => {
                   className="show-pictures"
                   onClick={() => setShowPictures(!showPictures)}
                 >
-                  <div className="photo"></div>
+                  <StyledPhotoImage fluid={photoImage} />
                   <span>{info.show_pictures}</span>
                 </div>
               </StyledInviteFooter>
@@ -82,11 +85,13 @@ export const Invite = ({ name, info }) => {
           </div>
         </div>
         <StyledFazenda className={showPictures && 'show-fazenda'} ref={wrapperRef}>
-          <div className="picture" id="fazenda-1"></div>
-          <div className="picture" id="fazenda-2"></div>
-          <div className="picture" id="fazenda-3"></div>
-          <div className="picture" id="fazenda-4"></div>
-          <div className="picture" id="fazenda-5"></div>
+          {fazendaImages.edges.map(({ node: { fluid } }) => (
+            <ImageToRender
+              backgroundColor={`#a7ceca`}
+              key={fluid.originalName}
+              fluid={fluid}
+            />
+          ))}
         </StyledFazenda>
       </StyledInvite>
     </StyledInviteWrapper>
@@ -174,6 +179,9 @@ const StyledInvite = styled.div`
     @media ${breakpoints.mobile} {
       margin: -15% -60%;
       width: 210%;
+    }
+    @media ${breakpoints.mobileSmall} {
+      margin: -35% -60%;
     }
   }
   .invite-border {
@@ -298,6 +306,9 @@ const StyledInviteMain = styled.div`
         }
         .date {
           font-size: 3em;
+          @media ${breakpoints.mobileSmall} {
+            font-size: 2.5em;
+          }
         }
         .info--sub {
           display: flex;
@@ -378,14 +389,6 @@ const StyledInviteFooter = styled.div`
   @media ${breakpoints.tabletSmall} {
     flex-direction: column;
   }
-  .sun,
-  .photo {
-    display: inline-block;
-    height: 30px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
   > div {
     display: flex;
     align-items: center;
@@ -396,11 +399,6 @@ const StyledInviteFooter = styled.div`
       flex: 1;
       @media ${breakpoints.tabletSmall} {
         margin-bottom: 1.3em;
-      }
-      .sun {
-        margin-right: 0.5em;
-        width: 30px;
-        background-image: url('/img/sun.png');
       }
       span {
         margin-right: 1em;
@@ -427,13 +425,28 @@ const StyledInviteFooter = styled.div`
       &:hover {
         border-bottom: 1px solid;
       }
-      .photo {
-        width: 55px;
-        background-image: url('/img/photo.png');
-        margin-right: 0.75em;
-      }
     }
   }
+`;
+
+const StyledSunImage = styled(BackgroundImage)`
+  display: inline-block;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 0.5em;
+  width: 30px;
+`;
+
+const StyledPhotoImage = styled(BackgroundImage)`
+  display: inline-block;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 55px;
+  margin-right: 0.75em;
 `;
 
 const StyledFazenda = styled.div`
@@ -445,45 +458,55 @@ const StyledFazenda = styled.div`
   opacity: 0;
   height: 0px;
   transition: all 0.5s ease;
+  @media ${breakpoints.tabletSmall} {
+    flex-wrap: wrap;
+    z-index: 999;
+    justify-content: space-around;
+  }
   &.show-fazenda {
     height: auto;
     opacity: 1;
-    .picture {
-      height: 200px;
-      @media ${breakpoints.desktop} {
-        height: 170px;
-      }
-      @media ${breakpoints.desktopSmall} {
-        height: 150px;
-      }
-      @media ${breakpoints.desktopExtraSmall} {
-        height: 140px;
-      }
+  }
+`;
+
+const StyledFazendaImage = styled(BackgroundImage)`
+  width: 18%;
+  max-width: 200px;
+  height: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  transition: all 0.25s ease;
+  background-size: cover;
+  @media ${breakpoints.tabletSmall} {
+    &:last-child {
+      display: none;
     }
   }
-  .picture {
-    width: 18%;
-    max-width: 200px;
-    height: 0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    transition: all 0.25s ease;
-    &#fazenda-1 {
-      background-image: url('/img/fazenda-1.jpg');
+`;
+
+const StyledFazendaImageOpen = styled(StyledFazendaImage)`
+  height: 200px;
+  @media ${breakpoints.desktop} {
+    height: 170px;
+  }
+  @media ${breakpoints.desktopSmall} {
+    height: 150px;
+  }
+  @media ${breakpoints.desktopExtraSmall} {
+    height: 140px;
+  }
+  @media ${breakpoints.tabletSmall} {
+    width: 48%;
+    max-width: 48%;
+    margin-bottom: 10px;
+    height: 160px;
+    &:last-child {
+      display: none;
     }
-    &#fazenda-2 {
-      background-image: url('/img/fazenda-2.jpg');
-    }
-    &#fazenda-3 {
-      background-image: url('/img/fazenda-3.jpg');
-    }
-    &#fazenda-4 {
-      background-image: url('/img/fazenda-4.jpg');
-    }
-    &#fazenda-5 {
-      background-image: url('/img/fazenda-5.jpg');
-    }
+  }
+  @media ${breakpoints.mobileSmall} {
+    height: 140px;
   }
 `;

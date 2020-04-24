@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Carousel } from 'react-responsive-carousel';
+import BackgroundImage from 'gatsby-background-image';
 
 import { breakpoints } from '../assets/globalStyles';
 
 import { NonStretchedImg } from './helpers/NonStretchedImg';
 
-export const PhotosCarousel = ({ images }) => {
+export const PhotosCarousel = ({ images, bgImgFluid }) => {
   return (
     <StyledCarousel>
+      <StyledFlowerBg fluid={bgImgFluid} />
+
       <Carousel
         swipeScrollTolerance={2}
         swipeable
@@ -32,39 +35,12 @@ export const PhotosCarousel = ({ images }) => {
 // styled components
 const StyledCarousel = styled.div`
   margin: 6.5em 0;
+  position: relative;
   @media ${breakpoints.tabletSmall} {
     width: calc(100% + 20px);
     margin-left: -10px;
   }
-  @media ${breakpoints.mobile} {
-    margin-top: 0;
-  }
   .carousel-root {
-    &:before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 70%;
-      height: 120%;
-      margin: -17% 16%;
-      background-image: url('/img/flower-decoration.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      @media ${breakpoints.desktopExtraSmall} {
-        height: 110%;
-      }
-      @media ${breakpoints.tabletSmall} {
-        height: 84%;
-        width: 97%;
-        margin: -10% 4%;
-      }
-      @media ${breakpoints.mobile} {
-        height: 75%;
-        width: 125%;
-        margin: 5% -8%;
-      }
-    }
     .carousel {
       .slider {
         height: 600px;
@@ -168,5 +144,37 @@ const StyledCarousel = styled.div`
         }
       }
     }
+  }
+`;
+
+const StyledFlowerBg = styled(BackgroundImage)`
+  background-size: contain;
+  display: block;
+  position: absolute !important;
+  width: 100%;
+  height: 830px !important;
+  margin: -88px 2%;
+  @media ${breakpoints.desktopExtraSmall} {
+    height: 800px !important;
+    margin: -70px 2%;
+  }
+  @media ${breakpoints.tablet} {
+    height: 700px !important;
+    margin: -40px 2%;
+  }
+  @media ${breakpoints.tabletSmall} {
+    width: 100%;
+    height: 680px !important;
+    margin: -30px 2%;
+  }
+  @media ${breakpoints.mobile} {
+    height: 555px !important;
+    width: 115%;
+    margin: -53px -7%;
+  }
+  @media ${breakpoints.mobileSmall} {
+    height: 500px !important;
+    margin: -70px -13%;
+    width: 130%;
   }
 `;
