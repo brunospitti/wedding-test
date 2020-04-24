@@ -3,6 +3,8 @@ import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import BackgroundImage from 'gatsby-background-image';
 
+import { breakpoints } from '../assets/globalStyles';
+
 import { Header } from './Header';
 import { fontFamilyTitle } from '../assets/globalStyles';
 
@@ -12,7 +14,7 @@ export const Banner = ({ date, name, language }) => (
       query {
         allFile: file(relativePath: { eq: "Banner_raw.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 2000) {
+            fluid(maxWidth: 1700) {
               originalName
               presentationWidth
               ...GatsbyImageSharpFluid
@@ -59,6 +61,9 @@ const StyledTitle = styled.div`
       font-size: 7em;
       margin-bottom: 0.15em;
       border-bottom: 2px solid;
+      @media ${breakpoints.tabletSmall} {
+        width: 80%;
+      }
     }
     &#date {
       font-size: 1.5em;

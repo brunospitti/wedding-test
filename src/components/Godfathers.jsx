@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import BackgroundImage from 'gatsby-background-image';
 
+import { breakpoints } from '../assets/globalStyles';
+
 export const Godfathers = ({ godfathersImages, flowerImage }) => {
   return (
     <StyledGodfathers>
@@ -41,10 +43,28 @@ const StyledGodfathers = styled.div`
   justify-content: space-between;
   align-content: space-between;
   height: 400px;
+  @media ${breakpoints.desktopExtraSmall} {
+    height: 360px;
+  }
+  @media ${breakpoints.tabletSmall} {
+    height: 720px;
+  }
+  @media ${breakpoints.mobile} {
+    height: 680px;
+  }
+  @media ${breakpoints.mobile} {
+    height: 1280px;
+  }
   .godfather-holder {
     text-align: center;
     width: calc(100% / 8);
     z-index: 9;
+    @media ${breakpoints.tabletSmall} {
+      width: 25%;
+    }
+    @media ${breakpoints.mobileSmall} {
+      width: 50%;
+    }
     span {
       margin-top: 0.5em;
       display: block;
@@ -60,6 +80,14 @@ const StyledGodfatherImage = styled(BackgroundImage)`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  @media ${breakpoints.desktopExtraSmall} {
+    width: 110px;
+    height: 125px;
+  }
+  @media ${breakpoints.mobile} {
+    width: 100px;
+    height: 115px;
+  }
 `;
 
 const StyledFlower = styled(BackgroundImage)`
@@ -75,6 +103,9 @@ const StyledFlower = styled(BackgroundImage)`
     height: 210px;
     opacity: 0.2 !important;
     transform: rotate(-20deg);
+    @media ${breakpoints.tabletSmall} {
+      bottom: 0;
+    }
   }
   &#flower-02 {
     left: 34%;
@@ -83,6 +114,9 @@ const StyledFlower = styled(BackgroundImage)`
     height: 270px;
     opacity: 0.05 !important;
     transform: rotate(-100deg);
+    @media ${breakpoints.tabletSmall} {
+      left: 24%;
+    }
   }
   &#flower-03 {
     left: 70%;
@@ -91,6 +125,10 @@ const StyledFlower = styled(BackgroundImage)`
     height: 160px;
     opacity: 0.1 !important;
     transform: rotate(100deg);
+    @media ${breakpoints.tabletSmall} {
+      left: 53%;
+      top: 52%;
+    }
   }
   &#flower-04 {
     right: -2%;

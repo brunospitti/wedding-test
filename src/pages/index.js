@@ -6,6 +6,8 @@ import { graphql } from 'gatsby';
 import { useQueryParam, StringParam } from 'use-query-params';
 import BackgroundImage from 'gatsby-background-image';
 
+import { breakpoints } from '../assets/globalStyles';
+
 import { Layout } from '../components/helpers/Layout';
 import { TextFromString } from '../components/helpers/Content';
 import { Section, SectionRaw } from '../components/helpers/Section';
@@ -61,10 +63,7 @@ const IndexPage = (props) => {
       <Layout>
         <Banner date={info.weddingDate} name={name} language={language} />
         <Section>
-          <TextFromString
-            text={info.intro}
-            style={{ padding: '0 8em', textAlign: 'justify' }}
-          />
+          <StyledTextFromString text={info.intro} />
         </Section>
         <SectionRaw>
           <Invite name={name} info={invitationInfo} />
@@ -100,6 +99,20 @@ IndexPage.propTypes = {
 };
 
 const StyledIndex = styled.div``;
+
+const StyledTextFromString = styled(TextFromString)`
+  padding: 0 8em;
+  text-align: justify;
+  @media ${breakpoints.tablet} {
+    padding: 0 4em;
+  }
+  @media ${breakpoints.mobile} {
+    padding: 0 2em;
+  }
+  @media ${breakpoints.mobile} {
+    padding: 0;
+  }
+`;
 const StyledFlower01 = styled(BackgroundImage)`
   display: block;
   width: 330px;
@@ -109,6 +122,17 @@ const StyledFlower01 = styled(BackgroundImage)`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  @media ${breakpoints.desktopExtraSmall} {
+    margin: -3em 0 -9em -60px;
+  }
+  @media ${breakpoints.tablet} {
+    width: 290px;
+    height: 400px;
+  }
+  @media ${breakpoints.mobileSmall} {
+    width: 200px;
+    height: 270px;
+  }
 `;
 const StyledFlower03 = styled(BackgroundImage)`
   display: block;

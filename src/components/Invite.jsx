@@ -31,7 +31,7 @@ export const Invite = ({ name, info }) => {
 
   return (
     <StyledInviteWrapper>
-      <StyledInvite>
+      <StyledInvite colors={colors}>
         <div className="invite-border">
           <div className="invite-background">
             <div className="invite-content">
@@ -125,6 +125,14 @@ const StyledInvite = styled.div`
     margin: 6% auto;
     padding: 15px;
   }
+  @media ${breakpoints.tabletSmall} {
+    height: 800px;
+  }
+  @media ${breakpoints.mobileSmall} {
+    width: 100%;
+    height: 690px;
+    padding: 7px;
+  }
   &:before {
     content: '';
     display: block;
@@ -151,6 +159,22 @@ const StyledInvite = styled.div`
       height: 600px;
       margin: -10% -12%;
     }
+    @media ${breakpoints.tablet} {
+      width: 130%;
+      height: 650px;
+      margin: -12% -15%;
+    }
+    @media ${breakpoints.tabletSmall} {
+      width: 150%;
+      height: 940px;
+      margin: -12% -25%;
+      transform: rotate(90deg);
+      background-repeat-y: repeat;
+    }
+    @media ${breakpoints.mobile} {
+      margin: -15% -60%;
+      width: 210%;
+    }
   }
   .invite-border {
     position: relative;
@@ -173,26 +197,49 @@ const StyledInvite = styled.div`
     padding: 5px;
     width: 100%;
     height: 100%;
+    @media ${breakpoints.mobileSmall} {
+      padding: 4px;
+    }
   }
   .invite-background {
     height: 100%;
     background: white;
     padding: 2em 2em 1em;
     position: relative;
+    @media ${breakpoints.mobile} {
+      padding: 1.5em 1em;
+    }
+    @media ${breakpoints.mobileSmall} {
+      padding: 1em 0.5em;
+    }
     &::before {
       content: '';
       display: block;
       position: absolute;
-      width: 31%;
+      width: 80%;
+      height: 100%;
       top: 0;
+      background: linear-gradient(
+        286deg,
+        ${({ colors }) => colors.bgColor} 0%,
+        ${({ colors }) => colors.bgColor} 48%,
+        transparent 48.2%,
+        transparent 100%
+      );
       right: 0;
-      border-bottom: 450px solid ${colors.bgColor};
-      border-left: 120px solid transparent;
-      @media ${breakpoints.desktopSmall} {
-        border-bottom-width: 460px;
+      @media ${breakpoints.tabletSmall} {
+        width: 100%;
+        height: 84%;
+        background: linear-gradient(
+          -7deg,
+          ${({ colors }) => colors.bgColor} 0%,
+          ${({ colors }) => colors.bgColor} 46%,
+          transparent 46.2%,
+          transparent 100%
+        );
       }
-      @media ${breakpoints.desktopExtraSmall} {
-        border-bottom-width: 420px;
+      @media ${breakpoints.mobile} {
+        height: 77%;
       }
     }
   }
@@ -209,13 +256,32 @@ const StyledInviteMain = styled.div`
   display: flex;
   height: 100%;
   font-weight: 300;
+  @media ${breakpoints.tabletSmall} {
+    flex-direction: column;
+  }
+  @media ${breakpoints.mobile} {
+    font-size: 0.9em;
+  }
+  @media ${breakpoints.mobile} {
+    margin-bottom: 2em;
+  }
+  @media ${breakpoints.mobileSmall} {
+    font-size: 0.8em;
+    margin-bottom: 1.2em;
+  }
   .invite-side {
     &.invite-left {
       flex: 1;
       font-size: 0.7em;
+      @media ${breakpoints.tabletSmall} {
+        text-align: center;
+      }
       .title {
         font-size: 3em;
         text-transform: capitalize;
+        @media ${breakpoints.mobileSmall} {
+          font-size: 2.8em;
+        }
       }
       .we-invite-you {
         font-size: 2em;
@@ -224,6 +290,12 @@ const StyledInviteMain = styled.div`
       .info {
         margin-top: 5em;
         font-size: inherit;
+        @media ${breakpoints.mobile} {
+          margin-top: 4em;
+        }
+        @media ${breakpoints.mobileSmall} {
+          margin-top: 3em;
+        }
         .date {
           font-size: 3em;
         }
@@ -231,9 +303,21 @@ const StyledInviteMain = styled.div`
           display: flex;
           margin-top: 1em;
           align-items: center;
+          @media ${breakpoints.tabletSmall} {
+            display: inline-flex;
+          }
+          @media ${breakpoints.mobile} {
+            font-size: 1.3em;
+          }
+          @media ${breakpoints.mobileSmall} {
+            flex-direction: column;
+          }
           .time {
             span {
               font-size: 4em;
+              @media ${breakpoints.mobileSmall} {
+                font-size: 2.5em;
+              }
             }
           }
           .place {
@@ -243,6 +327,12 @@ const StyledInviteMain = styled.div`
             font-size: 1em;
             width: 16em;
             letter-spacing: 0.115em;
+            @media ${breakpoints.mobileSmall} {
+              font-size: 1.15em;
+              padding: 0;
+              margin: 0;
+              border: 0;
+            }
             span {
               font-size: 1.5em;
               display: block;
@@ -263,6 +353,14 @@ const StyledInviteMain = styled.div`
       font-size: 1em;
       font-size: 2.25em;
       text-transform: uppercase;
+      @media ${breakpoints.tablet} {
+        font-size: 1.95em;
+      }
+      @media ${breakpoints.tabletSmall} {
+        width: 100%;
+        margin: 0;
+        flex: 1;
+      }
       span {
         font-family: ${fontFamilyTitle};
         font-size: 5em;
@@ -277,6 +375,9 @@ const StyledInviteMain = styled.div`
 const StyledInviteFooter = styled.div`
   margin-top: auto;
   display: flex;
+  @media ${breakpoints.tabletSmall} {
+    flex-direction: column;
+  }
   .sun,
   .photo {
     display: inline-block;
@@ -293,6 +394,9 @@ const StyledInviteFooter = styled.div`
     }
     &.temperature {
       flex: 1;
+      @media ${breakpoints.tabletSmall} {
+        margin-bottom: 1.3em;
+      }
       .sun {
         margin-right: 0.5em;
         width: 30px;
@@ -313,6 +417,13 @@ const StyledInviteFooter = styled.div`
       cursor: pointer;
       border-bottom: 1px solid transparent;
       transition: all 0.25s ease;
+      @media ${breakpoints.tabletSmall} {
+        flex-basis: 100%;
+        width: 72%;
+      }
+      @media ${breakpoints.mobile} {
+        width: 100%;
+      }
       &:hover {
         border-bottom: 1px solid;
       }
