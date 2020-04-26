@@ -7,57 +7,75 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'weddingInfo'
-    label: 'Wedding Info'
-    folder: 'src/info/weddingInfo'
+  - name: "weddingInfo"
+    label: "Wedding Info"
+    folder: "src/info/weddingInfo"
     create: true
-    slug: '{{language}}'
+    slug: "{{language}}"
     fields:
       - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'weddingInfo',
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "weddingInfo",
         }
-      - { label: 'Language', name: 'language', widget: 'string' }
-      - { label: 'Wedding date', name: 'weddingDate', widget: 'string' }
-      - { label: 'Introduction', name: 'intro', widget: 'text' }
-      - { label: 'Invitation - Hello', name: 'invitation-hello', widget: 'string' }
-      - { label: 'Invitation - Invite', name: 'invitation-invite', widget: 'string' }
+      - { label: "Language", name: "language", widget: "string" }
+      - { label: "Wedding date", name: "weddingDate", widget: "string" }
+      - { label: "Introduction", name: "intro", widget: "text" }
       - {
-          label: 'Invitation - Weather - Title',
-          name: 'invitation-weather-title',
-          widget: 'string',
+          label: "Invitation - Hello",
+          name: "invitation-hello",
+          widget: "string",
         }
       - {
-          label: 'Invitation - Weather - Min',
-          name: 'invitation-weather-min',
-          widget: 'string',
+          label: "Invitation - Invite",
+          name: "invitation-invite",
+          widget: "string",
         }
       - {
-          label: 'Invitation - Weather - Max',
-          name: 'invitation-weather-max',
-          widget: 'string',
+          label: "Invitation - Weather - Title",
+          name: "invitation-weather-title",
+          widget: "string",
         }
       - {
-          label: 'Invitation - Weather - Prec',
-          name: 'invitation-weather-prec',
-          widget: 'string',
+          label: "Invitation - Weather - Min",
+          name: "invitation-weather-min",
+          widget: "string",
         }
       - {
-          label: 'Invitation - Show Pictures',
-          name: 'invitation-show-pictures',
-          widget: 'text',
+          label: "Invitation - Weather - Max",
+          name: "invitation-weather-max",
+          widget: "string",
         }
       - {
-          label: 'Invitation - Countdown - Still',
-          name: 'invitation-countdown-still',
-          widget: 'string',
+          label: "Invitation - Weather - Prec",
+          name: "invitation-weather-prec",
+          widget: "string",
         }
       - {
-          label: 'Invitation - Countdown - Days',
-          name: 'invitation-countdown-days',
-          widget: 'string',
+          label: "Invitation - Show Pictures",
+          name: "invitation-show-pictures",
+          widget: "text",
         }
-      - { label: 'RSVP', name: 'rsvp', widget: 'text' }
-      - { label: 'Final phrase', name: 'finalPhrase', widget: 'text' }
+      - {
+          label: "Invitation - Countdown - Still",
+          name: "invitation-countdown-still",
+          widget: "string",
+        }
+      - {
+          label: "Invitation - Countdown - Days",
+          name: "invitation-countdown-days",
+          widget: "string",
+        }
+      - { label: "Title - Carousel", name: "title-carousel", widget: "string" }
+      - { label: "Title - Best men", name: "title-best-men", widget: "string" }
+      - { label: "Title - Gift", name: "title-gift", widget: "string" }
+      - { label: "Gift", name: "gift", widget: "text" }
+      - { label: "Gift - Button", name: "gift-button", widget: "string" }
+      - {
+          label: "Title - Get ready",
+          name: "title-get-ready",
+          widget: "string",
+        }
+      - { label: "Get ready", name: "get-ready", widget: "text" }
+      - { label: "Final phrase", name: "finalPhrase", widget: "text" }

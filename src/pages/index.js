@@ -15,6 +15,7 @@ import { Banner } from '../components/Banner';
 import { Title } from '../components/Title';
 import { Godfathers } from '../components/Godfathers';
 import { Invite } from '../components/Invite';
+import { Form } from '../components/Form';
 
 const languages = ['br', 'en'];
 
@@ -25,6 +26,8 @@ const IndexPage = (props) => {
   const info = props.data.weddingInfo.edges.filter(
     (edge) => edge.node.fields.slug === `/weddingInfo/${language}/`
   )[0].node.frontmatter;
+
+  console.log('IndexPage -> info', info);
 
   let invitationInfo = {};
   Object.entries(info).forEach(([infoKey, infoValue]) => {
@@ -51,6 +54,9 @@ const IndexPage = (props) => {
     flower04: {
       childImageSharp: { fluid: flower04 },
     },
+    flower05: {
+      childImageSharp: { fluid: flower05 },
+    },
     inviteSun: {
       childImageSharp: { fluid: inviteSun },
     },
@@ -64,7 +70,7 @@ const IndexPage = (props) => {
     loading: () => <div>loading</div>,
     render(loaded, props) {
       let Component = loaded.PhotosCarousel;
-      return <Component images={carouselImages} bgImgFluid={flower04} />;
+      return <Component images={carouselImages} bgImgFluid={flower05} />;
     },
   });
 
@@ -73,7 +79,7 @@ const IndexPage = (props) => {
       <Layout>
         <Banner date={info.weddingDate} name={name} language={language} />
         <Section>
-          <StyledTextFromString text={info.intro} />
+          <StyledCenterTextFromString text={info.intro} />
         </Section>
         <SectionRaw>
           <Invite
@@ -85,22 +91,32 @@ const IndexPage = (props) => {
           />
         </SectionRaw>
         <Section>
-          <Title text="Nosso amor" />
+          <Title text={info.title_carousel} />
           <LoadablePhotosCarousel />
         </Section>
         <SectionRaw>
           <StyledFlower01 fluid={flower01} />
         </SectionRaw>
         <Section>
-          <Title text="Nossos padrinhos" />
+          <Title text={info.title_best_men} />
           <Godfathers godfathersImages={godfathersImages} flowerImage={flower02} />
-          <StyledFlower03 fluid={flower03} />
         </Section>
         <Section>
-          <Title text="Nos presenteie" />
+          <Title text={info.title_gift} />
+          <StyledTextFromString text={info.gift} />
+          <StyledGiftButton href="" target="_blank">
+            {info.gift_button}
+          </StyledGiftButton>
         </Section>
-
-        <div style={{ marginTop: '500px' }}></div>
+        <Section>
+          <Title text={info.title_get_ready} />
+          <StyledTextFromString text={info.get_ready} />
+          <Form name={name} flowerImage={flower04} />
+        </Section>
+        <Section>
+          <Title text={info.finalPhrase} />
+        </Section>
+        <StyledFlower03 fluid={flower03} />
       </Layout>
     </StyledIndex>
   );
@@ -117,8 +133,13 @@ IndexPage.propTypes = {
 const StyledIndex = styled.div``;
 
 const StyledTextFromString = styled(TextFromString)`
-  padding: 0 8em;
   text-align: justify;
+  span {
+    font-size: 0.7em;
+  }
+`;
+const StyledCenterTextFromString = styled(StyledTextFromString)`
+  padding: 0 8em;
   @media ${breakpoints.tablet} {
     padding: 0 4em;
   }
@@ -129,6 +150,7 @@ const StyledTextFromString = styled(TextFromString)`
     padding: 0;
   }
 `;
+
 const StyledFlower01 = styled(BackgroundImage)`
   display: block;
   width: 330px;
@@ -150,6 +172,7 @@ const StyledFlower01 = styled(BackgroundImage)`
     height: 270px;
   }
 `;
+
 const StyledFlower03 = styled(BackgroundImage)`
   display: block;
   width: 120px;
@@ -165,6 +188,22 @@ const StyledFlower03 = styled(BackgroundImage)`
   }
 `;
 
+const StyledGiftButton = styled.a`
+  display: table;
+  margin: 2em auto 0;
+  position: relative;
+  background: linear-gradient(to right, #f97dae, #51dacf);
+  opacity: 0.6;
+  width: 45%;
+  padding: 1em 0;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  transition: all 0.5s ease;
+  &:hover {
+    opacity: 1;
+  }
+`;
 export default IndexPage;
 
 export const pageQuery = graphql`
@@ -191,8 +230,14 @@ export const pageQuery = graphql`
             invitation_countdown_still
             invitation_countdown_days
             language
-            rsvp
             weddingDate
+            title_carousel
+            title_best_men
+            title_gift
+            gift
+            gift_button
+            title_get_ready
+            get_ready
           }
         }
       }
@@ -242,7 +287,11 @@ export const pageQuery = graphql`
       ...fluidImage
     }
 
-    flower04: file(relativePath: { eq: "flower-decoration.png" }) {
+    flower04: file(relativePath: { eq: "flower-04.png" }) {
+      ...fluidImage
+    }
+
+    flower05: file(relativePath: { eq: "flower-decoration.png" }) {
       ...fluidImage
     }
 
