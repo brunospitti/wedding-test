@@ -54,6 +54,12 @@ get-ready: >
   keep in touch
    
   <span>*Return trip around R$35,00 per person.</span>
+form-name: Name (required)
+form-seats: How many seats (required)
+form-button: Submit
+form-success-title: 'Hi {name}, thanks!'
+form-success-subtitle: We'll be in touch soon ;)
+form-success-button: < Fill the form again
 finalPhrase: en - final
 invitation: |-
   You’re invited to celebrate our marriage!
