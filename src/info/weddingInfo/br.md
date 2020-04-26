@@ -60,6 +60,7 @@ get-ready: >
   definido.</span>
 form-name: Nome (obrigatório)
 form-seats: Quantos assentos (obrigatório)
+form-location: De onde prefere sair? (obrigatório)
 form-button: Enviar
 form-success-title: 'Olá {name}, obrigado!'
 form-success-subtitle: 'Nós vamos entrar em contato em breve :)'
