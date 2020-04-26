@@ -52,7 +52,7 @@ const StyledGodfathers = styled.div`
   @media ${breakpoints.mobile} {
     height: 680px;
   }
-  @media ${breakpoints.mobile} {
+  @media ${breakpoints.mobileSmall} {
     height: 1280px;
   }
   .godfather-holder {
