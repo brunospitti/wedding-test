@@ -274,7 +274,7 @@ export const pageQuery = graphql`
             get_ready
             form_name
             form_seats
-            form_button
+            form_location
             form_button
             form_success_title
             form_success_subtitle

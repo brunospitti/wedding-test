@@ -17,11 +17,16 @@ export class Form extends React.Component {
       success: false,
       name: this.props.name,
       number: 0,
+      location: '',
     };
   }
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleRadioChange = (e) => {
+    this.setState({ location: e.target.value });
   };
 
   handleSubmit = (e) => {
@@ -51,6 +56,7 @@ export class Form extends React.Component {
     this.setState({
       name: '',
       number: 0,
+      location: '',
       success: false,
     });
   };
@@ -59,6 +65,7 @@ export class Form extends React.Component {
     const {
       name: labelName,
       button: buttonLabel,
+      location,
       seats,
       success_button,
       success_subtitle,
@@ -76,7 +83,7 @@ export class Form extends React.Component {
             </div>
           </StyledSuccess>
         ) : (
-          <StyledForm
+          <form
             name="shuttleVan"
             method="post"
             action="/thanks/"
@@ -115,11 +122,46 @@ export class Form extends React.Component {
                 value={this.state.number}
               />
             </StyledLabel>
+            <StyledLabel>{location}</StyledLabel>
+            <StyledRadiosHolder>
+              <label for="vila-prudente">
+                <input
+                  type="radio"
+                  id="vila-prudente"
+                  name="gender"
+                  value="vila-prudente"
+                  onChange={this.handleRadioChange}
+                />
+                Metrô Vila Prudente
+              </label>
+              <label for="orlando-chiodi">
+                <input
+                  type="radio"
+                  id="orlando-chiodi"
+                  name="gender"
+                  value="orlando-chiodi"
+                  onChange={this.handleRadioChange}
+                />
+                Rua Orlando Chiodi
+              </label>
+              <label for="santo-andre">
+                <input
+                  type="radio"
+                  id="santo-andre"
+                  name="gender"
+                  value="santo-andre"
+                  onChange={this.handleRadioChange}
+                />
+                Santo André
+              </label>
+            </StyledRadiosHolder>
 
-            {this.state.name != '' && this.state.number > 0 && (
-              <StyledButton type="submit">{buttonLabel}</StyledButton>
-            )}
-          </StyledForm>
+            {this.state.name != '' &&
+              this.state.number > 0 &&
+              this.state.location != '' && (
+                <StyledButton type="submit">{buttonLabel}</StyledButton>
+              )}
+          </form>
         )}
         <StyledFlower04 fluid={this.props.flowerImage} />
       </StyledFormHolder>
@@ -136,7 +178,7 @@ const StyledFormHolder = styled.div`
   background: white;
   padding: 2em 2em 0.5em;
   transition: all 0.5s ease;
-  @media ${breakpoints.mobile} {
+  @media ${breakpoints.tablet} {
     width: calc(75% + 3em);
     padding: 1.5em 1.5em 0.5em;
   }
@@ -145,8 +187,6 @@ const StyledFormHolder = styled.div`
     padding: 1em 0.5em 0.5em;
   }
 `;
-
-const StyledForm = styled.form``;
 
 const StyledLabel = styled.label`
   font-weight: bold;
@@ -163,6 +203,27 @@ const StyledInput = styled.input`
     color: #d0d0d0;
     opacity: 1;
     font-size: 0.9em;
+  }
+`;
+
+const StyledRadiosHolder = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+  @media ${breakpoints.mobileSmall} {
+    flex-direction: column;
+  }
+  label {
+    display: flex;
+    align-items: baseline;
+    @media ${breakpoints.mobileSmall} {
+      &:not(:last-child) {
+        margin-bottom: 0.5em;
+      }
+    }
+    input {
+      margin: 0 0.5em 0 0;
+    }
   }
 `;
 

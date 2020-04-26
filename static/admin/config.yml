@@ -80,6 +80,7 @@ collections:
       - { label: "Get ready", name: "get-ready", widget: "text" }
       - { label: "Form - name", name: "form-name", widget: "string" }
       - { label: "Form - seats", name: "form-seats", widget: "string" }
+      - { label: "Form - location", name: "form-location", widget: "string" }
       - { label: "Form - button", name: "form-button", widget: "string" }
       - {
           label: "Form - success - title",
