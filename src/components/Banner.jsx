@@ -14,7 +14,7 @@ export const Banner = ({ date, name, language }) => (
       query {
         allFile: file(relativePath: { eq: "banner.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1700) {
+            fluid(maxWidth: 2000, quality: 100) {
               originalName
               presentationWidth
               ...GatsbyImageSharpFluid
