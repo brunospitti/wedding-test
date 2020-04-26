@@ -78,4 +78,22 @@ collections:
           widget: "string",
         }
       - { label: "Get ready", name: "get-ready", widget: "text" }
+      - { label: "Form - name", name: "form-name", widget: "string" }
+      - { label: "Form - seats", name: "form-seats", widget: "string" }
+      - { label: "Form - button", name: "form-button", widget: "string" }
+      - {
+          label: "Form - success - title",
+          name: "form-success-title",
+          widget: "string",
+        }
+      - {
+          label: "Form - success - subtitle",
+          name: "form-success-subtitle",
+          widget: "string",
+        }
+      - {
+          label: "Form - success - button",
+          name: "form-success-button",
+          widget: "string",
+        }
       - { label: "Final phrase", name: "finalPhrase", widget: "text" }

@@ -19,6 +19,17 @@ import { Form } from '../components/Form';
 
 const languages = ['br', 'en'];
 
+const getSpecificSetOfKeys = (fullObject, keyWord) => {
+  let result = {};
+  Object.entries(fullObject).forEach(([infoKey, infoValue]) => {
+    if (infoKey.includes(keyWord)) {
+      const key = infoKey.substring(`${keyWord}_`.length);
+      result = { ...result, [key]: infoValue };
+    }
+  });
+  return result;
+};
+
 const IndexPage = (props) => {
   const name = useQueryParam('name', StringParam)[0];
   const URLLang = useQueryParam('lang', StringParam)[0];
@@ -27,16 +38,10 @@ const IndexPage = (props) => {
     (edge) => edge.node.fields.slug === `/weddingInfo/${language}/`
   )[0].node.frontmatter;
 
-  console.log('IndexPage -> info', info);
-
-  let invitationInfo = {};
-  Object.entries(info).forEach(([infoKey, infoValue]) => {
-    if (infoKey.includes('invitation')) {
-      const key = infoKey.substring('invitation_'.length);
-      invitationInfo = { ...invitationInfo, [key]: infoValue };
-    }
-  });
+  const invitationInfo = getSpecificSetOfKeys(info, 'invitation');
   invitationInfo.weddingDate = info.weddingDate;
+
+  const formInfo = getSpecificSetOfKeys(info, 'form');
 
   const {
     carouselImages,
@@ -104,14 +109,16 @@ const IndexPage = (props) => {
         <Section>
           <Title text={info.title_gift} />
           <StyledTextFromString text={info.gift} />
-          <StyledGiftButton href="" target="_blank">
-            {info.gift_button}
+          <StyledGiftButton>
+            <a href="" target="_blank">
+              {info.gift_button}
+            </a>
           </StyledGiftButton>
         </Section>
         <Section>
           <Title text={info.title_get_ready} />
           <StyledTextFromString text={info.get_ready} />
-          <Form name={name} flowerImage={flower04} />
+          <Form name={name} flowerImage={flower04} formInfo={formInfo} />
         </Section>
         <Section>
           <Title text={info.finalPhrase} />
@@ -136,6 +143,9 @@ const StyledTextFromString = styled(TextFromString)`
   text-align: justify;
   span {
     font-size: 0.7em;
+  }
+  @media ${breakpoints.mobile} {
+    font-size: 0.9em;
   }
 `;
 const StyledCenterTextFromString = styled(StyledTextFromString)`
@@ -188,20 +198,44 @@ const StyledFlower03 = styled(BackgroundImage)`
   }
 `;
 
-const StyledGiftButton = styled.a`
-  display: table;
+const StyledGiftButton = styled.div`
   margin: 2em auto 0;
-  position: relative;
-  background: linear-gradient(to right, #f97dae, #51dacf);
-  opacity: 0.6;
+  background: linear-gradient(to right, #d29edc, #799694);
   width: 45%;
-  padding: 1em 0;
-  text-align: center;
-  text-decoration: none;
-  color: white;
+  padding: 5px;
   transition: all 0.5s ease;
-  &:hover {
-    opacity: 1;
+  @media ${breakpoints.mobile} {
+    width: 75%;
+  }
+  @media ${breakpoints.mobileSmall} {
+    width: 100%;
+  }
+  a {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background: linear-gradient(to right, #d29edc, #799694);
+    display: table;
+    position: relative;
+    text-decoration: none;
+    color: white;
+    &:hover {
+      &:before {
+        opacity: 0;
+      }
+    }
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: white;
+      top: 0;
+      left: 0;
+      opacity: 0.4;
+      transition: all 0.5s ease;
+    }
   }
 `;
 export default IndexPage;
@@ -238,13 +272,20 @@ export const pageQuery = graphql`
             gift_button
             title_get_ready
             get_ready
+            form_name
+            form_seats
+            form_button
+            form_button
+            form_success_title
+            form_success_subtitle
+            form_success_button
           }
         }
       }
     }
 
     carouselImages: allImageSharp(
-      filter: { fluid: { originalName: { regex: "/^nosso_amor/" } } }
+      filter: { fluid: { originalName: { regex: "/^nosso-amor/" } } }
       sort: { fields: fluid___originalName }
     ) {
       edges {

@@ -12,7 +12,7 @@ export const Banner = ({ date, name, language }) => (
   <StaticQuery
     query={graphql`
       query {
-        allFile: file(relativePath: { eq: "Banner_raw.jpg" }) {
+        allFile: file(relativePath: { eq: "banner.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 1700) {
               originalName

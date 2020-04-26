@@ -26,12 +26,7 @@ export class Form extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     const form = e.target;
-    console.log(
-      "Form -> handleSubmit -> form.getAttribute('name')",
-      form.getAttribute('name')
-    );
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -40,10 +35,7 @@ export class Form extends React.Component {
         ...this.state,
       }),
     })
-      .then(() => {
-        this.handleSuccess();
-        console.log('success');
-      })
+      .then(() => this.handleSuccess())
       .catch((err) => this.handleError(err));
   };
 
@@ -64,16 +56,23 @@ export class Form extends React.Component {
   };
 
   render() {
+    const {
+      name: labelName,
+      button: buttonLabel,
+      seats,
+      success_button,
+      success_subtitle,
+      success_title,
+    } = this.props.formInfo;
+
     return (
       <StyledFormHolder>
         {this.state.success ? (
           <StyledSuccess>
             <div>
-              <span>Hi {this.state.name}, thanks!</span>
-              We&apos;ll be in touch soon ;)
-              <StyledButton
-                onClick={this.handleFormBack}
-              >{`< Fill the form again`}</StyledButton>
+              <span>{success_title.replace('{name}', this.state.name)}</span>
+              {success_subtitle}
+              <StyledButton onClick={this.handleFormBack}>{success_button}</StyledButton>
             </div>
           </StyledSuccess>
         ) : (
@@ -94,31 +93,31 @@ export class Form extends React.Component {
               </label>
             </p>
             <StyledLabel>
-              Name (required)
+              {labelName}
               <StyledInput
                 required
                 type="text"
                 name="name"
-                placeholder="Name (required)"
+                placeholder={labelName}
                 onChange={this.handleChange}
                 value={this.state.name}
               />
             </StyledLabel>
             <StyledLabel>
-              How many seats (required)
+              {seats}
               <StyledInput
                 required
                 min="0"
                 type="number"
                 name="number"
-                placeholder="How many seats (required)"
+                placeholder={seats}
                 onChange={this.handleChange}
                 value={this.state.number}
               />
             </StyledLabel>
 
             {this.state.name != '' && this.state.number > 0 && (
-              <StyledButton type="submit">Send</StyledButton>
+              <StyledButton type="submit">{buttonLabel}</StyledButton>
             )}
           </StyledForm>
         )}
@@ -137,8 +136,13 @@ const StyledFormHolder = styled.div`
   background: white;
   padding: 2em 2em 0.5em;
   transition: all 0.5s ease;
-  @media ${breakpoints.tablet} {
-    margin-top: -8vh;
+  @media ${breakpoints.mobile} {
+    width: calc(75% + 3em);
+    padding: 1.5em 1.5em 0.5em;
+  }
+  @media ${breakpoints.mobileSmall} {
+    width: 100%;
+    padding: 1em 0.5em 0.5em;
   }
 `;
 
@@ -201,9 +205,10 @@ const StyledFlower04 = styled(BackgroundImage)`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  @media ${breakpoints.tablet} {
+  @media ${breakpoints.mobile} {
+    bottom: -50%;
+    right: -10%;
+    height: 120px;
     width: 90px;
-    height: 270px;
-    margin: 10em auto;
   }
 `;

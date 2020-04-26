@@ -32,9 +32,9 @@ const StyledHeader = styled.div`
   display: block;
   background: #ffffff57;
   border-radius: 0 0 0 6px;
-  width: 125px;
-  height: 65px;
-  padding: 0.75em 1em;
+  width: 138px;
+  height: 73px;
+  padding: 0.6em 1em;
 `;
 
 const StyledFlags = styled.div`
@@ -45,8 +45,11 @@ const StyledFlags = styled.div`
   }
   .flag {
     text-align: center;
+    padding: 0.25em;
+    background: transparent;
+    transition: all 0.2s ease;
     &#brazil {
-      margin-right: 1.25em;
+      margin-right: 0.95em;
     }
     img {
       width: 30px;
@@ -62,6 +65,7 @@ const StyledFlags = styled.div`
       transition: all 0.2s ease;
     }
     &.active {
+      background: rgba(255, 255, 255, 0.6);
       img {
         width: 35px;
         margin-top: 0px;
