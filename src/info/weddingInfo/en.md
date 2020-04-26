@@ -56,6 +56,7 @@ get-ready: >
   <span>*Return trip around R$35,00 per person.</span>
 form-name: Name (required)
 form-seats: How many seats (required)
+form-location: Where do you want to be picked up from? (required)
 form-button: Submit
 form-success-title: 'Hi {name}, thanks!'
 form-success-subtitle: We'll be in touch soon ;)
