@@ -34,9 +34,9 @@ const IndexPage = (props) => {
   const name = useQueryParam('name', StringParam)[0];
   const URLLang = useQueryParam('lang', StringParam)[0];
   const language = languages.includes(URLLang) ? URLLang : 'br';
-  const info = props.data.weddingInfo.edges.filter(
-    (edge) => edge.node.fields.slug === `/weddingInfo/${language}/`
-  )[0].node.frontmatter;
+
+  const info =
+    props.data[`weddingInfo${language.toUpperCase()}`].edges[0].node.frontmatter;
 
   const invitationInfo = getSpecificSetOfKeys(info, 'invitation');
   invitationInfo.weddingDate = info.weddingDate;
@@ -160,6 +160,7 @@ const StyledTextFromString = styled(TextFromString)`
     font-size: 0.9em;
   }
 `;
+
 const StyledCenterTextFromString = styled(StyledTextFromString)`
   padding: 0 8em;
   @media ${breakpoints.tablet} {
@@ -254,45 +255,28 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexQuery {
-    weddingInfo: allMarkdownRemark(
-      filter: { frontmatter: { templateKey: { eq: "weddingInfo" } } }
+    weddingInfoBR: allMarkdownRemark(
+      filter: {
+        frontmatter: { templateKey: { eq: "weddingInfo" } }
+        fields: { slug: { regex: "//br/" } }
+      }
     ) {
       edges {
         node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            finalPhrase
-            intro
-            invitation_hello
-            invitation_invite
-            invitation_dress_code
-            invitation_weather_title
-            invitation_weather_min
-            invitation_weather_max
-            invitation_weather_prec
-            invitation_show_pictures
-            invitation_countdown_still
-            invitation_countdown_days
-            language
-            weddingDate
-            title_carousel
-            title_best_men
-            title_gift
-            gift
-            gift_button
-            title_get_ready
-            get_ready
-            form_name
-            form_seats
-            form_location
-            form_button
-            form_success_title
-            form_success_subtitle
-            form_success_button
-          }
+          ...allInfo
+        }
+      }
+    }
+
+    weddingInfoEN: allMarkdownRemark(
+      filter: {
+        frontmatter: { templateKey: { eq: "weddingInfo" } }
+        fields: { slug: { regex: "//en/" } }
+      }
+    ) {
+      edges {
+        node {
+          ...allInfo
         }
       }
     }
@@ -387,6 +371,45 @@ export const pageQuery = graphql`
           }
         }
       }
+    }
+  }
+`;
+
+export const allInfo = graphql`
+  fragment allInfo on MarkdownRemark {
+    id
+    fields {
+      slug
+    }
+    frontmatter {
+      finalPhrase
+      intro
+      invitation_hello
+      invitation_invite
+      invitation_dress_code
+      invitation_weather_title
+      invitation_weather_min
+      invitation_weather_max
+      invitation_weather_prec
+      invitation_show_pictures
+      invitation_countdown_still
+      invitation_countdown_days
+      language
+      weddingDate
+      title_carousel
+      title_best_men
+      title_gift
+      gift
+      gift_button
+      title_get_ready
+      get_ready
+      form_name
+      form_seats
+      form_location
+      form_button
+      form_success_title
+      form_success_subtitle
+      form_success_button
     }
   }
 `;
