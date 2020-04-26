@@ -33,6 +33,11 @@ collections:
           widget: "string",
         }
       - {
+          label: "Invitation - Dress code",
+          name: "invitation-dress-code",
+          widget: "string",
+        }
+      - {
           label: "Invitation - Weather - Title",
           name: "invitation-weather-title",
           widget: "string",

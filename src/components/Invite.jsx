@@ -5,7 +5,16 @@ import BackgroundImage from 'gatsby-background-image';
 
 import { breakpoints, colors, fontFamilyTitle } from '../assets/globalStyles';
 
-export const Invite = ({ name, info, fazendaImages, sunImage, photoImage }) => {
+export const Invite = ({
+  name,
+  info,
+  fazendaImages,
+  sunImage,
+  photoImage,
+  flowerInviteBackground,
+  flowerInviteBackgroundTablet,
+  flowerInviteBackgroundMobile,
+}) => {
   const daysLeft = differenceInDays(new Date(2020, 11, 19), new Date());
   const [showPictures, setShowPictures] = useState(false);
 
@@ -32,9 +41,22 @@ export const Invite = ({ name, info, fazendaImages, sunImage, photoImage }) => {
 
   const ImageToRender = showPictures ? StyledFazendaImageOpen : StyledFazendaImage;
 
+  const sources = [
+    flowerInviteBackground,
+    {
+      ...flowerInviteBackgroundTablet,
+      media: breakpoints.tabletSmall,
+    },
+    {
+      ...flowerInviteBackgroundMobile,
+      media: breakpoints.mobile,
+    },
+  ];
+
   return (
     <StyledInviteWrapper>
       <StyledInvite colors={colors}>
+        <StyledFlowerBackground fluid={sources} />
         <div className="invite-border">
           <div className="invite-background">
             <div className="invite-content">
@@ -53,6 +75,7 @@ export const Invite = ({ name, info, fazendaImages, sunImage, photoImage }) => {
                         Mairiporã SP
                       </div>
                     </div>
+                    <div className="dress-code">* {info.dress_code}</div>
                   </div>
                 </div>
                 <div className="invite-side invite-right">
@@ -113,7 +136,6 @@ const StyledInviteWrapper = styled.div`
 `;
 
 const StyledInvite = styled.div`
-  position: relative;
   width: 70%;
   height: 500px;
   margin: 15% auto;
@@ -137,52 +159,6 @@ const StyledInvite = styled.div`
     width: 100%;
     height: 690px;
     padding: 7px;
-  }
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 140%;
-    height: 925px;
-    margin: -17% -19%;
-    background-image: url('/img/Invite-background.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    @media ${breakpoints.desktop} {
-      width: 130%;
-      height: 810px;
-      margin: -17% -15%;
-    }
-    @media ${breakpoints.desktopSmall} {
-      width: 140%;
-      height: 770px;
-      margin: -12% -22%;
-    }
-    @media ${breakpoints.desktopExtraSmall} {
-      width: 120%;
-      height: 600px;
-      margin: -10% -12%;
-    }
-    @media ${breakpoints.tablet} {
-      width: 130%;
-      height: 650px;
-      margin: -12% -15%;
-    }
-    @media ${breakpoints.tabletSmall} {
-      width: 150%;
-      height: 940px;
-      margin: -12% -25%;
-      transform: rotate(90deg);
-      background-repeat-y: repeat;
-    }
-    @media ${breakpoints.mobile} {
-      margin: -15% -60%;
-      width: 210%;
-    }
-    @media ${breakpoints.mobileSmall} {
-      margin: -35% -60%;
-    }
   }
   .invite-border {
     position: relative;
@@ -260,6 +236,51 @@ const StyledInvite = styled.div`
   }
 `;
 
+const StyledFlowerBackground = styled(BackgroundImage)`
+  display: block;
+  position: absolute !important;
+  width: 100%;
+  height: 885px;
+  margin: -200px -17%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  @media ${breakpoints.desktop} {
+    width: 100%;
+    height: 810px;
+    margin: -168px -16%;
+  }
+  @media ${breakpoints.desktopSmall} {
+    width: 110%;
+    height: 730px;
+    margin: -130px -15%;
+  }
+  @media ${breakpoints.desktopExtraSmall} {
+    width: 115%;
+    height: 650px;
+    margin: -110px -15%;
+  }
+  @media ${breakpoints.tablet} {
+    width: 120%;
+    height: 600px;
+    margin: -90px -19%;
+  }
+  @media ${breakpoints.tabletSmall} {
+    width: 120%;
+    height: 950px;
+    margin: -74px -16%;
+  }
+  @media ${breakpoints.mobile} {
+    margin: -115px -56%;
+    width: 200%;
+    height: 1000px;
+  }
+  @media ${breakpoints.mobileSmall} {
+    margin: -155px -55%;
+    width: 190%;
+  }
+`;
+
 const StyledInviteMain = styled.div`
   display: flex;
   height: 100%;
@@ -296,7 +317,7 @@ const StyledInviteMain = styled.div`
         margin-top: 0.5em;
       }
       .info {
-        margin-top: 5em;
+        margin-top: 3.6em;
         font-size: inherit;
         @media ${breakpoints.mobile} {
           margin-top: 4em;
@@ -351,6 +372,10 @@ const StyledInviteMain = styled.div`
               letter-spacing: 0.115em;
             }
           }
+        }
+        .dress-code {
+          margin-top: 0.7em;
+          font-size: 1.2em;
         }
       }
     }

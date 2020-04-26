@@ -62,6 +62,15 @@ const IndexPage = (props) => {
     flower05: {
       childImageSharp: { fluid: flower05 },
     },
+    flowerInviteBackground: {
+      childImageSharp: { fluid: flowerInviteBackground },
+    },
+    flowerInviteBackgroundTablet: {
+      childImageSharp: { fluid: flowerInviteBackgroundTablet },
+    },
+    flowerInviteBackgroundMobile: {
+      childImageSharp: { fluid: flowerInviteBackgroundMobile },
+    },
     inviteSun: {
       childImageSharp: { fluid: inviteSun },
     },
@@ -93,6 +102,9 @@ const IndexPage = (props) => {
             sunImage={inviteSun}
             photoImage={invitePhoto}
             fazendaImages={inviteFazendaImages}
+            flowerInviteBackground={flowerInviteBackground}
+            flowerInviteBackgroundTablet={flowerInviteBackgroundTablet}
+            flowerInviteBackgroundMobile={flowerInviteBackgroundMobile}
           />
         </SectionRaw>
         <Section>
@@ -256,6 +268,7 @@ export const pageQuery = graphql`
             intro
             invitation_hello
             invitation_invite
+            invitation_dress_code
             invitation_weather_title
             invitation_weather_min
             invitation_weather_max
@@ -332,7 +345,23 @@ export const pageQuery = graphql`
       ...fluidImage
     }
 
-    flower05: file(relativePath: { eq: "flower-decoration.png" }) {
+    flower05: file(relativePath: { eq: "flower-05.png" }) {
+      ...fluidImage
+    }
+
+    flowerInviteBackground: file(relativePath: { eq: "invite-background.png" }) {
+      ...fluidImage
+    }
+
+    flowerInviteBackgroundTablet: file(
+      relativePath: { eq: "invite-background-tablet.png" }
+    ) {
+      ...fluidImage
+    }
+
+    flowerInviteBackgroundMobile: file(
+      relativePath: { eq: "invite-background-mobile.png" }
+    ) {
       ...fluidImage
     }
 
