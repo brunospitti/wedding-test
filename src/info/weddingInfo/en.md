@@ -45,11 +45,14 @@ get-ready: >
   expect to see all your beautiful faces there to celebrate every minute with
   us.
 
+
   Oh one more thing... As we know the place is not easy to get to and the roads
   don’t help, we have organised a shuttle van service so all of you can enjoy
   the party with no worries.
+
+  So if you're interested in joining the vans, complete the form below
    
-  *Return trip around R$35,00 per person.
+  <span>*Return trip around R$35,00 per person.</span>
 finalPhrase: en - final
 invitation: |-
   You’re invited to celebrate our marriage!
