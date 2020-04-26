@@ -22,6 +22,7 @@ intro: >-
   Anyway, better late than never! Ready for this one?
 invitation-hello: Hello
 invitation-invite: We invite you to our wedding
+invitation-dress-code: 'Dress code: Smart Casual'
 invitation-weather-title: 'Weather forecast:'
 invitation-weather-min: 'Min temp.:'
 invitation-weather-max: 'Max temp.:'
