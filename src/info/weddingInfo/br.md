@@ -52,7 +52,8 @@ get-ready: >
   ajuda muito, organizamos o serviço de van para que todos possam se divertir a
   vontade, sem preocupações.
 
-  Então, se você quer participar das vans, complete o formulário abaixo
+  Então, se você quer participar das vans, complete o formulário abaixo para
+  combinarmos mais pra frente
 
 
   <span>*Ida e volta +- R$35,00 por pessoa, local de saída a ser
