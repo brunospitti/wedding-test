@@ -52,7 +52,11 @@ get-ready: >
   ajuda muito, organizamos o serviço de van para que todos possam se divertir a
   vontade, sem preocupações.
 
-  *Ida e volta +- R$35,00 por pessoa, local de saída a ser definido.
+  Então, se você quer participar das vans, complete o formulário abaixo
+
+
+  <span>*Ida e volta +- R$35,00 por pessoa, local de saída a ser
+  definido.</span>
 finalPhrase: Tamo junto. Se arruma e nã me faz passar vergonha
 invitation: |-
   Você está convidado para celebrar o nosso casamento
