@@ -50,7 +50,8 @@ get-ready: >
   don’t help, we have organised a shuttle van service so all of you can enjoy
   the party with no worries.
 
-  So if you're interested in joining the vans, complete the form below
+  So if you're interested in joining the vans, complete the form below for us to
+  keep in touch
    
   <span>*Return trip around R$35,00 per person.</span>
 finalPhrase: en - final
