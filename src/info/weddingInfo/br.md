@@ -33,7 +33,26 @@ invitation-show-pictures: >-
   será o grande dia
 invitation-countdown-still: Faltam
 invitation-countdown-days: dias
-finalPhrase: br - final
+title-carousel: Nosso amor
+title-best-men: Padrinhos e madrinhas
+title-gift: Nos presenteie
+gift: >-
+  Bom, como vocês sabem nossa casa já está prontinha e não precisamos de nada,
+  mesmo porque ficaria difícil de trazer :/ Mas não somos loucos de recusar uma
+  ajudinha, por isso fique a vontade para nos presentear clicando no botão aqui
+  embaixo :D
+title-get-ready: Se prepare
+get-ready: >
+  Preparamos cada detalhe dessa festa com muito carinho e amor, esperamos ver
+  todos vocês lá na fazenda bem lindos, cheirosos e prontos para celebrarmos
+  cada minuto com a gente.
+   
+  Mais uma coisinhaa...Como sabemos que a Fazenda não é próxima e a estrada não
+  ajuda muito, organizamos o serviço de van para que todos possam se divertir a
+  vontade, sem preocupações.
+
+  *Ida e volta +- R$35,00 por pessoa, local de saída a ser definido.
+finalPhrase: Tamo junto. Se arruma e nã me faz passar vergonha
 invitation: |-
   Você está convidado para celebrar o nosso casamento
 
