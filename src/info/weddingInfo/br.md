@@ -58,6 +58,12 @@ get-ready: >
 
   <span>*Ida e volta +- R$35,00 por pessoa, local de saída a ser
   definido.</span>
+form-name: Nome (obrigatório)
+form-seats: Quantos assentos (obrigatório)
+form-button: Enviar
+form-success-title: 'Olá {name}, obrigado!'
+form-success-subtitle: 'Nós vamos entrar em contato em breve :)'
+form-success-button: < Preencher o formulário novamente
 finalPhrase: Tamo junto. Se arruma e nã me faz passar vergonha
 invitation: |-
   Você está convidado para celebrar o nosso casamento
