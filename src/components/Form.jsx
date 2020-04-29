@@ -124,7 +124,7 @@ export class Form extends React.Component {
             </StyledLabel>
             <StyledLabel>{location}</StyledLabel>
             <StyledRadiosHolder>
-              <label for="vila-prudente">
+              <label htmlFor="vila-prudente">
                 <input
                   type="radio"
                   id="vila-prudente"
@@ -134,7 +134,7 @@ export class Form extends React.Component {
                 />
                 Metrô Vila Prudente
               </label>
-              <label for="orlando-chiodi">
+              <label htmlFor="orlando-chiodi">
                 <input
                   type="radio"
                   id="orlando-chiodi"
@@ -144,7 +144,7 @@ export class Form extends React.Component {
                 />
                 Rua Orlando Chiodi
               </label>
-              <label for="santo-andre">
+              <label htmlFor="santo-andre">
                 <input
                   type="radio"
                   id="santo-andre"

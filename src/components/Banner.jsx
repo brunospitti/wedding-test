@@ -28,7 +28,12 @@ export const Banner = ({ date, name, language }) => (
         childImageSharp: { fluid },
       },
     }) => (
-      <StyledBanner Tag="div" fluid={fluid} backgroundColor={`#a7ceca`}>
+      <StyledBanner
+        Tag="div"
+        fluid={fluid}
+        backgroundColor={`#a7ceca`}
+        data-loading="eager"
+      >
         <Header name={name} language={language} />
         <StyledTitle>
           <span id="title">Vitória & Bruno</span>

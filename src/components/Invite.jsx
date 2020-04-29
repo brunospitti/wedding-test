@@ -41,7 +41,7 @@ export const Invite = ({
 
   const ImageToRender = showPictures ? StyledFazendaImageOpen : StyledFazendaImage;
 
-  const sources = [
+  const flowerBackgrounds = [
     flowerInviteBackground,
     {
       ...flowerInviteBackgroundTablet,
@@ -56,7 +56,7 @@ export const Invite = ({
   return (
     <StyledInviteWrapper>
       <StyledInvite colors={colors}>
-        <StyledFlowerBackground fluid={sources} />
+        <StyledFlowerBackground fluid={flowerBackgrounds} data-loading="eager" />
         <div className="invite-border">
           <div className="invite-background">
             <div className="invite-content">

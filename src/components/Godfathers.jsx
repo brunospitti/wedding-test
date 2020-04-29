@@ -17,12 +17,8 @@ export const Godfathers = ({ godfathersImages, flowerImage }) => {
           godfatherNameRaw.charAt(0).toUpperCase() + godfatherNameRaw.slice(1);
 
         return (
-          <div className="godfather-holder">
-            <StyledGodfatherImage
-              backgroundColor={`#a7ceca`}
-              key={fileName}
-              fluid={fluid}
-            />
+          <div className="godfather-holder" key={fileName}>
+            <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={fluid} />
             <span>{godfatherName}</span>
           </div>
         );
