@@ -12,13 +12,13 @@ intro: >-
   lágrimas aprendizados e histórias para contar, as quais cada um de vocês fez
   parte... e óbvio que dessa vez não seria diferente. Então aqui estamos nós
   prontos para colocar mais um plano em ação, dessa vez para virar Senhor e
-  Senhora Spitti &#128540;.
+  Senhora Spitti. &#128540;
 
 
   Essa festa não é só para simbolizar o nosso amor mas também para celebrar a
   vida e o fato de termos todas as pessoas mais especiais do mundo em um mesmo
   lugar, mesmo porque vivemos tão longe e vocês não sabem a falta que cada um de
-  vocês faz \o/
+  vocês faz &#128556;
 
 
   Enfim...Demorou mas chegou!!! Eai, pronto pra mais essa?
@@ -39,9 +39,10 @@ title-best-men: Padrinhos e madrinhas
 title-gift: Nos presenteie
 gift: >-
   Bom, como vocês sabem nossa casa já está prontinha e não precisamos de nada,
-  mesmo porque ficaria difícil de trazer :/ Mas não somos loucos de recusar uma
-  ajudinha, por isso fique a vontade para nos presentear clicando no botão aqui
-  embaixo :D
+  mesmo porque ficaria difícil de trazer. &#128542;
+
+  Mas não somos loucos de recusar uma ajudinha, por isso fique a vontade para
+  nos presentear clicando no botão aqui embaixo! &#128513;
 gift-button: Ver todos os presentes
 title-get-ready: Se prepare
 get-ready: >
