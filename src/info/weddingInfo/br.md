@@ -43,7 +43,7 @@ gift: >-
   somos loucos de recusar uma ajudinha... Por isso, fique a vontade para nos
   presentear clicando no botão aqui embaixo! &#128513;
 gift-button: Ver todos os presentes
-title-get-ready: Se prepare
+title-get-ready: Se prepare!
 get-ready: >
   Preparamos cada detalhe dessa festa com muito carinho e amor e esperamos ver
   todos vocês lá na fazenda bem lindos, cheirosos e prontos para celebrar cada
