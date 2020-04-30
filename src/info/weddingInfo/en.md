@@ -42,7 +42,7 @@ gift: >-
   any extra furnitures. HOWEVER... We are not crazy of saying “No” to a little
   help, so feel free to give us a gift clicking on the button below! &#128513;
 gift-button: See all gifts
-title-get-ready: Prepare yourself
+title-get-ready: Get ready!
 get-ready: >
   We have prepared every detail of this wedding with a lot of love, and truly
   expect to see all your beautiful faces there to celebrate this special moment
