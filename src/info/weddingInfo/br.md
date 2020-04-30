@@ -12,7 +12,7 @@ intro: >-
   lágrimas aprendizados e histórias para contar, as quais cada um de vocês fez
   parte... e óbvio que dessa vez não seria diferente. Então aqui estamos nós
   prontos para colocar mais um plano em ação, dessa vez para virar Senhor e
-  Senhora Spitti :P.
+  Senhora Spitti &#128540;.
 
 
   Essa festa não é só para simbolizar o nosso amor mas também para celebrar a
