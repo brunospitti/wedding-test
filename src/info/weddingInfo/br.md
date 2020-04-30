@@ -39,10 +39,9 @@ title-best-men: Padrinhos e madrinhas
 title-gift: Nos presenteie
 gift: >-
   Bom, como vocês sabem nossa casa já está prontinha e não precisamos de nada,
-  mesmo porque ficaria difícil de trazer. &#128542;
-
-  Mas não somos loucos de recusar uma ajudinha, por isso fique a vontade para
-  nos presentear clicando no botão aqui embaixo! &#128513;
+  mesmo porque ficaria difícil de trazer. Mas não somos loucos de recusar uma
+  ajudinha, por isso fique a vontade para nos presentear clicando no botão aqui
+  embaixo! &#128513;
 gift-button: Ver todos os presentes
 title-get-ready: Se prepare
 get-ready: >
