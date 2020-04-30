@@ -11,12 +11,14 @@ intro: >-
   This journey started eight years ago and since then we’ve had loads of
   laughing moments, a few tears, learnings and stories to tell, which you were
   part of… and obviously this time wouldn’t be different. So here we are, ready
-  to put one more plan in action but this time to become Mr and Mrs Spitti :P.
+  to put one more plan in action but this time to become Mr and Mrs Spitti.
+  &#128540;
 
 
   This ceremony is not just symbolising our love but also to celebrate life and
   the fact we will have all our most special ones in the same place, even
   because we live so far away and you can’t imagine how much we miss you all.
+  &#128556;
 
 
   Anyway, better late than never! Ready for this one?
@@ -38,7 +40,7 @@ title-gift: Give us a gift
 gift: >-
   Well, as you know we have everything for the house already and we don’t need
   any extra furniture. However we are not crazy of saying “No” to a little help
-  so feel free to give us a gift clicking on the button below :D
+  so feel free to give us a gift clicking on the button below! &#128513;
 gift-button: See all gifts
 title-get-ready: Prepare yourself
 get-ready: >
