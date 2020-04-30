@@ -4,19 +4,19 @@ language: en
 weddingDate: 'December 19, 2020'
 intro: >-
   We are so happy to share another special moment in our lives with the ones we
-  love. Who would say that Bruno would be brave enough to propose to me one day,
-  right?
+  love. Who would have guessed that Bruno would be brave enough to propose to me
+  one day, right?
 
 
   This journey started eight years ago and since then we’ve had loads of
   laughing moments, a few tears, learnings and stories to tell, which you were
-  part of… and obviously this time wouldn’t be different. So here we are, ready
+  part of… And obviously this time couldn't be different. So here we are, ready
   to put one more plan in action but this time to become Mr and Mrs Spitti.
   &#128540;
 
 
-  This ceremony is not just symbolising our love but also to celebrate life and
-  the fact we will have all our most special ones in the same place, even
+  This ceremony is not just to symbolise our love but also to celebrate life and
+  the fact we will have all our most special ones in the same place, specially
   because we live so far away and you can’t imagine how much we miss you all.
   &#128556;
 
@@ -38,27 +38,27 @@ title-carousel: Our love
 title-best-men: Best men and bride's maids
 title-gift: Give us a gift
 gift: >-
-  Well, as you know we have everything for the house already and we don’t need
-  any extra furniture. However we are not crazy of saying “No” to a little help
-  so feel free to give us a gift clicking on the button below! &#128513;
+  Well, as you know, we already have everything for the house and we don’t need
+  any extra furnitures. HOWEVER... We are not crazy of saying “No” to a little
+  help, so feel free to give us a gift clicking on the button below! &#128513;
 gift-button: See all gifts
 title-get-ready: Prepare yourself
 get-ready: >
   We have prepared every detail of this wedding with a lot of love, and truly
-  expect to see all your beautiful faces there to celebrate every minute with
-  us.
+  expect to see all your beautiful faces there to celebrate this special moment
+  with us.
 
 
-  Oh one more thing... As we know the place is not easy to get to and the roads
-  don’t help, we have organised a shuttle van service so all of you can enjoy
-  the party with no worries.
+  Oh one more thing... As we know, the wedding location is not easy to get to
+  and the roads aren't the best, so we've organised a shuttle van service to
+  make it easier for all of you can enjoy the party with no worries.
 
-  So if you want to save your seat in the van, complete the form below for us to
-  keep in touch
+  If you want to save your seat in the van, complete the form below for us to
+  keep in touch.
    
   <span>*Return trip around R$35,00 per person.</span>
 form-name: Name (required)
-form-seats: How many seats (required)
+form-seats: How many seats? (required)
 form-location: Where do you want to be picked up from? (required)
 form-button: Submit
 form-success-title: 'Hi {name}, thanks!'
