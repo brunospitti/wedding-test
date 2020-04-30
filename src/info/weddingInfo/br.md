@@ -46,7 +46,7 @@ gift-button: Ver todos os presentes
 title-get-ready: Se prepare!
 get-ready: >
   Preparamos cada detalhe dessa festa com muito carinho e amor e esperamos ver
-  todos vocês lá na fazenda bem lindos, cheirosos e prontos para celebrar cada
+  todos vocês lá na Fazenda bem lindos, cheirosos e prontos para celebrar cada
   minuto com a gente.
    
   Mais uma coisinha... Como sabemos que a Fazenda não é próxima e a estrada não
