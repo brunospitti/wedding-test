@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Carousel } from 'react-responsive-carousel';
 import BackgroundImage from 'gatsby-background-image';
 
-import { breakpoints } from '../assets/globalStyles';
+import { breakpoints, colors } from '../assets/globalStyles';
 
 import { NonStretchedImg } from './helpers/NonStretchedImg';
 
@@ -121,7 +121,7 @@ const StyledCarousel = styled.div`
           width: 100%;
         }
         .dot {
-          background: #d69eb4;
+          background: ${colors.secondary};
           box-shadow: none;
           margin: auto;
 

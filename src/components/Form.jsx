@@ -196,7 +196,7 @@ const StyledLabel = styled.label`
 
 const StyledInput = styled.input`
   width: 100%;
-  border: 1px solid #85ada9;
+  border: 1px solid ${colors.primary};
   padding: 10px;
   margin-top: 0.7em;
   &::placeholder {

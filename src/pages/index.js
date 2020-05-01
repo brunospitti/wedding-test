@@ -152,6 +152,7 @@ IndexPage.propTypes = {
 const StyledIndex = styled.div``;
 
 const StyledTextFromString = styled(TextFromString)`
+  line-height: 22px;
   text-align: justify;
   span {
     font-size: 0.7em;

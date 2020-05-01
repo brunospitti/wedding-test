@@ -75,7 +75,7 @@ export const Invite = ({
                         Mairiporã SP
                       </div>
                     </div>
-                    <div className="dress-code">* {info.dress_code}</div>
+                    <div className="dress-code">*{info.dress_code}</div>
                   </div>
                 </div>
                 <div className="invite-side invite-right">
