@@ -116,7 +116,11 @@ const IndexPage = (props) => {
         </SectionRaw>
         <Section>
           <Title text={info.title_best_men} />
-          <Godfathers godfathersImages={godfathersImages} flowerImage={flower02} />
+          <Godfathers
+            godfathersImages={godfathersImages}
+            flowerImage={flower02}
+            bridesMaidText={info.best_men_brides_maid}
+          />
         </Section>
         <Section>
           <Title text={info.title_gift} />
@@ -383,6 +387,7 @@ export const allInfo = graphql`
       weddingDate
       title_carousel
       title_best_men
+      best_men_brides_maid
       title_gift
       gift
       gift_button

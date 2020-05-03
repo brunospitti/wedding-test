@@ -4,7 +4,7 @@ import BackgroundImage from 'gatsby-background-image';
 
 import { breakpoints, fontFamilyTitle } from '../assets/globalStyles';
 
-export const Godfathers = ({ godfathersImages, flowerImage }) => {
+export const Godfathers = ({ godfathersImages, flowerImage, bridesMaidText }) => {
   return (
     <StyledGodfathers>
       <div className="images-holder">
@@ -20,7 +20,7 @@ export const Godfathers = ({ godfathersImages, flowerImage }) => {
 
           return (
             <div className="godfather-holder" key={fileName}>
-              {isLast && <div id="maid-of-honor">Madrinha de honra</div>}
+              {isLast && <div id="maid-of-honor">{bridesMaidText}</div>}
               <div>
                 <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={fluid} />
                 <span>{godfatherName}</span>
