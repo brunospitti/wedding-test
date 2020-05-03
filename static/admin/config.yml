@@ -74,6 +74,11 @@ collections:
         }
       - { label: "Title - Carousel", name: "title-carousel", widget: "string" }
       - { label: "Title - Best men", name: "title-best-men", widget: "string" }
+      - {
+          label: "Best men - Bride's maid",
+          name: "best-men-brides-maid",
+          widget: "string",
+        }
       - { label: "Title - Gift", name: "title-gift", widget: "string" }
       - { label: "Gift", name: "gift", widget: "text" }
       - { label: "Gift - Button", name: "gift-button", widget: "string" }

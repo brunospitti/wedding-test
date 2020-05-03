@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 import { useQueryParam, StringParam } from 'use-query-params';
 import BackgroundImage from 'gatsby-background-image';
 
-import { breakpoints } from '../assets/globalStyles';
+import { breakpoints, colors } from '../assets/globalStyles';
 
 import { Layout } from '../components/helpers/Layout';
 import { TextFromString } from '../components/helpers/Content';
@@ -121,10 +121,8 @@ const IndexPage = (props) => {
         <Section>
           <Title text={info.title_gift} />
           <StyledTextFromString text={info.gift} />
-          <StyledGiftButton>
-            <a href="" target="_blank">
-              {info.gift_button}
-            </a>
+          <StyledGiftButton href="" target="_blank">
+            <StyledTextFromString text={info.gift_button} />
           </StyledGiftButton>
         </Section>
         <Section>
@@ -212,44 +210,30 @@ const StyledFlower03 = styled(BackgroundImage)`
   }
 `;
 
-const StyledGiftButton = styled.div`
+const StyledGiftButton = styled.a`
   margin: 2em auto 0;
-  background: linear-gradient(to right, #d29edc, #799694);
+  background: ${colors.secondary};
   width: 45%;
   padding: 5px;
+  display: block;
+  text-decoration: none;
+  padding: 0.3em;
+  opacity: 0.7;
   transition: all 0.5s ease;
+  &:hover {
+    opacity: 1;
+  }
   @media ${breakpoints.mobile} {
     width: 75%;
   }
   @media ${breakpoints.mobileSmall} {
     width: 100%;
   }
-  a {
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    background: linear-gradient(to right, #d29edc, #799694);
-    display: table;
-    position: relative;
-    text-decoration: none;
+  div {
     color: white;
-    &:hover {
-      &:before {
-        opacity: 0;
-      }
-    }
-    &:before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: white;
-      top: 0;
-      left: 0;
-      opacity: 0.4;
-      transition: all 0.5s ease;
-    }
+    text-align: center;
+    padding: 0.65em;
+    border: 1px solid;
   }
 `;
 export default IndexPage;

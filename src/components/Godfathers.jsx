@@ -2,27 +2,34 @@ import React from 'react';
 import styled from 'styled-components';
 import BackgroundImage from 'gatsby-background-image';
 
-import { breakpoints } from '../assets/globalStyles';
+import { breakpoints, fontFamilyTitle } from '../assets/globalStyles';
 
 export const Godfathers = ({ godfathersImages, flowerImage }) => {
   return (
     <StyledGodfathers>
-      {godfathersImages.edges.map(({ node: { fluid } }) => {
-        const fileName = fluid.originalName;
-        const godfatherNameRaw = fileName.substring(
-          fileName.lastIndexOf('-') + 1,
-          fileName.lastIndexOf('.')
-        );
-        const godfatherName =
-          godfatherNameRaw.charAt(0).toUpperCase() + godfatherNameRaw.slice(1);
+      <div className="images-holder">
+        {godfathersImages.edges.map(({ node: { fluid } }, index) => {
+          const isLast = index === godfathersImages.edges.length - 1;
+          const fileName = fluid.originalName;
+          const godfatherNameRaw = fileName.substring(
+            fileName.lastIndexOf('-') + 1,
+            fileName.lastIndexOf('.')
+          );
+          const godfatherName =
+            godfatherNameRaw.charAt(0).toUpperCase() + godfatherNameRaw.slice(1);
 
-        return (
-          <div className="godfather-holder" key={fileName}>
-            <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={fluid} />
-            <span>{godfatherName}</span>
-          </div>
-        );
-      })}
+          return (
+            <div className="godfather-holder" key={fileName}>
+              {isLast && <div id="maid-of-honor">Madrinha de honra</div>}
+              <div>
+                <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={fluid} />
+                <span>{godfatherName}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
       <StyledFlower fluid={flowerImage} id="flower-01" />
       <StyledFlower fluid={flowerImage} id="flower-02" />
       <StyledFlower fluid={flowerImage} id="flower-03" />
@@ -33,37 +40,52 @@ export const Godfathers = ({ godfathersImages, flowerImage }) => {
 
 // styled components
 const StyledGodfathers = styled.div`
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-between;
-  height: 400px;
-  @media ${breakpoints.desktopExtraSmall} {
-    height: 360px;
-  }
-  @media ${breakpoints.tabletSmall} {
-    height: 720px;
-  }
-  @media ${breakpoints.mobile} {
-    height: 680px;
-  }
-  @media ${breakpoints.mobileSmall} {
-    height: 1280px;
-  }
-  .godfather-holder {
-    text-align: center;
-    width: calc(100% / 8);
-    z-index: 9;
+  .images-holder {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    height: 650px;
+    @media ${breakpoints.desktopExtraSmall} {
+      height: 580px;
+    }
     @media ${breakpoints.tabletSmall} {
-      width: 25%;
+      height: 940px;
+    }
+    @media ${breakpoints.mobile} {
+      height: 900px;
     }
     @media ${breakpoints.mobileSmall} {
-      width: 50%;
+      height: 1550px;
     }
-    span {
-      margin-top: 0.5em;
-      display: block;
+    .godfather-holder {
+      text-align: center;
+      width: calc(100% / 8);
+      z-index: 9;
+      &:last-child {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        #maid-of-honor {
+          font-size: 2.5em;
+          font-weight: 100;
+          margin-right: 1em;
+          font-family: ${fontFamilyTitle};
+        }
+      }
+      @media ${breakpoints.tabletSmall} {
+        width: 25%;
+      }
+      @media ${breakpoints.mobileSmall} {
+        width: 50%;
+      }
+      span {
+        margin-top: 0.5em;
+        display: block;
+      }
     }
   }
 `;
@@ -94,7 +116,7 @@ const StyledFlower = styled(BackgroundImage)`
   background-position: center !important;
   &#flower-01 {
     left: -5%;
-    bottom: -10%;
+    top: 55%;
     width: 120px;
     height: 210px;
     opacity: 0.2 !important;
@@ -105,7 +127,7 @@ const StyledFlower = styled(BackgroundImage)`
   }
   &#flower-02 {
     left: 34%;
-    top: 10%;
+    top: 32%;
     width: 140px;
     height: 270px;
     opacity: 0.05 !important;
@@ -116,7 +138,7 @@ const StyledFlower = styled(BackgroundImage)`
   }
   &#flower-03 {
     left: 70%;
-    top: 41%;
+    top: 28%;
     width: 100px;
     height: 160px;
     opacity: 0.1 !important;
@@ -128,7 +150,7 @@ const StyledFlower = styled(BackgroundImage)`
   }
   &#flower-04 {
     right: -2%;
-    top: 8%;
+    top: 22%;
     width: 100px;
     height: 160px;
     opacity: 0.2 !important;
