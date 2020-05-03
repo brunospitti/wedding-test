@@ -41,7 +41,7 @@ gift: >-
   Well, as you know, we already have everything for the house and we don’t need
   any extra furnitures. HOWEVER... We are not crazy of saying “No” to a little
   help, so feel free to give us a gift clicking on the button below! &#128513;
-gift-button: See all gifts
+gift-button: '&#127873; See all gifts'
 title-get-ready: Get ready!
 get-ready: >
   We have prepared every detail of this wedding with a lot of love, and truly
