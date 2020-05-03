@@ -36,6 +36,7 @@ invitation-countdown-still: Faltam
 invitation-countdown-days: dias
 title-carousel: Nosso amor
 title-best-men: Padrinhos e madrinhas
+best-men-brides-maid: Madrinha de honra
 title-gift: Nos presenteie
 gift: >-
   Bom, como vocês sabem nossa casa já está prontinha e não precisamos de nada,
