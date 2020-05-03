@@ -36,6 +36,7 @@ invitation-countdown-still: Still
 invitation-countdown-days: Days to go
 title-carousel: Our love
 title-best-men: Best men and bride's maids
+best-men-brides-maid: 'Maid of honour '
 title-gift: Give us a gift
 gift: >-
   Well, as you know, we already have everything for the house and we don’t need
