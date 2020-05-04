@@ -9,7 +9,6 @@ import BackgroundImage from 'gatsby-background-image';
 import { breakpoints, colors } from '../assets/globalStyles';
 
 import { Layout } from '../components/helpers/Layout';
-import { TextFromString } from '../components/helpers/Content';
 import { Section, SectionRaw } from '../components/helpers/Section';
 import { Banner } from '../components/Banner';
 import { Title } from '../components/Title';
@@ -30,13 +29,27 @@ const getSpecificSetOfKeys = (fullObject, keyWord) => {
   return result;
 };
 
+const LoadableTextFromString = Loadable({
+  loader: () => import('../components/helpers/Content'),
+  loading: () => <div></div>,
+  render(loaded, props) {
+    let Component = loaded.TextFromString;
+    return <Component text={props.text} />;
+  },
+});
+
 const IndexPage = (props) => {
   const [name] = useQueryParam('name', StringParam);
   const [URLLang] = useQueryParam('lang', StringParam);
   const language = languages.includes(URLLang) ? URLLang : 'br';
 
-  const info =
-    props.data[`weddingInfo${language.toUpperCase()}`].edges[0].node.frontmatter;
+  const {
+    edges: [
+      {
+        node: { frontmatter: info },
+      },
+    ],
+  } = props.data[`weddingInfo${language.toUpperCase()}`];
 
   const invitationInfo = getSpecificSetOfKeys(info, 'invitation');
   invitationInfo.weddingDate = info.weddingDate;
@@ -160,7 +173,7 @@ IndexPage.propTypes = {
 
 const StyledIndex = styled.div``;
 
-const StyledTextFromString = styled(TextFromString)`
+const StyledTextFromString = styled(LoadableTextFromString)`
   line-height: 22px;
   text-align: justify;
   span {
