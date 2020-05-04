@@ -34,7 +34,21 @@ const LoadableTextFromString = Loadable({
   loading: () => <div></div>,
   render(loaded, props) {
     let Component = loaded.TextFromString;
-    return <Component text={props.text} />;
+    return (
+      <Component
+        className={`LoadableTextFromString ${props.className}`}
+        text={props.text}
+      />
+    );
+  },
+});
+
+const LoadablePhotosCarousel = Loadable({
+  loader: () => import('../components/PhotosCarousel'),
+  loading: () => <div>loading</div>,
+  render(loaded, props) {
+    let Component = loaded.PhotosCarousel;
+    return <Component images={props.images} bgImgFluid={props.bgImgFluid} />;
   },
 });
 
@@ -95,21 +109,15 @@ const IndexPage = (props) => {
     },
   } = props.data;
 
-  const LoadablePhotosCarousel = Loadable({
-    loader: () => import('../components/PhotosCarousel'),
-    loading: () => <div>loading</div>,
-    render(loaded) {
-      let Component = loaded.PhotosCarousel;
-      return <Component images={carouselImages} bgImgFluid={flower05} />;
-    },
-  });
-
   return (
     <StyledIndex>
       <Layout>
         <Banner date={info.weddingDate} name={name} language={language} />
         <Section>
-          <StyledCenterTextFromString text={info.intro} />
+          <LoadableTextFromString
+            className="LoadableCentreTextFromString"
+            text={info.intro}
+          />
         </Section>
         <SectionRaw>
           <Invite
@@ -125,7 +133,7 @@ const IndexPage = (props) => {
         </SectionRaw>
         <Section>
           <Title text={info.title_carousel} />
-          <LoadablePhotosCarousel />
+          <LoadablePhotosCarousel images={carouselImages} bgImgFluid={flower05} />
         </Section>
         <SectionRaw>
           <StyledFlower01 fluid={flower01} />
@@ -141,17 +149,17 @@ const IndexPage = (props) => {
         </Section>
         <Section>
           <Title text={info.title_gift} />
-          <StyledTextFromString text={info.gift} />
+          <LoadableTextFromString text={info.gift} />
           <StyledGiftButton
             href="https://sites.icasei.com.br/brunoevitoriaspitti/store/9/1/1"
             target="_blank"
           >
-            <StyledTextFromString text={info.gift_button} />
+            <LoadableTextFromString text={info.gift_button} />
           </StyledGiftButton>
         </Section>
         <Section>
           <Title text={info.title_get_ready} />
-          <StyledTextFromString text={info.get_ready} />
+          <LoadableTextFromString text={info.get_ready} />
           <Form name={name} flowerImage={flower04} formInfo={formInfo} />
         </Section>
         <Section>
@@ -171,29 +179,28 @@ IndexPage.propTypes = {
   }),
 };
 
-const StyledIndex = styled.div``;
-
-const StyledTextFromString = styled(LoadableTextFromString)`
-  line-height: 22px;
-  text-align: justify;
-  span {
-    font-size: 0.7em;
-  }
-  @media ${breakpoints.mobile} {
-    font-size: 0.9em;
-  }
-`;
-
-const StyledCenterTextFromString = styled(StyledTextFromString)`
-  padding: 0 8em;
-  @media ${breakpoints.tablet} {
-    padding: 0 4em;
-  }
-  @media ${breakpoints.mobile} {
-    padding: 0 2em;
-  }
-  @media ${breakpoints.mobile} {
-    padding: 0;
+const StyledIndex = styled.div`
+  .LoadableTextFromString {
+    line-height: 22px;
+    text-align: justify;
+    span {
+      font-size: 0.7em;
+    }
+    @media ${breakpoints.mobile} {
+      font-size: 0.9em;
+    }
+    &.LoadableCentreTextFromString {
+      padding: 0 8em;
+      @media ${breakpoints.tablet} {
+        padding: 0 4em;
+      }
+      @media ${breakpoints.mobile} {
+        padding: 0 2em;
+      }
+      @media ${breakpoints.mobile} {
+        padding: 0;
+      }
+    }
   }
 `;
 
