@@ -82,7 +82,6 @@ const IndexPage = (props) => {
   const [name] = useQueryParam('name', StringParam);
   const [URLLang] = useQueryParam('lang', StringParam);
   const language = languages.includes(URLLang) ? URLLang : 'br';
-  console.log('IndexPage -> language', language);
 
   const info =
     props.data[`weddingInfo${language.toUpperCase()}`].edges[0].node.frontmatter;

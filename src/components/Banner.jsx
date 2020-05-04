@@ -2,11 +2,20 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import BackgroundImage from 'gatsby-background-image';
+import Loadable from 'react-loadable';
 
 import { breakpoints } from '../assets/globalStyles';
 
-import { Header } from './Header';
 import { fontFamilyTitle } from '../assets/globalStyles';
+
+const LoadableHeader = Loadable({
+  loader: () => import('./Header'),
+  loading: () => <div></div>,
+  render(loaded, props) {
+    let Component = loaded.Header;
+    return <Component name={props.name} language={props.language} />;
+  },
+});
 
 export const Banner = ({ date, name, language }) => (
   <StaticQuery
@@ -34,7 +43,7 @@ export const Banner = ({ date, name, language }) => (
         backgroundColor={`#a7ceca`}
         data-loading="eager"
       >
-        <Header name={name} language={language} />
+        <LoadableHeader name={name} language={language} />
         <StyledTitle>
           <span id="title">Vitória & Bruno</span>
           <span id="date">{date}</span>

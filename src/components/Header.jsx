@@ -2,27 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-export const Header = ({ language, name }) => {
-  console.log('Header -> language', language);
-  return (
-    <StyledHeader>
-      <StyledFlags>
-        <Link to={`/?lang=br${name ? `&name=${name}` : ''}`}>
-          <div className={`flag ${language === 'br' ? 'active' : ''}`} id="brazil">
-            <img src="/img/brazil-flag.jpg" alt="Brazilian Portuguese" />
-            <span>br</span>
-          </div>
-        </Link>
-        <Link to={`/?lang=en${name ? `&name=${name}` : ''}`}>
-          <div className={`flag ${language === 'en' ? 'active' : ''}`} id="ireland">
-            <img src="/img/ireland-flag.jpg" alt="English" />
-            <span>en</span>
-          </div>
-        </Link>
-      </StyledFlags>
-    </StyledHeader>
-  );
-};
+export const Header = ({ language, name }) => (
+  <StyledHeader>
+    <StyledFlags>
+      <Link to={`/?lang=br${name ? `&name=${name}` : ''}`}>
+        <div className={`flag ${language === 'br' ? 'active' : ''}`} id="brazil">
+          <img src="/img/brazil-flag.jpg" alt="Brazilian Portuguese" />
+          <span>br</span>
+        </div>
+      </Link>
+      <Link to={`/?lang=en${name ? `&name=${name}` : ''}`}>
+        <div className={`flag ${language === 'en' ? 'active' : ''}`} id="ireland">
+          <img src="/img/ireland-flag.jpg" alt="English" />
+          <span>en</span>
+        </div>
+      </Link>
+    </StyledFlags>
+  </StyledHeader>
+);
 
 // styled components
 const StyledHeader = styled.div`
