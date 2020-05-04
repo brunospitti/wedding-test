@@ -36,7 +36,8 @@ const LoadableTextFromString = Loadable({
     let Component = loaded.TextFromString;
     return (
       <Component
-        className={`LoadableTextFromString ${props.className}`}
+        className={`LoadableTextFromString ${props.className || ''}`}
+        style={props.style}
         text={props.text}
       />
     );
@@ -154,7 +155,10 @@ const IndexPage = (props) => {
             href="https://sites.icasei.com.br/brunoevitoriaspitti/store/9/1/1"
             target="_blank"
           >
-            <LoadableTextFromString text={info.gift_button} />
+            <LoadableTextFromString
+              text={info.gift_button}
+              style={{ textAlign: 'center' }}
+            />
           </StyledGiftButton>
         </Section>
         <Section>
