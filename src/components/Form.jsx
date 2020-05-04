@@ -156,11 +156,11 @@ export class Form extends React.Component {
               </label>
             </StyledRadiosHolder>
 
-            {this.state.name != '' &&
-              this.state.number > 0 &&
-              this.state.location != '' && (
-                <StyledButton type="submit">{buttonLabel}</StyledButton>
-              )}
+            {this.state.name != '' && this.state.number > 0 && this.state.location != '' && (
+              <StyledButton type="submit">
+                <div>{buttonLabel}</div>
+              </StyledButton>
+            )}
           </form>
         )}
         <StyledFlower04 fluid={this.props.flowerImage} />
@@ -230,17 +230,21 @@ const StyledRadiosHolder = styled.div`
 const StyledButton = styled.button`
   margin: 1em auto 1.5em;
   position: relative;
-  background: #2b5854;
+  background: ${colors.primary};
   cursor: pointer;
-  opacity: 0.6;
   width: 100%;
-  padding: 0.6em 0;
-  text-align: center;
+  padding: 5px;
+  border: 0;
   text-decoration: none;
-  color: white;
   transition: all 0.5s ease;
   &:hover {
-    opacity: 1;
+    background: #234a47;
+  }
+  div {
+    color: white;
+    text-align: center;
+    padding: 0.65em;
+    border: 1px solid;
   }
 `;
 

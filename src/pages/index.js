@@ -229,10 +229,9 @@ const StyledGiftButton = styled.a`
   display: block;
   text-decoration: none;
   padding: 0.3em;
-  opacity: 0.7;
   transition: all 0.5s ease;
   &:hover {
-    opacity: 1;
+    background: #841c4b;
   }
   @media ${breakpoints.mobile} {
     width: 75%;
