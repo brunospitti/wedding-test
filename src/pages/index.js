@@ -31,18 +31,6 @@ const getSpecificSetOfKeys = (fullObject, keyWord) => {
 };
 
 const IndexPage = (props) => {
-  const name = useQueryParam('name', StringParam)[0];
-  const URLLang = useQueryParam('lang', StringParam)[0];
-  const language = languages.includes(URLLang) ? URLLang : 'br';
-
-  const info =
-    props.data[`weddingInfo${language.toUpperCase()}`].edges[0].node.frontmatter;
-
-  const invitationInfo = getSpecificSetOfKeys(info, 'invitation');
-  invitationInfo.weddingDate = info.weddingDate;
-
-  const formInfo = getSpecificSetOfKeys(info, 'form');
-
   const {
     carouselImages,
     godfathersImages,
@@ -85,11 +73,24 @@ const IndexPage = (props) => {
   const LoadablePhotosCarousel = Loadable({
     loader: () => import('../components/PhotosCarousel'),
     loading: () => <div>loading</div>,
-    render(loaded, props) {
+    render(loaded) {
       let Component = loaded.PhotosCarousel;
       return <Component images={carouselImages} bgImgFluid={flower05} />;
     },
   });
+
+  const [name] = useQueryParam('name', StringParam);
+  const [URLLang] = useQueryParam('lang', StringParam);
+  const language = languages.includes(URLLang) ? URLLang : 'br';
+  console.log('IndexPage -> language', language);
+
+  const info =
+    props.data[`weddingInfo${language.toUpperCase()}`].edges[0].node.frontmatter;
+
+  const invitationInfo = getSpecificSetOfKeys(info, 'invitation');
+  invitationInfo.weddingDate = info.weddingDate;
+
+  const formInfo = getSpecificSetOfKeys(info, 'form');
 
   return (
     <StyledIndex>

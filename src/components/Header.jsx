@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 export const Header = ({ language, name }) => {
+  console.log('Header -> language', language);
   return (
     <StyledHeader>
       <StyledFlags>
