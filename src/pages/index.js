@@ -62,6 +62,9 @@ const IndexPage = (props) => {
     flower05: {
       childImageSharp: { fluid: flower05 },
     },
+    flower06: {
+      childImageSharp: { fluid: flower06 },
+    },
     flowerInviteBackground: {
       childImageSharp: { fluid: flowerInviteBackground },
     },
@@ -120,12 +123,16 @@ const IndexPage = (props) => {
             godfathersImages={godfathersImages}
             flowerImage={flower02}
             bridesMaidText={info.best_men_brides_maid}
+            maidOfHonourFlower={flower06}
           />
         </Section>
         <Section>
           <Title text={info.title_gift} />
           <StyledTextFromString text={info.gift} />
-          <StyledGiftButton href="" target="_blank">
+          <StyledGiftButton
+            href="https://sites.icasei.com.br/brunoevitoriaspitti/store/9/1/1"
+            target="_blank"
+          >
             <StyledTextFromString text={info.gift_button} />
           </StyledGiftButton>
         </Section>
@@ -319,6 +326,10 @@ export const pageQuery = graphql`
     }
 
     flower05: file(relativePath: { eq: "flower-05.png" }) {
+      ...fluidImage
+    }
+
+    flower06: file(relativePath: { eq: "flower-06.png" }) {
       ...fluidImage
     }
 

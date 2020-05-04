@@ -4,7 +4,12 @@ import BackgroundImage from 'gatsby-background-image';
 
 import { breakpoints, fontFamilyTitle } from '../assets/globalStyles';
 
-export const Godfathers = ({ godfathersImages, flowerImage, bridesMaidText }) => {
+export const Godfathers = ({
+  godfathersImages,
+  flowerImage,
+  bridesMaidText,
+  maidOfHonourFlower,
+}) => {
   return (
     <StyledGodfathers>
       <div className="images-holder">
@@ -20,11 +25,9 @@ export const Godfathers = ({ godfathersImages, flowerImage, bridesMaidText }) =>
 
           return (
             <div className="godfather-holder" key={fileName}>
-              {isLast && <div id="maid-of-honor">{bridesMaidText}</div>}
-              <div>
-                <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={fluid} />
-                <span>{godfatherName}</span>
-              </div>
+              <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={fluid} />
+              <span>{godfatherName}</span>
+              {isLast && <StyledFlower06 fluid={maidOfHonourFlower} />}
             </div>
           );
         })}
@@ -65,16 +68,7 @@ const StyledGodfathers = styled.div`
       z-index: 9;
       &:last-child {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         margin-top: 50px;
-        #maid-of-honor {
-          font-size: 2.5em;
-          font-weight: 100;
-          margin-right: 1em;
-          font-family: ${fontFamilyTitle};
-        }
       }
       @media ${breakpoints.tabletSmall} {
         width: 25%;
@@ -155,5 +149,21 @@ const StyledFlower = styled(BackgroundImage)`
     height: 160px;
     opacity: 0.2 !important;
     transform: rotate(170deg);
+  }
+`;
+
+const StyledFlower06 = styled(BackgroundImage)`
+  position: absolute !important;
+  display: block;
+  height: 65px;
+  width: 55px;
+  left: 53%;
+  bottom: 4%;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  @media ${breakpoints.mobileSmall} {
+    left: 55%;
+    bottom: 1%;
   }
 `;

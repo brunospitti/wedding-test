@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const colors = {
   primary: '#2b5854',
-  secondary: '#d69eb4',
+  secondary: '#c35e81',
   tertiary: '#6fe2a5',
   greyDark: '#535353',
   bgColor: '#f7f7f7',

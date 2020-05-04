@@ -12,9 +12,9 @@ export const Banner = ({ date, name, language }) => (
   <StaticQuery
     query={graphql`
       query {
-        allFile: file(relativePath: { eq: "banner.jpg" }) {
+        allFile: file(relativePath: { eq: "banner-2.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 2000, quality: 100) {
+            fluid(maxWidth: 1800, quality: 90) {
               originalName
               presentationWidth
               ...GatsbyImageSharpFluid
@@ -47,13 +47,20 @@ export const Banner = ({ date, name, language }) => (
 // styled components
 const StyledBanner = styled(BackgroundImage)`
   width: 100%;
-  height: 750px;
+  height: 650px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 `;
 
 const StyledTitle = styled.div`
+  padding-top: 2em;
+  @media ${breakpoints.mobile} {
+    padding-top: 5em;
+  }
+  @media ${breakpoints.mobileSmall} {
+    padding-top: 4em;
+  }
   span {
     margin: auto;
     text-align: center;
@@ -69,9 +76,21 @@ const StyledTitle = styled.div`
       @media ${breakpoints.tabletSmall} {
         width: 80%;
       }
+      @media ${breakpoints.mobile} {
+        font-size: 5em;
+      }
+      @media ${breakpoints.mobileSmall} {
+        font-size: 4.5em;
+      }
     }
     &#date {
       font-size: 1.5em;
+      @media ${breakpoints.mobile} {
+        font-size: 1.25em;
+      }
+      @media ${breakpoints.mobileSmall} {
+        font-size: 1em;
+      }
     }
   }
 `;
