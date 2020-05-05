@@ -36,9 +36,7 @@ const LoadableTextFromString = Loadable({
     let Component = loaded.TextFromString;
     return (
       <Component
-        className={
-          !props.noClassName && `LoadableTextFromString ${props.className || ''}`
-        }
+        className={`LoadableTextFromString ${props.className || ''}`}
         style={props.style}
         text={props.text}
       />
@@ -169,7 +167,7 @@ const IndexPage = (props) => {
           <Form name={name} flowerImage={flower04} formInfo={formInfo} />
         </Section>
         <Section>
-          <Title text={<LoadableTextFromString text={info.finalPhrase} noClassName />} />
+          <Title text={info.finalPhrase} />
         </Section>
         <StyledFlower03 fluid={flower03} />
       </Layout>
