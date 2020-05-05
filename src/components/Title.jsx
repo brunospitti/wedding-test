@@ -9,18 +9,28 @@ export const Title = ({ text }) => {
 
 // styled components
 const StyledTitle = styled.div`
-  display: inline-block;
-  font-family: ${fontFamilyTitle};
-  font-size: 5em;
-  margin: 0.5em 0;
-  @media ${breakpoints.mobile} {
-    font-size: 3em;
+  &,
+  div {
+    display: inline-block;
+    font-family: ${fontFamilyTitle};
+    font-size: 5em;
+    margin: 0.5em 0;
+    @media ${breakpoints.mobile} {
+      font-size: 3em;
+    }
+    &:after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: calc(100% + 100px);
+      background: ${colors.secondary};
+    }
   }
-  &:after {
-    content: '';
-    display: block;
-    height: 2px;
-    width: calc(100% + 100px);
-    background: ${colors.secondary};
+  div {
+    font-size: 1em;
+    margin: 0;
+    &:after {
+      height: 0;
+    }
   }
 `;
