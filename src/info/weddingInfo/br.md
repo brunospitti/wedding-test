@@ -67,7 +67,7 @@ form-button: Enviar
 form-success-title: 'Olá {name}, obrigado!'
 form-success-subtitle: 'Nós vamos entrar em contato em breve :)'
 form-success-button: < Preencher o formulário novamente
-finalPhrase: 'Pra nós, todo o amor do mundo... &#10084;'
+finalPhrase: 'Pra nós, todo o amor do mundo...'
 invitation: |-
   Você está convidado para celebrar o nosso casamento
 
