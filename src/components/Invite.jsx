@@ -73,10 +73,10 @@ export const Invite = ({
                       </div>
                       <div className="time">
                         <div className="begin">
-                          begins: <span>16</span> hrs
+                          {info.starts}: <span>16</span> hrs
                         </div>
                         <div className="end">
-                          ends: <span>02</span> hrs
+                          {info.ends}: <span>02</span> hrs
                         </div>
                       </div>
                     </div>

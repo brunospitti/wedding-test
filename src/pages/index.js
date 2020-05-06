@@ -400,6 +400,8 @@ export const allInfo = graphql`
       invitation_hello
       invitation_invite
       invitation_dress_code
+      invitation_starts
+      invitation_ends
       invitation_weather_title
       invitation_weather_min
       invitation_weather_max
