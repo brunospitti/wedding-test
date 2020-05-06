@@ -67,12 +67,17 @@ export const Invite = ({
                   <div className="info">
                     <div className="date">{info.weddingDate}</div>
                     <div className="info--sub">
-                      <div className="time">
-                        <span>16</span>hrs
-                      </div>
                       <div className="place">
                         <span>Fazenda Fagundes</span>Rodovia Arão Sahm, 1632-1748,
                         Mairiporã SP
+                      </div>
+                      <div className="time">
+                        <div className="begin">
+                          begins: <span>16</span> hrs
+                        </div>
+                        <div className="end">
+                          ends: <span>02</span> hrs
+                        </div>
                       </div>
                     </div>
                     <div className="dress-code">*{info.dress_code}</div>
@@ -213,7 +218,8 @@ const StyledInvite = styled.div`
       right: 0;
       @media ${breakpoints.tabletSmall} {
         width: 100%;
-        height: 84%;
+        height: 80%;
+        margin-top: 4%;
         background: linear-gradient(
           -7deg,
           ${({ colors }) => colors.bgColor} 0%,
@@ -317,7 +323,7 @@ const StyledInviteMain = styled.div`
         margin-top: 0.5em;
       }
       .info {
-        margin-top: 3.6em;
+        margin-top: 2.7em;
         font-size: inherit;
         @media ${breakpoints.mobile} {
           margin-top: 4em;
@@ -344,32 +350,60 @@ const StyledInviteMain = styled.div`
           @media ${breakpoints.mobileSmall} {
             flex-direction: column;
           }
-          .time {
-            span {
-              font-size: 4em;
-              @media ${breakpoints.mobileSmall} {
-                font-size: 2.5em;
-              }
-            }
-          }
           .place {
-            border-left: 1px solid #ababab;
-            padding-left: 1em;
-            margin-left: 1em;
             font-size: 1em;
-            width: 16em;
+            width: 15em;
             letter-spacing: 0.115em;
             @media ${breakpoints.mobileSmall} {
               font-size: 1.15em;
-              padding: 0;
-              margin: 0;
-              border: 0;
             }
             span {
               font-size: 1.5em;
               display: block;
               margin-bottom: 0.2em;
               letter-spacing: 0.115em;
+            }
+          }
+          .time {
+            border-left: 1px solid #ababab;
+            padding: 0.3em 0 1.5em 1em;
+            margin-left: 1em;
+            font-size: 0.8em;
+            text-align: center;
+            @media ${breakpoints.mobileSmall} {
+              font-size: 1em;
+              margin: 1.3em 0 0.3em;
+              display: flex;
+              align-items: baseline;
+              border: 0;
+              padding: 0;
+            }
+            .begin,
+            .end {
+              font-size: 0.9em;
+            }
+            .begin {
+              margin-bottom: 0.3em;
+              @media ${breakpoints.mobileSmall} {
+                margin-right: 1em;
+                padding-right: 1em;
+                padding-bottom: 0.6em;
+                border-right: 1px solid #ababab;
+              }
+            }
+            .end {
+              span {
+                font-size: 1.75em;
+                @media ${breakpoints.mobileSmall} {
+                  font-size: 2.5em;
+                }
+              }
+            }
+            span {
+              font-size: 4em;
+              @media ${breakpoints.mobileSmall} {
+                font-size: 2.5em;
+              }
             }
           }
         }

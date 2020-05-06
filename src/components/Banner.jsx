@@ -21,9 +21,9 @@ export const Banner = ({ date, name, language }) => (
   <StaticQuery
     query={graphql`
       query {
-        allFile: file(relativePath: { eq: "banner.png" }) {
+        allFile: file(relativePath: { eq: "banner.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1700, quality: 100) {
+            fluid(maxWidth: 3000, quality: 100) {
               originalName
               presentationWidth
               ...GatsbyImageSharpFluid
@@ -90,6 +90,7 @@ const StyledTitle = styled.div`
       }
       @media ${breakpoints.mobileSmall} {
         font-size: 4.5em;
+        line-height: 0.9em;
       }
     }
     &#date {
