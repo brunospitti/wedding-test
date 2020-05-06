@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import { GlobalStyles, outerContainer } from '../../assets/globalStyles';
+import { GlobalStyles } from '../../assets/globalStyles';
 
 export const Layout = ({ children }) => (
   <StaticQuery
@@ -55,5 +55,9 @@ export const Layout = ({ children }) => (
 );
 
 const StyledLayout = styled.div`
-  ${outerContainer}
+  height: 100%;
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
+  position: relative;
 `;

@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Casamento Vitória e Bruno Spitti',
-    description: 'Casamento Vitória e Bruno Spitti',
+    description: 'Você está convidado!',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

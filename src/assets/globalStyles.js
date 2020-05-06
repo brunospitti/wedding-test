@@ -24,22 +24,6 @@ export const breakpoints = {
   mobileSmall: `(max-width: 500px)`,
 };
 
-export const mainContainer = `
-	height: 100%;
-	width: 100%;
-	max-width: 1260px;
-	margin: 0 auto;
-	position: relative;
-	padding: 0 20px;
-`;
-export const outerContainer = `
-	height: 100%;
-	width: 100%;
-	max-width: 1700px;
-	margin: 0 auto;
-	position: relative;
-`;
-
 export const GlobalStyles = createGlobalStyle`
 	// css reset
 
