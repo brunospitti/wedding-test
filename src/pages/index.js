@@ -173,14 +173,6 @@ const IndexPage = (props) => {
   );
 };
 
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
-};
-
 const StyledIndex = styled.div`
   .LoadableTextFromString {
     line-height: 22px;
@@ -232,7 +224,7 @@ const StyledFlower03 = styled(BackgroundImage)`
   display: block;
   width: 120px;
   height: 370px;
-  margin: 15em auto;
+  margin: 10em auto;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

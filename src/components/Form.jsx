@@ -172,7 +172,7 @@ export class Form extends React.Component {
 const StyledFormHolder = styled.div`
   position: relative;
   width: calc(50% + 4em);
-  margin: 5em auto 15em;
+  margin: 5em auto 10em;
   display: flex;
   flex-direction: column;
   background: white;
@@ -264,14 +264,14 @@ const StyledFlower04 = styled(BackgroundImage)`
   display: block;
   width: 120px;
   height: 160px;
-  bottom: -20%;
-  right: -40%;
+  bottom: -30%;
+  right: -13%;
   position: absolute !important;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   @media ${breakpoints.mobile} {
-    bottom: -50%;
+    bottom: -20%;
     right: -10%;
     height: 120px;
     width: 90px;

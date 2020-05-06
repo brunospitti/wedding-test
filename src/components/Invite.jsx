@@ -49,7 +49,7 @@ export const Invite = ({
     },
     {
       ...flowerInviteBackgroundMobile,
-      media: breakpoints.mobile,
+      media: breakpoints.mobileSmall,
     },
   ];
 
@@ -157,7 +157,7 @@ const StyledInvite = styled.div`
   }
   @media ${breakpoints.mobileSmall} {
     width: 100%;
-    height: 690px;
+    height: 760px;
     padding: 7px;
   }
   .invite-border {
@@ -267,8 +267,8 @@ const StyledFlowerBackground = styled(BackgroundImage)`
   }
   @media ${breakpoints.tabletSmall} {
     width: 120%;
-    height: 950px;
-    margin: -74px -16%;
+    height: 1020px;
+    margin: -110px -16%;
   }
   @media ${breakpoints.mobile} {
     margin: -115px -56%;
@@ -276,7 +276,7 @@ const StyledFlowerBackground = styled(BackgroundImage)`
     height: 1000px;
   }
   @media ${breakpoints.mobileSmall} {
-    margin: -155px -55%;
+    margin: -100px -41%;
     width: 190%;
   }
 `;

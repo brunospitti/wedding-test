@@ -21,6 +21,7 @@ const StyledTitle = styled.div`
     display: block;
     height: 2px;
     width: calc(100% + 100px);
+    max-width: 90vw;
     background: ${colors.secondary};
   }
 `;

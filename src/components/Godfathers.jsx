@@ -116,7 +116,10 @@ const StyledFlower = styled(BackgroundImage)`
     opacity: 0.2 !important;
     transform: rotate(-20deg);
     @media ${breakpoints.tabletSmall} {
-      bottom: 0;
+      top: 59%;
+    }
+    @media ${breakpoints.mobileSmall} {
+      top: 81%;
     }
   }
   &#flower-02 {
@@ -128,6 +131,7 @@ const StyledFlower = styled(BackgroundImage)`
     transform: rotate(-100deg);
     @media ${breakpoints.tabletSmall} {
       left: 24%;
+      top: 40%;
     }
   }
   &#flower-03 {
@@ -139,7 +143,7 @@ const StyledFlower = styled(BackgroundImage)`
     transform: rotate(100deg);
     @media ${breakpoints.tabletSmall} {
       left: 53%;
-      top: 52%;
+      top: 61%;
     }
   }
   &#flower-04 {
@@ -149,6 +153,9 @@ const StyledFlower = styled(BackgroundImage)`
     height: 160px;
     opacity: 0.2 !important;
     transform: rotate(170deg);
+    @media ${breakpoints.mobileSmall} {
+      top: 15%;
+    }
   }
 `;
 
