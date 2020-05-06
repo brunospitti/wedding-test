@@ -10,7 +10,7 @@ export const Section = withMainContainer(SectionRaw);
 
 // styled components
 const StyledSection = styled.div`
-  margin: 8em 0;
+  margin: 140px 0;
   width: 100%;
   height: 100%;
   position: relative;
