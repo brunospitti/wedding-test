@@ -38,6 +38,16 @@ collections:
           widget: "string",
         }
       - {
+          label: "Invitation - Starts",
+          name: "invitation-starts",
+          widget: "string",
+        }
+      - {
+          label: "Invitation - Ends",
+          name: "invitation-ends",
+          widget: "string",
+        }
+      - {
           label: "Invitation - Weather - Title",
           name: "invitation-weather-title",
           widget: "string",
