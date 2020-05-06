@@ -25,6 +25,8 @@ intro: >-
 invitation-hello: Olá
 invitation-invite: Te convidamos para o nosso casamento
 invitation-dress-code: 'Dress code: Esporte Fino'
+invitation-starts: início
+invitation-ends: fim
 invitation-weather-title: 'Previsão do tempo:'
 invitation-weather-min: 'Temp. Mínima:'
 invitation-weather-max: 'Temp. Máxima:'
