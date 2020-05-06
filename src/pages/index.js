@@ -120,18 +120,16 @@ const IndexPage = (props) => {
             text={info.intro}
           />
         </Section>
-        <SectionRaw>
-          <Invite
-            name={name}
-            info={invitationInfo}
-            sunImage={inviteSun}
-            photoImage={invitePhoto}
-            fazendaImages={inviteFazendaImages}
-            flowerInviteBackground={flowerInviteBackground}
-            flowerInviteBackgroundTablet={flowerInviteBackgroundTablet}
-            flowerInviteBackgroundMobile={flowerInviteBackgroundMobile}
-          />
-        </SectionRaw>
+        <Invite
+          name={name}
+          info={invitationInfo}
+          sunImage={inviteSun}
+          photoImage={invitePhoto}
+          fazendaImages={inviteFazendaImages}
+          flowerInviteBackground={flowerInviteBackground}
+          flowerInviteBackgroundTablet={flowerInviteBackgroundTablet}
+          flowerInviteBackgroundMobile={flowerInviteBackgroundMobile}
+        />
         <Section>
           <Title text={info.title_carousel} />
           <LoadablePhotosCarousel images={carouselImages} bgImgFluid={flower05} />
