@@ -57,9 +57,9 @@ export const Banner = ({ date, name, language }) => (
 const StyledBanner = styled(BackgroundImage)`
   width: 100%;
   height: 650px;
-  background-size: auto;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: fixed;
 `;
 
 const StyledTitle = styled.div`
