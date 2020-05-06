@@ -23,10 +23,9 @@ export const Banner = ({ date, name, language }) => (
       query {
         allFile: file(relativePath: { eq: "banner.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 3000, quality: 100) {
+            fixed(height: 650, quality: 100) {
               originalName
-              presentationWidth
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFixed
             }
           }
         }
@@ -34,32 +33,39 @@ export const Banner = ({ date, name, language }) => (
     `}
     render={({
       allFile: {
-        childImageSharp: { fluid },
+        childImageSharp: { fixed },
       },
     }) => (
-      <StyledBanner
-        Tag="div"
-        fluid={fluid}
-        backgroundColor={`#a7ceca`}
-        data-loading="eager"
-      >
-        <LoadableHeader name={name} language={language} />
-        <StyledTitle>
-          <span id="title">Vitória & Bruno</span>
-          <span id="date">{date}</span>
-        </StyledTitle>
-      </StyledBanner>
+      <StyledBannerWrapper>
+        <StyledBanner
+          Tag="div"
+          fixed={fixed}
+          backgroundColor={`#a7ceca`}
+          data-loading="eager"
+        >
+          <LoadableHeader name={name} language={language} />
+          <StyledTitle>
+            <span id="title">Vitória & Bruno</span>
+            <span id="date">{date}</span>
+          </StyledTitle>
+        </StyledBanner>
+      </StyledBannerWrapper>
     )}
   />
 );
 
 // styled components
-const StyledBanner = styled(BackgroundImage)`
+
+const StyledBannerWrapper = styled.div`
   width: 100%;
   height: 650px;
+`;
+const StyledBanner = styled(BackgroundImage)`
+  width: 100% !important;
+  height: 100% !important;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: fixed;
+  background-position: center;
 `;
 
 const StyledTitle = styled.div`
