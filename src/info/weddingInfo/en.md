@@ -39,12 +39,13 @@ invitation-countdown-days: Days to go
 title-carousel: Our love
 title-best-men: Best men and bride's maids
 best-men-brides-maid: 'Maid of honour '
-title-gift: Give us a gift
+title-gift: Give us a present
 gift: >-
   Well, as you know, we already have everything for the house and we don’t need
   any extra furnitures. HOWEVER... We are not crazy of saying “No” to a little
-  help, so feel free to give us a gift clicking on the button below! &#128513;
-gift-button: '&#127873; See all gifts'
+  help, so feel free to give us a present clicking on the button below!
+  &#128513;
+gift-button: '&#127873; See all presents'
 title-get-ready: Get ready!
 get-ready: >
   We have prepared every detail of this wedding with a lot of love, and truly
