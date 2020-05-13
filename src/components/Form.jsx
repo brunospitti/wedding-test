@@ -38,6 +38,7 @@ export class Form extends React.Component {
       body: encode({
         'form-name': form.getAttribute('name'),
         ...this.state,
+        location: this.state.location,
       }),
     })
       .then(() => this.handleSuccess())
@@ -231,6 +232,7 @@ const StyledButton = styled.button`
   margin: 1em auto 1.5em;
   position: relative;
   background: ${colors.primary};
+  color: white;
   cursor: pointer;
   width: 100%;
   padding: 5px;
