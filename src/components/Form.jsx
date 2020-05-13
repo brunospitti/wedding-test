@@ -131,7 +131,7 @@ export class Form extends React.Component {
                 <input
                   type="radio"
                   id="vila-prudente"
-                  name="gender"
+                  name="pickUpLocation"
                   value="vila-prudente"
                   onChange={this.handleRadioChange}
                 />
@@ -141,7 +141,7 @@ export class Form extends React.Component {
                 <input
                   type="radio"
                   id="orlando-chiodi"
-                  name="gender"
+                  name="pickUpLocation"
                   value="orlando-chiodi"
                   onChange={this.handleRadioChange}
                 />
@@ -151,7 +151,7 @@ export class Form extends React.Component {
                 <input
                   type="radio"
                   id="santo-andre"
-                  name="gender"
+                  name="pickUpLocation"
                   value="santo-andre"
                   onChange={this.handleRadioChange}
                 />
