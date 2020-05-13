@@ -32,16 +32,13 @@ export class Form extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    const body = encode({
-      'form-name': form.getAttribute('name'),
-      ...this.state,
-      pickUpLocation: this.state.pickUpLocation,
-    });
-    console.log('Form -> handleSubmit -> body', body);
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body,
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...this.state,
+      }),
     })
       .then(() => this.handleSuccess())
       .catch((err) => this.handleError(err));
