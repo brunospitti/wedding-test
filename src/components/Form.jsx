@@ -17,7 +17,7 @@ export class Form extends React.Component {
       success: false,
       name: this.props.name,
       number: 0,
-      location: '',
+      pickUpLocation: '',
     };
   }
 
@@ -26,7 +26,7 @@ export class Form extends React.Component {
   };
 
   handleRadioChange = (e) => {
-    this.setState({ location: e.target.value });
+    this.setState({ pickUpLocation: e.target.value });
   };
 
   handleSubmit = (e) => {
@@ -35,7 +35,7 @@ export class Form extends React.Component {
     const body = encode({
       'form-name': form.getAttribute('name'),
       ...this.state,
-      location: this.state.location,
+      pickUpLocation: this.state.pickUpLocation,
     });
     console.log('Form -> handleSubmit -> body', body);
     fetch('/', {
@@ -59,7 +59,7 @@ export class Form extends React.Component {
     this.setState({
       name: '',
       number: 0,
-      location: '',
+      pickUpLocation: '',
       success: false,
     });
   };
@@ -159,11 +159,13 @@ export class Form extends React.Component {
               </label>
             </StyledRadiosHolder>
 
-            {this.state.name != '' && this.state.number > 0 && this.state.location != '' && (
-              <StyledButton type="submit">
-                <div>{buttonLabel}</div>
-              </StyledButton>
-            )}
+            {this.state.name != '' &&
+              this.state.number > 0 &&
+              this.state.pickUpLocation != '' && (
+                <StyledButton type="submit">
+                  <div>{buttonLabel}</div>
+                </StyledButton>
+              )}
           </form>
         )}
         <StyledFlower04 fluid={this.props.flowerImage} />
