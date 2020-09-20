@@ -1,7 +1,7 @@
 ---
 templateKey: weddingInfo
 language: en
-weddingDate: 'December 19, 2020'
+weddingDate: 'December 18, 2021'
 intro: >-
   We are so happy to share another special moment in our lives with the ones we
   love. Who would have guessed that Bruno would be brave enough to propose to me
