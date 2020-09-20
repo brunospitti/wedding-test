@@ -15,7 +15,7 @@ export const Invite = ({
   flowerInviteBackgroundTablet,
   flowerInviteBackgroundMobile,
 }) => {
-  const daysLeft = differenceInDays(new Date(2020, 11, 19), new Date());
+  const daysLeft = differenceInDays(new Date(2021, 11, 18), new Date());
   const [showPictures, setShowPictures] = useState(false);
 
   function useHideOutsideClick(ref) {
