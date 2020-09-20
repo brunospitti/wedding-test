@@ -1,7 +1,7 @@
 ---
 templateKey: weddingInfo
 language: br
-weddingDate: 19 de Dezembro de 2020
+weddingDate: 18 de Dezembro de 2021
 intro: >-
   Que felicidade incrível poder compartilhar mais esse momento com as pessoas
   que amamos. Quem diria que esse gordinho lindo ai da foto finalmente iria
