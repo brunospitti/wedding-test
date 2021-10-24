@@ -60,10 +60,7 @@ const separateByGender = images => {
   }
 
   const renderGodfathers = ({isTablet,isBrowser,godfathersImages}) => {
-    console.log("🚀 ~ file: Godfathers.jsx ~ line 64 ~ renderGodfathers ~ isTablet", isTablet)
     const {men,women} = separateByGender(godfathersImages)
-    console.log("🚀 ~ file: Godfathers.jsx ~ line 65 ~ renderGodfathers ~ women", women)
-    console.log("🚀 ~ file: Godfathers.jsx ~ line 65 ~ renderGodfathers ~ men", men)
 
     const menImages = men.map(({fluid:menFluid,godfatherName: menGodfatherName,fileName:menFileName}) => {
       return (
@@ -112,9 +109,6 @@ export const Godfathers = ({
   const isTablet = width <= 900;
   const isBrowser = typeof window !== "undefined"
 
-  console.log("🚀 ~ file: Godfathers.jsx ~ line 105 ~ isTablet", isTablet)
-
-  console.log("🚀 ~ file: Godfathers.jsx ~ line 64 ~ width", width)
   return (
     <StyledGodfathers>
       <div className="images-holder">
