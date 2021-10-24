@@ -83,6 +83,9 @@ console.log("🚀 ~ file: Godfathers.jsx ~ line 64 ~ renderGodfathers ~ isTablet
       </div>
     )
   })
+
+  if(!isBrowser){ return null }
+
   return isTablet ? (
     <>
       {menImages}
