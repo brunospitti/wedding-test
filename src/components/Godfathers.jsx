@@ -4,26 +4,25 @@ import BackgroundImage from 'gatsby-background-image';
 
 import { breakpoints, fontFamilyTitle } from '../assets/globalStyles';
 
-const isBrowser = typeof window !== "undefined"
 
 const getWidth = () => typeof window !== "undefined" ? (
   window.innerWidth
   || document.documentElement.clientWidth
   || document.body.clientWidth) : undefined;
 
-function useCurrentWidth() {
-  // save current window width in the state object
-  let [width, setWidth] = useState(getWidth());
+  function useCurrentWidth() {
+    // save current window width in the state object
+    let [width, setWidth] = useState(getWidth());
 
-  // in this case useEffect will execute only once because
-  // it does not have any dependencies.
-  useEffect(() => {
-    const resizeListener = () => {
-      // change width from the state object
-      setWidth(getWidth())
-    };
-    // set resize listener
-    window.addEventListener('resize', resizeListener);
+    // in this case useEffect will execute only once because
+    // it does not have any dependencies.
+    useEffect(() => {
+      const resizeListener = () => {
+        // change width from the state object
+        setWidth(getWidth())
+      };
+      // set resize listener
+      window.addEventListener('resize', resizeListener);
 
     // clean up function
     return () => {
@@ -47,28 +46,28 @@ const separateByGender = images => {
       fileName.lastIndexOf('-') + 1,
       fileName.lastIndexOf('.')
       );
-    const godfatherName =
+      const godfatherName =
       godfatherNameRaw.charAt(0).toUpperCase() + godfatherNameRaw.slice(1);
 
-    const isMan = nameArray[1] === 'bruno';
+      const isMan = nameArray[1] === 'bruno';
 
-    const result = {fluid, godfatherName, fileName}
+      const result = {fluid, godfatherName, fileName}
 
-    isMan ? men.push(result) : women.push(result)
-  })
+      isMan ? men.push(result) : women.push(result)
+    })
 
-  return {men,women}
-}
+    return {men,women}
+  }
 
-const renderGodfathers = ({isTablet,godfathersImages}) => {
-console.log("🚀 ~ file: Godfathers.jsx ~ line 64 ~ renderGodfathers ~ isTablet", isTablet)
-  const {men,women} = separateByGender(godfathersImages)
-  console.log("🚀 ~ file: Godfathers.jsx ~ line 65 ~ renderGodfathers ~ women", women)
-  console.log("🚀 ~ file: Godfathers.jsx ~ line 65 ~ renderGodfathers ~ men", men)
+  const renderGodfathers = ({isTablet,isBrowser,godfathersImages}) => {
+    console.log("🚀 ~ file: Godfathers.jsx ~ line 64 ~ renderGodfathers ~ isTablet", isTablet)
+    const {men,women} = separateByGender(godfathersImages)
+    console.log("🚀 ~ file: Godfathers.jsx ~ line 65 ~ renderGodfathers ~ women", women)
+    console.log("🚀 ~ file: Godfathers.jsx ~ line 65 ~ renderGodfathers ~ men", men)
 
-  const menImages = men.map(({fluid:menFluid,godfatherName: menGodfatherName,fileName:menFileName}) => {
-    return (
-      <div className="godfather-holder" key={menFileName}>
+    const menImages = men.map(({fluid:menFluid,godfatherName: menGodfatherName,fileName:menFileName}) => {
+      return (
+        <div className="godfather-holder" key={menFileName}>
         <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={menFluid} />
         <span>{menGodfatherName}</span>
       </div>
@@ -111,13 +110,15 @@ export const Godfathers = ({
 }) => {
   const width = useCurrentWidth()
   const isTablet = width <= 900;
+  const isBrowser = typeof window !== "undefined"
+
   console.log("🚀 ~ file: Godfathers.jsx ~ line 105 ~ isTablet", isTablet)
 
   console.log("🚀 ~ file: Godfathers.jsx ~ line 64 ~ width", width)
   return (
     <StyledGodfathers>
       <div className="images-holder">
-        {renderGodfathers({isTablet,godfathersImages})}
+        {renderGodfathers({isTablet,isBrowser,godfathersImages})}
       </div>
 
       <StyledFlower fluid={flowerImage} id="flower-01" />
