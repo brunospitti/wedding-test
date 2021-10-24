@@ -5,7 +5,7 @@ import BackgroundImage from 'gatsby-background-image';
 import { breakpoints, fontFamilyTitle } from '../assets/globalStyles';
 
 
-const getWidth = () => window.innerWidth
+const getWidth = () => (window && window.innerWidth)
   || document.documentElement.clientWidth
   || document.body.clientWidth;
 
