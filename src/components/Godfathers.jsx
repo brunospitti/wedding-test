@@ -38,16 +38,19 @@ function useCurrentWidth() {
 const separateByGender = images => {
   let men = [];
   let women = [];
+
   images.edges.map(({ node: { fluid } }, index) => {
     const fileName = fluid.originalName;
     const nameArray = fileName.split('-')
-    const isMan = nameArray[1] === 'bruno'
+
     const godfatherNameRaw = fileName.substring(
       fileName.lastIndexOf('-') + 1,
       fileName.lastIndexOf('.')
-    );
+      );
     const godfatherName =
-    godfatherNameRaw.charAt(0).toUpperCase() + godfatherNameRaw.slice(1);
+      godfatherNameRaw.charAt(0).toUpperCase() + godfatherNameRaw.slice(1);
+
+    const isMan = nameArray[1] === 'bruno';
 
     const result = {fluid, godfatherName, fileName}
 
@@ -58,40 +61,43 @@ const separateByGender = images => {
 }
 
 const renderGodfathers = ({isTablet,godfathersImages}) => {
+console.log("🚀 ~ file: Godfathers.jsx ~ line 64 ~ renderGodfathers ~ isTablet", isTablet)
   const {men,women} = separateByGender(godfathersImages)
+  console.log("🚀 ~ file: Godfathers.jsx ~ line 65 ~ renderGodfathers ~ women", women)
+  console.log("🚀 ~ file: Godfathers.jsx ~ line 65 ~ renderGodfathers ~ men", men)
 
   const menImages = men.map(({fluid:menFluid,godfatherName: menGodfatherName,fileName:menFileName}) => {
     return (
       <div className="godfather-holder" key={menFileName}>
-          <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={menFluid} />
-          <span>{menGodfatherName}</span>
-        </div>
+        <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={menFluid} />
+        <span>{menGodfatherName}</span>
+      </div>
     )
   })
 
   const womenImages = women.map(({fluid:womenFluid,godfatherName: womenGodfatherName,fileName:womenFileName}) => {
     return (
       <div className="godfather-holder" key={womenFileName}>
-          <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={womenFluid} />
-          <span>{womenGodfatherName}</span>
-        </div>
+        <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={womenFluid} />
+        <span>{womenGodfatherName}</span>
+      </div>
     )
   })
   return isTablet ? (
     <>
-    {menImages}
-    {womenImages}
+      {menImages}
+      {womenImages}
     </>
   ) : (
     <>
-    <div className="gender-holder men">    {menImages}
-        </div>
+      <div className="gender-holder men">
+        {menImages}
+      </div>
 
-        <div className="gender-holder women">    {womenImages}
-        </div>
-        </>
-
-
+      <div className="gender-holder women">
+        {womenImages}
+      </div>
+    </>
   )
 }
 export const Godfathers = ({
@@ -102,13 +108,13 @@ export const Godfathers = ({
 }) => {
   const width = useCurrentWidth()
   const isTablet = width <= 900;
+  console.log("🚀 ~ file: Godfathers.jsx ~ line 105 ~ isTablet", isTablet)
 
   console.log("🚀 ~ file: Godfathers.jsx ~ line 64 ~ width", width)
   return (
     <StyledGodfathers>
       <div className="images-holder">
         {renderGodfathers({isTablet,godfathersImages})}
-
       </div>
 
       <StyledFlower fluid={flowerImage} id="flower-01" />
