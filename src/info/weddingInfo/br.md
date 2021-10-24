@@ -60,8 +60,7 @@ get-ready: >
   combinarmos mais pra frente.
 
 
-  <span>*Ida e volta +- R$35,00 por pessoa, local de saída a ser
-  definido.</span>
+  <span>*Ida e volta entre R$50 e R$60 por pessoa</span>
 form-name: Nome (obrigatório)
 form-seats: Quantos assentos? (obrigatório)
 form-location: De onde prefere sair? (obrigatório)
