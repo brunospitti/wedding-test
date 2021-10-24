@@ -1,36 +1,112 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import styled from 'styled-components';
 import BackgroundImage from 'gatsby-background-image';
 
 import { breakpoints, fontFamilyTitle } from '../assets/globalStyles';
 
+
+const getWidth = () => window.innerWidth
+  || document.documentElement.clientWidth
+  || document.body.clientWidth;
+
+function useCurrentWidth() {
+  // save current window width in the state object
+  let [width, setWidth] = useState(getWidth());
+
+  // in this case useEffect will execute only once because
+  // it does not have any dependencies.
+  useEffect(() => {
+    const resizeListener = () => {
+      // change width from the state object
+      setWidth(getWidth())
+    };
+    // set resize listener
+    window.addEventListener('resize', resizeListener);
+
+    // clean up function
+    return () => {
+      // remove resize listener
+      window.removeEventListener('resize', resizeListener);
+    }
+  }, [])
+
+  return width;
+}
+
+const separateByGender = images => {
+  let men = [];
+  let women = [];
+  images.edges.map(({ node: { fluid } }, index) => {
+    const fileName = fluid.originalName;
+    const nameArray = fileName.split('-')
+    const isMan = nameArray[1] === 'bruno'
+    const godfatherNameRaw = fileName.substring(
+      fileName.lastIndexOf('-') + 1,
+      fileName.lastIndexOf('.')
+    );
+    const godfatherName =
+    godfatherNameRaw.charAt(0).toUpperCase() + godfatherNameRaw.slice(1);
+
+    const result = {fluid, godfatherName, fileName}
+
+    isMan ? men.push(result) : women.push(result)
+  })
+
+  return {men,women}
+}
+
+const renderGodfathers = ({isTablet,godfathersImages}) => {
+  const {men,women} = separateByGender(godfathersImages)
+
+  const menImages = men.map(({fluid:menFluid,godfatherName: menGodfatherName,fileName:menFileName}) => {
+    return (
+      <div className="godfather-holder" key={menFileName}>
+          <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={menFluid} />
+          <span>{menGodfatherName}</span>
+        </div>
+    )
+  })
+
+  const womenImages = women.map(({fluid:womenFluid,godfatherName: womenGodfatherName,fileName:womenFileName}) => {
+    return (
+      <div className="godfather-holder" key={womenFileName}>
+          <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={womenFluid} />
+          <span>{womenGodfatherName}</span>
+        </div>
+    )
+  })
+  return isTablet ? (
+    <>
+    {menImages}
+    {womenImages}
+    </>
+  ) : (
+    <>
+    <div className="gender-holder men">    {menImages}
+        </div>
+
+        <div className="gender-holder women">    {womenImages}
+        </div>
+        </>
+
+
+  )
+}
 export const Godfathers = ({
   godfathersImages,
   flowerImage,
   bridesMaidText,
   maidOfHonourFlower,
 }) => {
+  const width = useCurrentWidth()
+  const isTablet = width <= 900;
+
+  console.log("🚀 ~ file: Godfathers.jsx ~ line 64 ~ width", width)
   return (
     <StyledGodfathers>
       <div className="images-holder">
-        {godfathersImages.edges.map(({ node: { fluid } }, index) => {
-          const isLast = index === godfathersImages.edges.length - 1;
-          const fileName = fluid.originalName;
-          const godfatherNameRaw = fileName.substring(
-            fileName.lastIndexOf('-') + 1,
-            fileName.lastIndexOf('.')
-          );
-          const godfatherName =
-            godfatherNameRaw.charAt(0).toUpperCase() + godfatherNameRaw.slice(1);
+        {renderGodfathers({isTablet,godfathersImages})}
 
-          return (
-            <div className="godfather-holder" key={fileName}>
-              <StyledGodfatherImage backgroundColor={`#a7ceca`} fluid={fluid} />
-              <span>{godfatherName}</span>
-              {isLast && <StyledFlower06 fluid={maidOfHonourFlower} />}
-            </div>
-          );
-        })}
       </div>
 
       <StyledFlower fluid={flowerImage} id="flower-01" />
@@ -46,15 +122,17 @@ const StyledGodfathers = styled.div`
   .images-holder {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
     height: 650px;
+    flex-direction:column;
     @media ${breakpoints.desktopExtraSmall} {
-      height: 580px;
+      height: 540px;
     }
     @media ${breakpoints.tabletSmall} {
       height: 940px;
+      flex-direction: row;
+    flex-wrap: wrap;
     }
     @media ${breakpoints.mobile} {
       height: 900px;
@@ -62,19 +140,37 @@ const StyledGodfathers = styled.div`
     @media ${breakpoints.mobileSmall} {
       height: 1550px;
     }
+
+    .gender-holder{
+      display: flex;
+      flex-wrap: wrap;
+      &.men{
+        .godfather-holder {
+          width: calc(100% / 9);
+        }
+      }
+      &.women{
+        .godfather-holder {
+          width: calc(100% / 7);
+          &:last-child {
+            width: 100%;
+            margin-top: 50px;
+          }
+        }
+      }
+    }
     .godfather-holder {
       text-align: center;
-      width: calc(100% / 8);
       z-index: 9;
-      &:last-child {
-        width: 100%;
-        margin-top: 50px;
-      }
       @media ${breakpoints.tabletSmall} {
-        width: 25%;
+        width: 25% !important;
+        &:last-child {
+          width: 100% !important;
+          margin-top: 50px;
+        }
       }
       @media ${breakpoints.mobileSmall} {
-        width: 50%;
+        width: 50% !important;
       }
       span {
         margin-top: 0.5em;
@@ -92,6 +188,12 @@ const StyledGodfatherImage = styled(BackgroundImage)`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  .men & {
+    @media ${breakpoints.desktopExtraSmall} {
+      width: 100px;
+      height: 115px;
+    }
+  }
   @media ${breakpoints.desktopExtraSmall} {
     width: 110px;
     height: 125px;
