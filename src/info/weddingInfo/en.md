@@ -60,7 +60,7 @@ get-ready: >
   If you want to save your seat in the van, complete the form below for us to
   keep in touch.
    
-  <span>*Return trip around R$35,00 per person.</span>
+  <span>*Return trip from R$50 to R$60 per person.</span>
 form-name: Name (required)
 form-seats: How many seats? (required)
 form-location: Where do you want to be picked up from? (required)
