@@ -4,9 +4,12 @@ import BackgroundImage from 'gatsby-background-image';
 
 import { breakpoints, fontFamilyTitle } from '../assets/globalStyles';
 
+const isBrowser = typeof window !== "undefined"
 
-const getWidth = () => document.documentElement.clientWidth
-  || document.body.clientWidth;
+const getWidth = () => typeof window !== "undefined" ? (
+  window.innerWidth
+  || document.documentElement.clientWidth
+  || document.body.clientWidth) : undefined;
 
 function useCurrentWidth() {
   // save current window width in the state object
