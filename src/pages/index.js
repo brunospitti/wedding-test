@@ -162,7 +162,6 @@ const IndexPage = (props) => {
         <Section>
           <Title text={info.title_get_ready} />
           <LoadableTextFromString text={info.get_ready} />
-          <Form name={name} flowerImage={flower04} formInfo={formInfo} />
         </Section>
         <Section>
           <Title text={info.finalPhrase} />
