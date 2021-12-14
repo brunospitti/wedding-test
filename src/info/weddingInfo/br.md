@@ -47,16 +47,16 @@ gift: >-
   presentear clicando no botão aqui embaixo! &#128513;
 gift-button: '&#127873; Ver todos os presentes'
 title-get-ready: Se prepare!
-get-ready: >+
+get-ready: >-
   Preparamos cada detalhe dessa festa com muito carinho e amor e esperamos ver
   todos vocês lá na Fazenda bem lindos, cheirosos e prontos para celebrar cada
   minuto com a gente.
 
 
-  <strong>Serviço de van</strong><br/>
+  <strong>Não temos mais vagas para o serviço de van</strong>
 
-  Não temos mais vagas para o serviço de van. Para os que confirmaram e pagaram,
-  segue o local e horário de saída pro nosso casamento.
+  Para os que confirmaram e pagaram, segue o local e horário de saída pro nosso
+  casamento:
 
 
   Local: Rua Orlando Chiodi, 
@@ -83,10 +83,9 @@ get-ready: >+
 
 
 
-  Tenha certeza de que estará no horário, pois a van sairá no horário previsto e
-  não esperará por ninguém que estiver atrasado. Aconselho que chegue com 15 à
-  20 minutos de antecedência.
-
+  <strong>Tenha certeza de que estará no horário, pois a van sairá no horário
+  previsto e não esperará por ninguém que estiver atrasado. Aconselho que chegue
+  com 15 à 20 minutos de antecedência.</strong>
 form-name: Nome (obrigatório)
 form-seats: Quantos assentos? (obrigatório)
 form-location: De onde prefere sair? (obrigatório)
