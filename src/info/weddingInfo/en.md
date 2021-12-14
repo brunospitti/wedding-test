@@ -46,21 +46,8 @@ gift: >-
   help, so feel free to give us a present clicking on the button below!
   &#128513;
 gift-button: '&#127873; See all presents'
-title-get-ready: Get ready!
-get-ready: >
-  We have prepared every detail of this wedding with a lot of love, and truly
-  expect to see all your beautiful faces there to celebrate this special moment
-  with us.
-
-
-  Oh one more thing... As we know, the wedding location is not easy to get to
-  and the roads aren't the best, so we've organised a shuttle van service to
-  make it easier for all of you can enjoy the party with no worries.
-
-  If you want to save your seat in the van, complete the form below for us to
-  keep in touch.
-   
-  <span>*Return trip from R$50 to R$60 per person.</span>
+title-get-ready: ' '
+get-ready: ' '
 form-name: Name (required)
 form-seats: How many seats? (required)
 form-location: Where do you want to be picked up from? (required)
