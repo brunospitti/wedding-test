@@ -47,20 +47,46 @@ gift: >-
   presentear clicando no botão aqui embaixo! &#128513;
 gift-button: '&#127873; Ver todos os presentes'
 title-get-ready: Se prepare!
-get-ready: >
+get-ready: >+
   Preparamos cada detalhe dessa festa com muito carinho e amor e esperamos ver
   todos vocês lá na Fazenda bem lindos, cheirosos e prontos para celebrar cada
   minuto com a gente.
-   
-  Mais uma coisinha... Como sabemos que a Fazenda não é próxima e a estrada não
-  ajuda muito, organizamos o serviço de van para que todos possam se divertir á
-  vontade, sem preocupações.
-
-  Se você quer garantir seu lugar na van, complete o formulário abaixo para
-  combinarmos mais pra frente.
 
 
-  <span>*Ida e volta entre R$50 e R$60 por pessoa</span>
+  <strong>Serviço de van</strong><br/>
+
+  Não temos mais vagas para o serviço de van. Para os que confirmaram e pagaram,
+  segue o local e horário de saída pro nosso casamento.
+
+
+  Local: Rua Orlando Chiodi, 
+
+  Endereço: Rua Orlando Chiodi, 167 - na frente da casa da minha mãe
+
+  Horário: 14:45h
+
+
+  Local: Santo André
+
+  Endereço: Rua Silva Jardim, 341 - Em frente a loja Economi Baby. Link para o
+  google maps: https://goo.gl/maps/GJoJpUpWuRDiMiVZ8
+
+  Horário: 15h
+
+
+  Local: Metrô Vila Prudente
+
+  Endereço: Metrô Vila Prudente - Saída para rua Cavour (onde fica a padaria de
+  esquina) Link para o google maps: https://goo.gl/maps/nGBGzF2TdYUzvjVw6
+
+  Horário: 15h
+
+
+
+  Tenha certeza de que estará no horário, pois a van sairá no horário previsto e
+  não esperará por ninguém que estiver atrasado. Aconselho que chegue com 15 à
+  20 minutos de antecedência.
+
 form-name: Nome (obrigatório)
 form-seats: Quantos assentos? (obrigatório)
 form-location: De onde prefere sair? (obrigatório)
