@@ -71,7 +71,7 @@ get-ready: >-
   Endereço: Rua Silva Jardim, 341 - Em frente a loja Economi Baby. Link para o
   google maps: https://goo.gl/maps/GJoJpUpWuRDiMiVZ8
 
-  Horário: 15h
+  Horário: 14:45h
 
 
   Local: Metrô Vila Prudente
